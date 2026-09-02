@@ -201,17 +201,14 @@ async function main() {
   step(`✔ skrev ${file} (${kb} kB)`)
   step(`  ${ug.stats.requests} kald · ${ug.stats.retries} genforsøg · ${ug.stats.failures} fejl · ${Math.round(ug.stats.bytes / 1e6)} MB hentet`)
 
-  // Guard: the output must not contain anything that looks like a person.
-  const serialised = JSON.stringify(payload)
-  const leaks = []
-  if (/[\w.+-]+@[\w-]+\.[\w.]{2,}/.test(serialised)) leaks.push('e-mailadresse')
-  if (/"ContactId"|"contactId"/.test(serialised)) leaks.push('contactId')
-  if (/\+45\d{8}/.test(serialised)) leaks.push('telefonnummer')
+  const leaks = auditForPersonalData(payload)
   if (leaks.length) {
-    console.error(`\n✖ AFBRUDT: output indeholder ${leaks.join(', ')} — det må ikke publiceres.`)
+    console.error('\n✖ AFBRUDT — output indeholder personhenførbare værdier:')
+    for (const l of leaks.slice(0, 30)) console.error(`   ${l.kind.padEnd(14)} ${l.path}  →  ${l.masked}`)
+    if (leaks.length > 30) console.error(`   … og ${leaks.length - 30} mere`)
     process.exit(1)
   }
-  step('privatlivstjek: ingen personhenførbare felter i output')
+  step('privatlivstjek: ingen personhenførbare værdier i output')
 }
 
 /* ── Mappers ─────────────────────────────────────────────────────────────── */
