@@ -44,19 +44,35 @@ jobs:
           NODE_OPTIONS: '--max-old-space-size=6144'
         run: node scripts/ungapped-sync.mjs --out public/data
 
+      # The data file is generated, never edited by hand, so the fresh copy
+      # always wins. Rebasing onto a run that finished after this one checked
+      # out produced a conflict on exactly that file and failed the run; reset
+      # to the current remote and lay the new file on top instead.
       - name: Commit the aggregated data
         run: |
           set -euo pipefail
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/data/dashboard.json
-          if git diff --staged --quiet; then
-            echo "data uændret"
-          else
+          cp public/data/dashboard.json "$RUNNER_TEMP/dashboard.json"
+
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git reset --hard origin/main
+            mkdir -p public/data
+            cp "$RUNNER_TEMP/dashboard.json" public/data/dashboard.json
+            git add public/data/dashboard.json
+            if git diff --staged --quiet; then
+              echo "data uændret"
+              break
+            fi
             git commit -m "Opdater data $(date -u +'%Y-%m-%d %H:%M UTC')"
-            git pull --rebase origin main
-            git push origin HEAD:main
-          fi
+            if git push origin HEAD:main; then
+              echo "data pushet"
+              break
+            fi
+            echo "push afvist — nogen kom os i forkøbet, forsøg $attempt"
+            sleep $((attempt * 5))
+          done
 
       - name: Install and build
         run: |
