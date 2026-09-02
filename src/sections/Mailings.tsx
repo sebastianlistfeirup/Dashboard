@@ -16,7 +16,7 @@ import { motion as mo } from '@/design/tokens'
 type SortKey = 'when' | 'subject' | 'delivered' | 'openRate' | 'clickRate' | 'ctor' | 'unsubRate'
 
 const COLUMNS: { key: SortKey; label: string; align?: 'right'; width?: string; hint?: string }[] = [
-  { key: 'when', label: 'Dato', width: '7.5rem' },
+  { key: 'when', label: 'Dato', width: '8.5rem' },
   { key: 'subject', label: 'Emnelinje' },
   { key: 'delivered', label: 'Leveret', align: 'right', width: '6rem' },
   { key: 'openRate', label: 'Åbninger', align: 'right', width: '9rem' },
@@ -73,7 +73,7 @@ export function Mailings({ data, mailings }: { data: Dashboard; mailings: Mailin
       ) : (
         <div className="card overflow-hidden">
           <div className="thin-scroll overflow-x-auto">
-            <table className="w-full min-w-[62rem] border-collapse text-[0.8125rem]">
+            <table className="w-full min-w-[58rem] table-fixed border-collapse text-[0.8125rem]">
               <thead>
                 <tr className="border-b border-dp-navy-100 bg-dp-navy-50/60">
                   {COLUMNS.map((c) => (
@@ -81,7 +81,7 @@ export function Mailings({ data, mailings }: { data: Dashboard; mailings: Mailin
                       key={c.key}
                       scope="col"
                       style={{ width: c.width }}
-                      className={`px-3 py-2.5 font-semibold text-dp-navy-600 ${c.align === 'right' ? 'text-right' : 'text-left'}`}
+                      className={`px-3 py-2.5 font-semibold text-dp-navy-600 ${c.align === 'right' ? 'text-right' : 'text-left'} ${c.key === 'subject' ? 'w-full' : ''}`}
                       title={c.hint}
                     >
                       <button
@@ -112,8 +112,15 @@ export function Mailings({ data, mailings }: { data: Dashboard; mailings: Mailin
                         onClick={() => setOpen(isOpen ? null : m.id)}
                         className={`cursor-pointer border-b border-dp-navy-50 transition-colors last:border-0 ${isOpen ? 'bg-dp-navy-50' : 'hover:bg-dp-navy-50/60'}`}
                       >
-                        <td className="px-3 py-2.5 tnum whitespace-nowrap text-dp-navy-500">{formatDate(m.when)}</td>
-                        <td className="px-3 py-2.5">
+                        <td className="px-3 py-2.5 tnum whitespace-nowrap text-dp-navy-500">
+                          {m.isRecurring && (
+                            <span className="mr-1 text-[0.625rem] text-dp-navy-400" title="Gentagende udsendelse — datoen er seneste afsendelse">
+                              senest
+                            </span>
+                          )}
+                          {formatDate(m.when)}
+                        </td>
+                        <td className="w-full max-w-0 px-3 py-2.5">
                           <div className="flex items-center gap-2">
                             <span
                               className="h-2.5 w-2.5 shrink-0 rounded-[3px]"
@@ -206,7 +213,8 @@ function MailingDetail({ mailing: m, typeLabel, typeColor }: { mailing: Mailing;
     { label: 'Type', value: typeLabel },
     { label: 'Afsender', value: m.from.name ? `${m.from.name}${m.from.address ? ` <${m.from.address}>` : ''}` : '–' },
     { label: 'Kategori', value: m.category ?? '–' },
-    { label: 'Sendt', value: formatDateTime(m.started ?? m.when) },
+    { label: m.isRecurring ? 'Senest sendt' : 'Sendt', value: formatDateTime(m.started ?? m.when) },
+    ...(m.isRecurring ? [{ label: 'Gentages', value: 'Ja — sender løbende, efterhånden som medlemmer kvalificerer sig' }] : []),
     { label: 'Flow', value: m.journey ?? '–' },
     { label: 'Modtagere', value: fmtNum(m.stats.recipients) },
     { label: 'Leveret', value: `${fmtNum(m.stats.delivered)} (${fmtNum(m.stats.bounces)} bouncede)` },
