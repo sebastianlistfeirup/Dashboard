@@ -349,14 +349,16 @@ function toSurvey(row, summary, questions) {
  */
 function profileOf(c) {
   const age = Number.isFinite(c.CustomNumeric1) ? c.CustomNumeric1 : null
+  const medlemskab = splitMulti(c.CustomLong1)
   return {
     medlemstype: clean(c.Custom2),
+    kontingent: kontingentOf(medlemskab),
     sektioner: splitMulti(c.Custom3),
-    udvalgspost: clean(c.Custom4),
+    udvalgspost: splitMulti(c.Custom4),
     netvaerk: splitMulti(c.Custom5),
-    region: clean(c.Custom6) ?? clean(c.Region),
+    region: regionOf(c.Custom6) ?? regionOf(c.Region),
     interesser: splitMulti(c.Custom7),
-    medlemskab: clean(c.CustomLong1),
+    medlemskab,
     udmeldelsesgrund: clean(c.Custom1) ?? clean(c.Custom10),
     indmeldt: c.CustomDate1 ?? null,
     udmeldt: c.CustomDate2 ?? null,
@@ -388,10 +390,45 @@ const clean = (v) => {
   return s && s.toLowerCase() !== 'null' ? s : null
 }
 
+/**
+ * Ungapped stores multi-valued member fields as one string. The separator and
+ * the quoting are not consistent — some rows read `A,B`, others `"A","B"` — so
+ * split on the separators and strip the quotes rather than trusting a format.
+ */
 const splitMulti = (v) => {
   const s = clean(v)
   if (!s) return []
-  return s.split(/[;,|]/).map((x) => x.trim()).filter(Boolean).slice(0, 12)
+  return s
+    .split(/[;,|]/)
+    .map((x) => x.trim().replace(/^["'\u201d\u201c]+|["'\u201d\u201c]+$/g, '').trim())
+    .filter(Boolean)
+    .slice(0, 14)
+}
+
+/**
+ * Kontingentgruppen — what a member pays under.
+ *
+ * It has no field of its own: it is mixed into "Medlemskab" alongside sections
+ * and geography. These are the status labels DP uses, matched against the split
+ * tokens. Anything that does not match stays in the full membership breakdown,
+ * so nothing is lost — this view is just the clean cut of it.
+ */
+const KONTINGENT = /^(dp medlem|normaltansat|normalansat|pensionist|ledig|1 og 2 års kandidater|kandidat|studerende|studentersektionen|selvstændige psykologers sektion|selvstændig|dimittend|ydernummer|seniormedlem|æresmedlem|passiv|orlov)/i
+
+const kontingentOf = (tokens) => tokens.filter((t) => KONTINGENT.test(t))
+
+/**
+ * Custom6 is meant to hold the member's region but also carries sections,
+ * employers and a handful of Norwegian and Swedish counties. Keep the five
+ * Danish regions as themselves and bucket the rest, so the geography view
+ * compares like with like.
+ */
+const DK_REGIONS = ['Hovedstaden', 'Midtjylland', 'Nordjylland', 'Sjælland', 'Syddanmark']
+const regionOf = (raw) => {
+  const v = clean(raw)
+  if (!v) return null
+  const hit = DK_REGIONS.find((r) => v.toLowerCase().includes(r.toLowerCase()))
+  return hit ?? 'Uden for de fem regioner'
 }
 
 /**

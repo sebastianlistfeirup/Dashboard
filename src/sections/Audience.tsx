@@ -14,28 +14,32 @@ import { motion as mo } from '@/design/tokens'
 import { Empty } from './Performance'
 
 const PROFILE_VIEWS = [
-  { key: 'medlemstype', label: 'Medlemstype', color: '#4c7bbd', note: 'Kontingentgruppen i medlemssystemet' },
-  { key: 'region', label: 'Region', color: '#179fa0', note: null },
+  { key: 'kontingent', label: 'Kontingentgruppe', color: '#4c7bbd', note: 'Udledt af feltet "Medlemskab", hvor status står blandet med sektion og geografi. Et medlem kan tælle i flere.' },
+  { key: 'medlemskab', label: 'Medlemskab (rå)', color: '#5a76a0', note: 'Alle værdier i feltet, også sektioner og kredse.' },
+  { key: 'region', label: 'Region', color: '#179fa0', note: 'De fem danske regioner; øvrige værdier er samlet.' },
   { key: 'alder', label: 'Alder', color: '#df790d', note: null },
   { key: 'anciennitet', label: 'Anciennitet', color: '#4e4897', note: 'År siden indmeldelse' },
   { key: 'sektioner', label: 'Sektioner', color: '#d24e46', note: 'Et medlem kan være i flere' },
+  { key: 'netvaerk', label: 'Netværk og selskaber', color: '#4fa388', note: null },
+  { key: 'udvalgspost', label: 'Tillidshverv', color: '#eab922', note: 'TR, AMR, styrelses- og udvalgsposter' },
   { key: 'koen', label: 'Køn', color: '#3a557d', note: null },
 ] as const
 
 const ENGAGEMENT_VIEWS = [
-  { key: 'byMedlemstype', label: 'Medlemstype', color: '#4c7bbd' },
+  { key: 'byKontingent', label: 'Kontingentgruppe', color: '#4c7bbd' },
   { key: 'byRegion', label: 'Region', color: '#179fa0' },
   { key: 'byAlder', label: 'Alder', color: '#df790d' },
   { key: 'byAnciennitet', label: 'Anciennitet', color: '#4e4897' },
   { key: 'bySektion', label: 'Sektion', color: '#d24e46' },
+  { key: 'byNetvaerk', label: 'Netværk', color: '#4fa388' },
   { key: 'byKoen', label: 'Køn', color: '#3a557d' },
 ] as const
 
 export function Audience({ data }: { data: Dashboard }) {
   const { audience } = data
   const eng = audience.engagement
-  const [profileView, setProfileView] = useState<string>('medlemstype')
-  const [engView, setEngView] = useState<string>('byMedlemstype')
+  const [profileView, setProfileView] = useState<string>('kontingent')
+  const [engView, setEngView] = useState<string>('byKontingent')
   const [engMetric, setEngMetric] = useState<'openRate' | 'clickRate'>('clickRate')
 
   const profileDef = PROFILE_VIEWS.find((v) => v.key === profileView)!
@@ -338,7 +342,7 @@ function ChurnComparison({ blocked, overall }: {
 }) {
   const [dim, setDim] = useState('medlemstype')
   const dims = [
-    { key: 'medlemstype', label: 'Medlemstype' },
+    { key: 'kontingent', label: 'Kontingentgruppe' },
     { key: 'region', label: 'Region' },
     { key: 'alder', label: 'Alder' },
     { key: 'anciennitet', label: 'Anciennitet' },

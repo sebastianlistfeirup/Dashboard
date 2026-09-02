@@ -102,7 +102,10 @@ export function buildAnalysis(input) {
     overview: buildOverview(mailings, sent, input),
     byType: buildByType(sent),
     trends: buildTrends(sent),
-    timing: buildTiming(measurable),
+    // Journey mails fire whenever a member qualifies, so their send time is not
+    // a decision anyone made — including them would let eight tiny welcome
+    // mails outrank a newsletter to 13.000 people.
+    timing: buildTiming(measurable.filter((m) => !m.journey)),
     subjects: buildSubjects(measurable),
     content: buildContent(measurable),
     audience: buildAudience(input.contacts, input.engagement, minBucket),
@@ -216,6 +219,9 @@ function buildTrends(sent) {
 
 const WEEKDAYS = ['Søndag', 'Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag']
 
+/** A weekday or hour band needs real volume behind it, not just a few sendouts. */
+const MIN_DELIVERED = 5000
+
 function buildTiming(mailings) {
   const cells = new Map()
   for (const m of mailings) {
@@ -246,7 +252,13 @@ function buildTiming(mailings) {
     return { ...b, ...poolStats(group) }
   }).filter((r) => r.count > 0)
 
-  return { heat, byWeekday, hourBands, weekdayLabels: WEEKDAYS, minSendouts: MIN_SENDOUTS }
+  return {
+    heat, byWeekday, hourBands,
+    weekdayLabels: WEEKDAYS,
+    minSendouts: MIN_SENDOUTS,
+    minDelivered: MIN_DELIVERED,
+    excludesJourneys: true,
+  }
 }
 
 /* ── Emnelinjer ──────────────────────────────────────────────────────────── */
@@ -432,6 +444,7 @@ function buildAudience(contacts, engagement, minBucket) {
   const everyone = [...active, ...blocked]
 
   const profile = {
+    kontingent: bucket(everyone, (c) => c.kontingent, { minBucket }),
     medlemstype: bucket(everyone, (c) => c.medlemstype, { minBucket }),
     region: bucket(everyone, (c) => c.region, { minBucket }),
     sektioner: bucket(everyone, (c) => c.sektioner, { minBucket }),
@@ -454,6 +467,7 @@ function buildAudience(contacts, engagement, minBucket) {
     byMonth: monthHistogram(blocked.map((c) => c.udmeldt).filter(Boolean)),
     joinedByMonth: monthHistogram(everyone.map((c) => c.indmeldt).filter(Boolean), 36),
     blockedProfile: {
+      kontingent: bucket(blocked, (c) => c.kontingent, { minBucket }),
       medlemstype: bucket(blocked, (c) => c.medlemstype, { minBucket }),
       region: bucket(blocked, (c) => c.region, { minBucket }),
       alder: orderBuckets(bucket(blocked, (c) => ageBucket(c.alder), { minBucket }), AGE_BUCKETS),
@@ -563,6 +577,7 @@ function buildEngagement(rows, minBucket) {
       { label: 'Åbner ofte (50–80 %)', n: withMail.filter((r) => openShare(r) >= 0.5 && openShare(r) < 0.8).length },
       { label: 'Åbner næsten alt (80 %+)', n: withMail.filter((r) => openShare(r) >= 0.8).length },
     ].map((b) => ({ ...b, share: round1(pct(b.n, withMail.length)) })),
+    byKontingent: groupBy((p) => p.kontingent),
     byMedlemstype: groupBy((p) => p.medlemstype),
     byRegion: groupBy((p) => p.region),
     byAlder: groupBy((p) => ageBucket(p.alder)),

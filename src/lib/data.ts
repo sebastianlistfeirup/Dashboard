@@ -223,6 +223,8 @@ export interface Dashboard {
     hourBands: (PoolStats & { label: string; from: number; to: number })[]
     weekdayLabels: string[]
     minSendouts: number
+    minDelivered: number
+    excludesJourneys: boolean
   }
   subjects: {
     byLength: (PoolStats & { label: string; from: number; to: number })[]
@@ -265,6 +267,7 @@ export interface Dashboard {
       withMail: number
       overall: EngagementGroup
       distribution: { label: string; n: number; share: number | null }[]
+      byKontingent: EngagementGroup[]
       byMedlemstype: EngagementGroup[]
       byRegion: EngagementGroup[]
       byAlder: EngagementGroup[]

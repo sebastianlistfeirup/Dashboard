@@ -23,7 +23,8 @@ export function Timing({ data }: { data: Dashboard }) {
     ? Array.from({ length: hours[hours.length - 1] - hours[0] + 1 }, (_, i) => hours[0] + i)
     : []
 
-  const reliableDays = timing.byWeekday.filter((d) => d.count >= timing.minSendouts)
+  const reliableDays = timing.byWeekday
+    .filter((d) => d.count >= timing.minSendouts && d.delivered >= timing.minDelivered)
   const bestDay = [...reliableDays].sort((a, b) => (b[metric] ?? 0) - (a[metric] ?? 0))[0]
 
   return (
@@ -31,9 +32,10 @@ export function Timing({ data }: { data: Dashboard }) {
       <SectionHeading
         kicker="Udsendelsestidspunkter"
         title="Hvornår rammer vi bedst"
-        lead={bestDay
+        lead={`${bestDay
           ? `${bestDay.label} giver den højeste ${metric === 'openRate' ? 'åbningsrate' : 'klikrate'} på tværs af ${fmtNum(bestDay.count)} udsendelser. Feltet nedenfor viser hver kombination af ugedag og klokkeslæt.`
-          : 'Feltet viser hver kombination af ugedag og klokkeslæt, DP har sendt på.'}
+          : `Feltet viser hver kombination af ugedag og klokkeslæt, DP har sendt på.`} Flow-mails er holdt udenfor: de udløses af, hvornår et medlem melder sig ind, så deres afsendelsestidspunkt er ikke en redaktionel beslutning.`}
+
         right={
           <div className="inline-flex rounded-full border border-dp-navy-200 bg-white p-0.5">
             {([['openRate', 'Åbninger'], ['clickRate', 'Klik']] as const).map(([k, label]) => (
@@ -93,27 +95,36 @@ export function Timing({ data }: { data: Dashboard }) {
         <div className="grid gap-5">
           <ChartCard
             title="Ugedag"
-            subtitle={`Kun dage med mindst ${timing.minSendouts} udsendelser er sammenlignelige.`}
+            subtitle={`Sammenlignelig fra ${timing.minSendouts} udsendelser og ${fmtNum(timing.minDelivered)} leverede mails.`}
           >
             <BarRows
-              rows={timing.byWeekday.map((d) => ({
-                label: d.label,
-                value: d[metric],
-                color: d.count >= timing.minSendouts ? '#4c7bbd' : '#c1cde9',
-                n: d.count,
-                note: d.count < timing.minSendouts ? 'For få udsendelser til at sammenligne' : undefined,
-              }))}
+              rows={timing.byWeekday.map((d) => {
+                const solid = d.count >= timing.minSendouts && d.delivered >= timing.minDelivered
+                return {
+                  label: d.label,
+                  value: d[metric],
+                  color: solid ? '#4c7bbd' : '#c1cde9',
+                  n: d.count,
+                  note: solid
+                    ? `${fmtNum(d.delivered)} leverede mails`
+                    : `Kun ${fmtNum(d.delivered)} leverede mails — for tyndt til at sammenligne`,
+                }
+              })}
             />
           </ChartCard>
 
           <ChartCard title="Tidspunkt på dagen" subtitle="Samme forbehold gælder her.">
             <BarRows
-              rows={data.timing.hourBands.map((b) => ({
-                label: b.label,
-                value: b[metric],
-                color: b.count >= timing.minSendouts ? '#df790d' : '#f6d3b1',
-                n: b.count,
-              }))}
+              rows={data.timing.hourBands.map((b) => {
+                const solid = b.count >= timing.minSendouts && b.delivered >= timing.minDelivered
+                return {
+                  label: b.label,
+                  value: b[metric],
+                  color: solid ? '#df790d' : '#f6d3b1',
+                  n: b.count,
+                  note: solid ? `${fmtNum(b.delivered)} leverede mails` : 'For tyndt til at sammenligne',
+                }
+              })}
             />
           </ChartCard>
         </div>

@@ -92,7 +92,9 @@ export function buildFindings(analysis) {
   }
 
   /* ── Tidspunkter ───────────────────────────────────────────────────────── */
-  const days = timing.byWeekday.filter((d) => d.count >= MIN_SENDOUTS)
+  // Volume matters as much as count: eight sendouts to 1.000 people say less
+  // than one to 13.000.
+  const days = timing.byWeekday.filter((d) => d.count >= MIN_SENDOUTS && d.delivered >= (timing.minDelivered ?? 0))
   if (days.length >= 2) {
     const best = [...days].sort((a, b) => (b.openRate ?? 0) - (a.openRate ?? 0))[0]
     const worst = [...days].sort((a, b) => (a.openRate ?? 0) - (b.openRate ?? 0))[0]
@@ -110,7 +112,7 @@ export function buildFindings(analysis) {
     }
   }
 
-  const bands = timing.hourBands.filter((b) => b.count >= MIN_SENDOUTS)
+  const bands = timing.hourBands.filter((b) => b.count >= MIN_SENDOUTS && b.delivered >= (timing.minDelivered ?? 0))
   if (bands.length >= 2) {
     const best = [...bands].sort((a, b) => (b.openRate ?? 0) - (a.openRate ?? 0))[0]
     const worst = [...bands].sort((a, b) => (a.openRate ?? 0) - (b.openRate ?? 0))[0]
@@ -222,6 +224,7 @@ export function buildFindings(analysis) {
         section: 'modtagere',
       })
     }
+    cmp(eng.byKontingent, 'Modtagere', 'kontingent', 'kontingentgruppe')
     cmp(eng.byMedlemstype, 'Modtagere', 'medlemstype', 'medlemstype')
     cmp(eng.byRegion, 'Modtagere', 'region', 'region')
     cmp(eng.byAlder, 'Modtagere', 'alder', 'aldersgruppe')
