@@ -77,10 +77,15 @@ jobs:
           path: DP-udsendelsesdashboard.html
           retention-days: 30
 
+      # enablement turns Pages on via the API using this workflow's own token,
+      # so the site does not depend on anyone visiting the settings page. It
+      # needs the pages: write permission granted above.
       - name: Configure Pages
         id: pages
         continue-on-error: true
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - name: Upload the site
         if: steps.pages.outcome == 'success'
@@ -96,10 +101,14 @@ jobs:
       - name: Where things ended up
         run: |
           if [ "${{ steps.pages.outcome }}" = "success" ]; then
-            echo "Dashboard: ${{ steps.deploy.outputs.page_url }}" >> "$GITHUB_STEP_SUMMARY"
+            echo "## Dashboardet er ude" >> "$GITHUB_STEP_SUMMARY"
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "${{ steps.deploy.outputs.page_url }}" >> "$GITHUB_STEP_SUMMARY"
           else
-            echo "GitHub Pages er ikke slået til for dette repo." >> "$GITHUB_STEP_SUMMARY"
-            echo "Slå det til under Settings → Pages → Source: GitHub Actions, så deployer næste kørsel automatisk." >> "$GITHUB_STEP_SUMMARY"
+            echo "## Pages kunne ikke slås til automatisk" >> "$GITHUB_STEP_SUMMARY"
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "Slå det til manuelt: Settings → Pages → Source: GitHub Actions." >> "$GITHUB_STEP_SUMMARY"
+            echo "Næste kørsel deployer så af sig selv." >> "$GITHUB_STEP_SUMMARY"
           fi
           echo "" >> "$GITHUB_STEP_SUMMARY"
           echo "Den private, selvstændige fil ligger under Artifacts på denne kørsel." >> "$GITHUB_STEP_SUMMARY"
