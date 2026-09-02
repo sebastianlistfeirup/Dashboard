@@ -7,8 +7,8 @@
  * e-mail metrics.
  */
 import { motion } from 'framer-motion'
-import { ChartCard, DataTable, fmtNum, fmtPct } from '@/components/charts'
-import { AnimatedNumber, Band, Reveal, SectionHeading } from '@/components/primitives'
+import { DataTable, fmtNum, fmtPct } from '@/components/charts'
+import { AnimatedNumber, Band, ChartCard, Reveal, SectionHeading } from '@/components/primitives'
 import { formatDate, type Dashboard } from '@/lib/data'
 import { motion as mo } from '@/design/tokens'
 import { Empty } from './Performance'
@@ -31,7 +31,7 @@ export function SmsSection({ data }: { data: Dashboard }) {
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {[
-          { label: 'Sendte sms'er', value: sent.length, color: '#4fa388', sub: `${drafts.length} kladder` },
+          { label: "Sendte sms'er", value: sent.length, color: '#4fa388', sub: `${drafts.length} kladder` },
           { label: 'Modtagere i alt', value: recipients, color: '#4c7bbd', sub: sent.length ? `${fmtNum(Math.round(recipients / sent.length))} pr. udsendelse` : '—' },
           { label: 'Kan modtage sms', value: data.audience.totals.smsReachable, color: '#df790d', sub: `${fmtPct((data.audience.totals.smsReachable / Math.max(1, data.audience.totals.active)) * 100)} af de aktive` },
           { label: 'Fejlede numre', value: bounced, color: '#d24e46', sub: recipients ? `${fmtPct((bounced / recipients) * 100, 2)} af modtagerne` : '—' },

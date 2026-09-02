@@ -7,8 +7,8 @@
  */
 import { useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
-import { BarRows, ChartCard, DataTable, LineChart, fmtNum, fmtPct } from '@/components/charts'
-import { Band, Reveal, SectionHeading } from '@/components/primitives'
+import { BarRows, DataTable, LineChart, fmtNum, fmtPct } from '@/components/charts'
+import { Band, ChartCard, Reveal, SectionHeading } from '@/components/primitives'
 import { monthlyOf, monthLabel, type Dashboard, type Mailing, type SegmentRow } from '@/lib/data'
 import { motion as mo } from '@/design/tokens'
 

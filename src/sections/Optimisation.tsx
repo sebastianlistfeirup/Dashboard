@@ -7,8 +7,8 @@
  */
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { BarRows, ChartCard, DataTable, GroupedBars, HeatMap, fmtNum, fmtPct } from '@/components/charts'
-import { Reveal, SectionHeading } from '@/components/primitives'
+import { BarRows, DataTable, GroupedBars, HeatMap, fmtNum, fmtPct } from '@/components/charts'
+import { ChartCard, Reveal, SectionHeading } from '@/components/primitives'
 import { formatDate, type Dashboard, type SlimMailing } from '@/lib/data'
 import { motion as mo } from '@/design/tokens'
 import { Empty } from './Performance'

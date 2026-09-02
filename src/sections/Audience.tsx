@@ -7,8 +7,8 @@
  */
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { BarRows, ChartCard, DataTable, Donut, fmtNum, fmtPct } from '@/components/charts'
-import { AnimatedNumber, Band, Reveal, SectionHeading } from '@/components/primitives'
+import { BarRows, DataTable, Donut, fmtNum, fmtPct } from '@/components/charts'
+import { AnimatedNumber, Band, ChartCard, Reveal, SectionHeading } from '@/components/primitives'
 import { monthLabel, type Bucket, type Dashboard, type EngagementGroup } from '@/lib/data'
 import { motion as mo } from '@/design/tokens'
 import { Empty } from './Performance'
