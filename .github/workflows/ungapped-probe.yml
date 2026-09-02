@@ -1,0 +1,48 @@
+name: Ungapped API probe
+
+# Pass 3: observes the shapes of the statistics endpoints, which carry no
+# schema in the Swagger definition. Numbers and DP's own content are recorded;
+# anything a recipient wrote or that identifies one stays a shape.
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/ungapped-probe.mjs'
+      - '.github/workflows/ungapped-probe.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ungapped-probe
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Probe
+        env:
+          UNGAPPED_API_KEY: ${{ secrets.UG_API }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/out" && cd "$RUNNER_TEMP/out"
+          node "$GITHUB_WORKSPACE/scripts/ungapped-probe.mjs"
+
+      - name: Commit the probe result
+        run: |
+          set -euo pipefail
+          cd "$GITHUB_WORKSPACE"
+          mkdir -p docs/api-map
+          cp "$RUNNER_TEMP/out/ungapped-probe/probe.json" docs/api-map/probe.json
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/api-map/probe.json
+          git diff --staged --quiet && { echo "no changes"; exit 0; }
+          git commit -m "Update Ungapped API probe"
+          git pull --rebase origin main
+          git push origin HEAD:main
