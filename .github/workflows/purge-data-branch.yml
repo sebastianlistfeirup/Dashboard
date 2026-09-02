@@ -1,0 +1,38 @@
+name: Purge discovery data
+
+# The repository is public, so raw API dumps must not live in it. This deletes
+# the ungapped-data branch and every run artifact.
+
+on:
+  workflow_dispatch:
+  push:
+    paths: ['.github/workflows/purge-data-branch.yml']
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  purge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete the ungapped-data branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh api "repos/${{ github.repository }}/git/refs/heads/ungapped-data" >/dev/null 2>&1; then
+            gh api -X DELETE "repos/${{ github.repository }}/git/refs/heads/ungapped-data"
+            echo "deleted branch ungapped-data"
+          else
+            echo "branch ungapped-data not present"
+          fi
+
+      - name: Delete every workflow artifact in the repository
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ids=$(gh api --paginate "repos/${{ github.repository }}/actions/artifacts" --jq '.artifacts[].id')
+          if [ -z "$ids" ]; then echo "no artifacts"; exit 0; fi
+          for id in $ids; do
+            gh api -X DELETE "repos/${{ github.repository }}/actions/artifacts/$id" && echo "deleted artifact $id"
+          done
