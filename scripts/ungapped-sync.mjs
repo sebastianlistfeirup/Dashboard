@@ -398,7 +398,12 @@ main().catch((err) => {
 /* ── Privatlivsvagt ──────────────────────────────────────────────────────── */
 
 const EMAIL_RE = /[\w.+-]+@[\w-]+\.[\w.]{2,}/
-const PHONE_RE = /(?:\+45[\s-]?)?\b\d{2}[\s-]?\d{2}[\s-]?\d{2}[\s-]?\d{2}\b/
+/**
+ * A Danish number, not any run of eight digits: without the country code the
+ * digits must stand alone as a whole token, or an ISO date and a GUID fragment
+ * both read as a phone number.
+ */
+const PHONE_RE = /(?:\+45|0045)[\s-]?\d{2}[\s-]?\d{2}[\s-]?\d{2}[\s-]?\d{2}|(?<![\w-])\d{8}(?![\w-])/
 
 /**
  * Fields that legitimately hold an organisational address or number: DP's own
