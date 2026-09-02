@@ -1,0 +1,10 @@
+[
+  {
+    "TrustedDeviceId": "977ab9ee-d9f3-4f27-b43f-f017ac2f7112",
+    "DeviceId": "a45dc2ab-7aec-408c-8495-7330f7a177d1",
+    "CreatedAt": "2026-04-08T12:14:50.11Z",
+    "ApprovedAt": "2026-08-03T07:18:26.373Z",
+    "LastUsedAt": "2026-09-02T08:18:28.217Z",
+    "UserAgent": "{\"deviceType\":\"computer\",\"os\":\"Windows\",\"browser\":\"Edge\",\"displayLabel\":\"computer (Edge)\",\"userAgent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36 Edg/151.0.0.0\"}"
+  }
+]

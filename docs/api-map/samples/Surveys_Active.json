@@ -1,0 +1,168 @@
+[
+  {
+    "SurveyId": "08cac30b-86d2-4b2d-a9df-97e84ec96dc0",
+    "Title": "Tilmeld dig nyhedsbreve fra Dansk Psykolog Forening",
+    "SurveyName": null,
+    "Description": null,
+    "Status": 20,
+    "LastModified": "2025-03-12T08:20:13.66Z",
+    "IsActive": true,
+    "Start": "2025-03-11T11:34:00Z",
+    "End": null,
+    "LastModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ResponseCount": 70,
+    "RespondentCount": 70,
+    "ResponseLimit": 0,
+    "EventId": null,
+    "Event": null,
+    "Tags": [],
+    "AccessControlList": []
+  },
+  {
+    "SurveyId": "65b44bd8-83f7-4173-8e51-9d729896bff7",
+    "Title": "Ja tak, jeg vil gerne modtage mere information om autorisation og medlemskab",
+    "SurveyName": null,
+    "Description": null,
+    "Status": 20,
+    "LastModified": "2025-02-26T14:38:51.85Z",
+    "IsActive": true,
+    "Start": "2025-02-26T11:35:00Z",
+    "End": null,
+    "LastModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ResponseCount": 3,
+    "RespondentCount": 2,
+    "ResponseLimit": 0,
+    "EventId": null,
+    "Event": null,
+    "Tags": [],
+    "AccessControlList": []
+  },
+  {
+    "SurveyId": "6a8fa011-4902-41cd-8551-d9c509132f1f",
+    "Title": "Forberedelse til lønforhandling",
+    "SurveyName": null,
+    "Description": null,
+    "Status": 20,
+    "LastModified": "2026-06-23T08:24:53.16Z",
+    "IsActive": true,
+    "Start": "2026-06-23T06:54:00Z",
+    "End": null,
+    "LastModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ResponseCount": 1,
+    "RespondentCount": 1,
+    "ResponseLimit": 0,
+    "EventId": null,
+    "Event": null,
+    "Tags": [],
+    "AccessControlList": []
+  },
+  {
+    "SurveyId": "e4efd6e1-b100-40c5-9784-874ae7e61415",
+    "Title": "Interesseret i flere nyheder?",
+    "SurveyName": "Få flere nyheder",
+    "Description": null,
+    "Status": 20,
+    "LastModified": "2025-05-12T13:47:45.653Z",
+    "IsActive": true,
+    "Start": "2025-02-12T10:25:00Z",
+    "End": null,
+    "LastModifiedBy": {
+      "UserId": "3704921a-afc5-4adc-adb3-4627e042c30e",
+      "FirstName": "Michelle",
+      "LastName": "Lagergaard",
+      "Name": "Michelle Lagergaard",
+      "UserName": "mil@dp.dk",
+      "Email": "mil@dp.dk"
+    },
+    "ResponseCount": 88,
+    "RespondentCount": 80,
+    "ResponseLimit": 0,
+    "EventId": null,
+    "Event": null,
+    "Tags": [],
+    "AccessControlList": []
+  },
+  {
+    "SurveyId": "724eab08-dd78-48f9-ad95-dcd9414d2ac2",
+    "Title": "I arbejde eller jobsøgende?",
+    "SurveyName": null,
+    "Description": null,
+    "Status": 20,
+    "LastModified": "2025-03-06T09:50:23.47Z",
+    "IsActive": true,
+    "Start": "2025-03-06T09:50:23.643Z",
+    "End": null,
+    "LastModifiedBy": {
+      "UserId": "3704921a-afc5-4adc-adb3-4627e042c30e",
+      "FirstName": "Michelle",
+      "LastName": "Lagergaard",
+      "Name": "Michelle Lagergaard",
+      "UserName": "mil@dp.dk",
+      "Email": "mil@dp.dk"
+    },
+    "ResponseCount": 98,
+    "RespondentCount": 97,
+    "ResponseLimit": 0,
+    "EventId": null,
+    "Event": null,
+    "Tags": [
+      {
+        "TagId": "1d2a9f51-2d56-4a49-bcfb-4a00ad69ce81",
+        "Title": "Dimittendflow"
+      }
+    ],
+    "AccessControlList": []
+  },
+  {
+    "SurveyId": "a7fbab76-df80-4fe0-bf13-f631c8510441",
+    "Title": "Vil du høre mere om, hvordan du søger ydernummer?",
+    "SurveyName": "Ydernummer spørgsmål",
+    "Description": null,
+    "Status": 20,
+    "LastModified": "2025-02-26T09:16:35.877Z",
+    "IsActive": true,
+    "Start": "2025-01-30T09:56:00Z",
+    "End": null,
+    "LastModifiedBy": {
+      "UserId": "3704921a-afc5-4adc-adb3-4627e042c30e",
+      "FirstName": "Michelle",
+      "LastName": "Lagergaard",
+      "Name": "Michelle Lagergaard",
+      "UserName": "mil@dp.dk",
+      "Email": "mil@dp.dk"
+    },
+    "ResponseCount": 32,
+    "RespondentCount": 31,
+    "ResponseLimit": 0,
+    "EventId": null,
+    "Event": null,
+    "Tags": [
+      {
+        "TagId": "9bf616dd-86a1-4aa2-8cd5-458b3bb3394a",
+        "Title": "Selvstændige (flow)"
+      }
+    ],
+    "AccessControlList": []
+  }
+]

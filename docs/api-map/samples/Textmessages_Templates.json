@@ -1,0 +1,101 @@
+[
+  {
+    "SmsMessageId": "01ad1115-095d-4c10-9aad-28b5ca6a3fb7",
+    "Subject": "SMS-rykker",
+    "Modified": "2025-11-17T09:12:00Z",
+    "CreatedByUser": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedByUser": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Created": "2025-09-16T08:05:13.57Z",
+    "Sender": null,
+    "Body": "Kære [@Name]\n\nDet er Riffat fra Dansk Psykolog Forening.\nJeg skriver til dig, fordi jeg kan se, at du stadig ikke har fået betalt det du skylder. Vi har tidligere sendt påmindelser til din mail. \n\nDit udestående skal være betalt inden 3 dage fra denne sms er modtaget, ellers vil det få konsekvenser for dit medlemskab.\n\nDu kan stadig nå det – sidste chance. Husk at du altid kontakte os på:\n\n- Tlf: 35269955 (alle hverdage mellem 10-13 onsdag lukket)\n- Mail: Regnskab@dp.dk\n\nMvh Riffat fra Dansk Psykolog Forening",
+    "UseUrlShortener": false,
+    "Category": {
+      "CategoryId": "d7892968-3cd0-4850-9967-fad5810aaa97",
+      "Name": "Medlemsoplysninger",
+      "Description": "Will be sent to EVERYONE even unsubscribed"
+    },
+    "Event": null,
+    "Journey": null,
+    "Status": 0
+  },
+  {
+    "SmsMessageId": "583cea2d-4511-4c86-a55b-d59c00a22fa5",
+    "Subject": "Mangler E-mail",
+    "Modified": "2025-11-17T09:11:00Z",
+    "CreatedByUser": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedByUser": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Created": "2025-11-06T19:51:38.403Z",
+    "Sender": null,
+    "Body": "Kære [@Name]\n\nDet er Sebastian fra Dansk Psykolog Forening.\n\nJeg skriver til dig, fordi vi gerne vil i kontakt med dig. Vi har registreret denne e-mailadresse på dig: [@Email], men når vi forsøger at sende dig en e-mail, kommer den desværre ikke frem. Vi tror, der er en fejl i e-mailadressen. Vil du hjælpe os med at få den rettet?\n\nDu kan enten skrive til os på medlemsservice@dp.dk, så hjælper vi dig med at ændre den, eller selv ændre den via MitDP: https://mitdp.dk/Home/MyProfile/.\n\nHar du spørgsmål, er du selvfølgelig altid velkommen til at kontakte os:\n\n- Tlf.: 35 26 99 55 (alle hverdage mellem kl. 10–13, onsdag lukket)\n- Mail: dp@dp.dk\n\nVi håber at høre fra dig.\n\nDe bedste hilsner\nSebastian fra Dansk Psykolog Forening",
+    "UseUrlShortener": false,
+    "Category": {
+      "CategoryId": "d7892968-3cd0-4850-9967-fad5810aaa97",
+      "Name": "Medlemsoplysninger",
+      "Description": "Will be sent to EVERYONE even unsubscribed"
+    },
+    "Event": null,
+    "Journey": null,
+    "Status": 0
+  },
+  {
+    "SmsMessageId": "6b280821-d4bd-48a1-9ade-fb1a6ff3d401",
+    "Subject": "",
+    "Modified": "2026-03-03T10:18:00Z",
+    "CreatedByUser": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedByUser": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Created": "2026-03-03T10:18:29.653Z",
+    "Sender": null,
+    "Body": "Svar med dansk-psykokolog-forening OUT for at ophæve abonnement",
+    "UseUrlShortener": false,
+    "Category": {
+      "CategoryId": "49676733-56b2-4f70-96a3-21ca81f78a25",
+      "Name": "Nyhedsbrev",
+      "Description": null
+    },
+    "Event": null,
+    "Journey": null,
+    "Status": 0
+  }
+]

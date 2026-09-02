@@ -1,0 +1,137 @@
+[
+  {
+    "SurveyId": "b01762e0-b46c-4d4f-8be2-4a3b406c781d",
+    "Title": "Lønforhandling",
+    "SurveyName": null,
+    "Description": null,
+    "Status": 10,
+    "LastModified": "2026-06-15T10:54:32.99Z",
+    "IsActive": false,
+    "Start": null,
+    "End": null,
+    "LastModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ResponseCount": 0,
+    "RespondentCount": 0,
+    "ResponseLimit": 0,
+    "EventId": null,
+    "Event": null,
+    "Tags": [],
+    "AccessControlList": []
+  },
+  {
+    "SurveyId": "b72cb6c3-e1c2-4916-8578-536d0de9f4d3",
+    "Title": "Kopi af - ",
+    "SurveyName": null,
+    "Description": null,
+    "Status": 10,
+    "LastModified": "2026-09-02T10:32:40.66Z",
+    "IsActive": false,
+    "Start": null,
+    "End": null,
+    "LastModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ResponseCount": 0,
+    "RespondentCount": 0,
+    "ResponseLimit": 0,
+    "EventId": null,
+    "Event": null,
+    "Tags": [],
+    "AccessControlList": []
+  },
+  {
+    "SurveyId": "02a5c96b-f198-4585-b1ef-75b30785d812",
+    "Title": "Løbende medlemstilfredshedsmålinger",
+    "SurveyName": "Løbende medlemstilfredshedsmålinger",
+    "Description": null,
+    "Status": 10,
+    "LastModified": "2026-09-02T10:49:35.497Z",
+    "IsActive": false,
+    "Start": null,
+    "End": null,
+    "LastModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ResponseCount": 0,
+    "RespondentCount": 0,
+    "ResponseLimit": 0,
+    "EventId": null,
+    "Event": null,
+    "Tags": [
+      {
+        "TagId": "99864946-9a33-4041-b93e-8ef43d841464",
+        "Title": "Løbende medlemstilfredshed"
+      }
+    ],
+    "AccessControlList": []
+  },
+  {
+    "SurveyId": "aa02014b-5f34-4dc3-a534-fc0cfaea02b1",
+    "Title": "Kopi af - Event Feedback Template",
+    "SurveyName": null,
+    "Description": null,
+    "Status": 10,
+    "LastModified": "2024-11-13T07:57:41.99Z",
+    "IsActive": false,
+    "Start": null,
+    "End": null,
+    "LastModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ResponseCount": 0,
+    "RespondentCount": 0,
+    "ResponseLimit": 0,
+    "EventId": null,
+    "Event": null,
+    "Tags": [],
+    "AccessControlList": []
+  },
+  {
+    "SurveyId": "7046dd2e-7948-4f92-927b-b2058850a6aa",
+    "Title": "Copy of - Plain Vanilla",
+    "SurveyName": null,
+    "Description": null,
+    "Status": 10,
+    "LastModified": "2024-12-05T13:43:41.48Z",
+    "IsActive": false,
+    "Start": null,
+    "End": null,
+    "LastModifiedBy": {
+      "UserId": "d0aa3a2b-d1d1-4371-80b2-9507aa154916",
+      "FirstName": "Oscar",
+      "LastName": "Uribe Enggren",
+      "Name": "Oscar Uribe Enggren",
+      "UserName": "oscar.uribe@ungapped.com",
+      "Email": "oscar.uribe@ungapped.com"
+    },
+    "ResponseCount": 0,
+    "RespondentCount": 0,
+    "ResponseLimit": 0,
+    "EventId": null,
+    "Event": null,
+    "Tags": [],
+    "AccessControlList": []
+  }
+]

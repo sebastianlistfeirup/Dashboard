@@ -1,0 +1,54 @@
+[
+  {
+    "SurveyId": "d3ba55c0-0066-4b47-8042-fe805548c3ef",
+    "Title": "Skriv din e-mailadresse her",
+    "SurveyName": null,
+    "Description": null,
+    "Status": 30,
+    "LastModified": "2026-04-21T10:53:25.147Z",
+    "IsActive": false,
+    "Start": "2026-04-21T10:48:00Z",
+    "End": "2026-05-13T11:19:46.73Z",
+    "LastModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ResponseCount": 4,
+    "RespondentCount": 4,
+    "ResponseLimit": 0,
+    "EventId": null,
+    "Event": null,
+    "Tags": [],
+    "AccessControlList": []
+  },
+  {
+    "SurveyId": "44b51abc-5fbb-4fc2-a964-9776e85e5835",
+    "Title": "Kopi af - Plain Vanilla",
+    "SurveyName": null,
+    "Description": null,
+    "Status": 30,
+    "LastModified": "2025-01-30T08:29:50.007Z",
+    "IsActive": false,
+    "Start": "2025-01-27T12:14:00Z",
+    "End": "2025-01-30T12:37:28.343Z",
+    "LastModifiedBy": {
+      "UserId": "e3315a56-5d1e-4089-90a5-dc289cb31dbe",
+      "FirstName": "Zandra",
+      "LastName": "Preston",
+      "Name": "Zandra Preston",
+      "UserName": "zandra.preston@ungapped.com",
+      "Email": "zandra.preston@ungapped.com"
+    },
+    "ResponseCount": 1,
+    "RespondentCount": 1,
+    "ResponseLimit": 0,
+    "EventId": null,
+    "Event": null,
+    "Tags": [],
+    "AccessControlList": []
+  }
+]

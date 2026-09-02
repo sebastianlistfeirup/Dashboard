@@ -1,0 +1,104 @@
+[
+  {
+    "Id": "e9f30947-3cb2-424f-bea6-ce71657babd8",
+    "Type": "IssueBlockTargetAudience",
+    "Name": "Selvstændige + interesser i selvstændige ",
+    "Data": "{\"Conditions\":\"[{\\\"Type\\\":\\\"group\\\",\\\"Id\\\":1766065600571,\\\"Relation\\\":\\\"and\\\",\\\"Conditions\\\":[{\\\"Property\\\":\\\"Custom3\\\",\\\"Operator\\\":\\\"contains\\\",\\\"Value\\\":\\\"Selvstændige psykologers sektion\\\",\\\"Id\\\":1766065600571}]},{\\\"Type\\\":\\\"group\\\",\\\"Id\\\":1766065623379,\\\"Relation\\\":\\\"and\\\",\\\"Conditions\\\":[{\\\"Property\\\":\\\"Custom7\\\",\\\"Operator\\\":\\\"contains\\\",\\\"Value\\\":\\\"Selvstændige\\\",\\\"Id\\\":1766065623379}]}]\",\"Relation\":\"or\"}",
+    "Created": "2026-03-19T12:24:47.6520739Z",
+    "CreatedBy": {
+      "UserId": "3704921a-afc5-4adc-adb3-4627e042c30e",
+      "FirstName": "Michelle",
+      "LastName": "Lagergaard",
+      "Name": "Michelle Lagergaard",
+      "UserName": "mil@dp.dk",
+      "Email": "mil@dp.dk"
+    },
+    "Modified": null,
+    "ModifiedBy": null
+  },
+  {
+    "Id": "7a71cdf7-d57d-40c8-8a58-5b5e2db39837",
+    "Type": "IssueBlockTargetAudience",
+    "Name": "Hospital + interesseret i regionale nyheder",
+    "Data": "{\"Conditions\":\"[{\\\"Type\\\":\\\"group\\\",\\\"Id\\\":1772723352163,\\\"Relation\\\":\\\"or\\\",\\\"Conditions\\\":[{\\\"Property\\\":\\\"Custom3\\\",\\\"Operator\\\":\\\"contains\\\",\\\"Value\\\":\\\"\\\\\\\"Hospitalssektionen\\\\\\\"\\\",\\\"Id\\\":1772723352163},{\\\"Property\\\":\\\"Custom7\\\",\\\"Operator\\\":\\\"contains\\\",\\\"Value\\\":\\\" Regionalt ansatte\\\",\\\"Id\\\":1772723588509}]}]\",\"Relation\":\"and\"}",
+    "Created": "2026-03-05T15:14:27.7484793Z",
+    "CreatedBy": {
+      "UserId": "3704921a-afc5-4adc-adb3-4627e042c30e",
+      "FirstName": "Michelle",
+      "LastName": "Lagergaard",
+      "Name": "Michelle Lagergaard",
+      "UserName": "mil@dp.dk",
+      "Email": "mil@dp.dk"
+    },
+    "Modified": null,
+    "ModifiedBy": null
+  },
+  {
+    "Id": "c3aa1868-84ea-4ab3-a16d-4074c653a6d3",
+    "Type": "IssueBlockTargetAudience",
+    "Name": "KAPS+ interesseret i kommunale nyheder",
+    "Data": "{\"Conditions\":\"[{\\\"Type\\\":\\\"group\\\",\\\"Id\\\":1772723321482,\\\"Relation\\\":\\\"or\\\",\\\"Conditions\\\":[{\\\"Property\\\":\\\"Custom3\\\",\\\"Operator\\\":\\\"contains\\\",\\\"Value\\\":\\\"Kommunalt Ansatte Psykologers Sektion\\\",\\\"Id\\\":1772723321482},{\\\"Property\\\":\\\"Custom7\\\",\\\"Operator\\\":\\\"contains\\\",\\\"Value\\\":\\\" Kommunalt ansatte\\\",\\\"Id\\\":1772723615958}]}]\",\"Relation\":\"and\"}",
+    "Created": "2026-03-05T15:14:03.4224261Z",
+    "CreatedBy": {
+      "UserId": "3704921a-afc5-4adc-adb3-4627e042c30e",
+      "FirstName": "Michelle",
+      "LastName": "Lagergaard",
+      "Name": "Michelle Lagergaard",
+      "UserName": "mil@dp.dk",
+      "Email": "mil@dp.dk"
+    },
+    "Modified": null,
+    "ModifiedBy": null
+  },
+  {
+    "Id": "90dbe745-fc4b-4a50-a578-afc086c43e88",
+    "Type": "IssueBlockTargetAudience",
+    "Name": "KAPS + Universitetssektion + Hospitalssektion",
+    "Data": "{\"Conditions\":\"[{\\\"Type\\\":\\\"group\\\",\\\"Id\\\":1771512173982,\\\"Relation\\\":\\\"or\\\",\\\"Conditions\\\":[{\\\"Property\\\":\\\"Custom3\\\",\\\"Operator\\\":\\\"contains\\\",\\\"Value\\\":\\\"Universitetssektionen\\\",\\\"Id\\\":1771512173982},{\\\"Property\\\":\\\"Custom3\\\",\\\"Operator\\\":\\\"contains\\\",\\\"Value\\\":\\\"\\\\\\\"Hospitalssektionen\\\\\\\"\\\",\\\"Id\\\":1771512194285},{\\\"Property\\\":\\\"Custom3\\\",\\\"Operator\\\":\\\"contains\\\",\\\"Value\\\":\\\"Kommunalt Ansatte Psykologers Sektion\\\",\\\"Id\\\":1771512293804}]}]\",\"Relation\":\"and\"}",
+    "Created": "2026-02-19T14:45:48.9776707Z",
+    "CreatedBy": {
+      "UserId": "3704921a-afc5-4adc-adb3-4627e042c30e",
+      "FirstName": "Michelle",
+      "LastName": "Lagergaard",
+      "Name": "Michelle Lagergaard",
+      "UserName": "mil@dp.dk",
+      "Email": "mil@dp.dk"
+    },
+    "Modified": null,
+    "ModifiedBy": null
+  },
+  {
+    "Id": "b9cfc67e-e11a-4594-b930-340c791718e1",
+    "Type": "IssueBlockTargetAudience",
+    "Name": "Ledersektion + interesseret i ledernyheder",
+    "Data": "{\"Conditions\":\"[{\\\"Type\\\":\\\"group\\\",\\\"Id\\\":1771512041589,\\\"Relation\\\":\\\"or\\\",\\\"Conditions\\\":[{\\\"Property\\\":\\\"Custom3\\\",\\\"Operator\\\":\\\"contains\\\",\\\"Value\\\":\\\"Ledersektionen\\\",\\\"Id\\\":1771512041589},{\\\"Property\\\":\\\"Custom7\\\",\\\"Operator\\\":\\\"contains\\\",\\\"Value\\\":\\\" Ledere\\\",\\\"Id\\\":1771512059964}]}]\",\"Relation\":\"and\"}",
+    "Created": "2026-02-19T14:41:30.8725659Z",
+    "CreatedBy": {
+      "UserId": "3704921a-afc5-4adc-adb3-4627e042c30e",
+      "FirstName": "Michelle",
+      "LastName": "Lagergaard",
+      "Name": "Michelle Lagergaard",
+      "UserName": "mil@dp.dk",
+      "Email": "mil@dp.dk"
+    },
+    "Modified": null,
+    "ModifiedBy": null
+  },
+  {
+    "Id": "5e982396-969d-4d31-9f83-b9229c0b865a",
+    "Type": "IssueBlockTargetAudience",
+    "Name": "Ledige + dimittender",
+    "Data": "{\"Conditions\":\"[{\\\"Type\\\":\\\"group\\\",\\\"Id\\\":1769091062920,\\\"Relation\\\":\\\"or\\\",\\\"Conditions\\\":[{\\\"Property\\\":\\\"CustomLong1\\\",\\\"Operator\\\":\\\"contains\\\",\\\"Value\\\":\\\"Ledig DP\\\",\\\"Id\\\":1769091062920},{\\\"Property\\\":\\\"CustomLong1\\\",\\\"Operator\\\":\\\"contains\\\",\\\"Value\\\":\\\"1 og 2 års Kandidater\\\",\\\"Id\\\":1769091102035}]}]\",\"Relation\":\"and\"}",
+    "Created": "2026-01-22T14:12:20.8867078Z",
+    "CreatedBy": {
+      "UserId": "3704921a-afc5-4adc-adb3-4627e042c30e",
+      "FirstName": "Michelle",
+      "LastName": "Lagergaard",
+      "Name": "Michelle Lagergaard",
+      "UserName": "mil@dp.dk",
+      "Email": "mil@dp.dk"
+    },
+    "Modified": null,
+    "ModifiedBy": null
+  }
+]

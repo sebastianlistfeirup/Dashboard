@@ -1,0 +1,19 @@
+[
+  {
+    "ProcessingTaskId": "dbb0746f-2fe0-42f5-8d81-e257e4f9aa8c",
+    "Type": 12,
+    "Status": 4,
+    "Priority": 3,
+    "EstimatedRecordCount": null,
+    "Created": "2026-09-02T10:44:21.263Z",
+    "Started": "2026-09-02T16:30:04.8Z",
+    "Completed": "2026-09-02T16:32:59.567Z",
+    "Progress": 98,
+    "StatusMessage": "Merged 520/526 duplicate groups",
+    "ResultData": "{\"success\":true,\"mergedCount\":526}",
+    "Scheduled": "2026-09-02T16:30:00+00:00",
+    "AccountName": null,
+    "JobType": "MergeContactsJob",
+    "CreatedBy": "3704921a-afc5-4adc-adb3-4627e042c30e"
+  }
+]

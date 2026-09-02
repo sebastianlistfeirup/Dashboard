@@ -1,0 +1,45 @@
+[
+  {
+    "Started": "2026-02-11T07:00:00Z",
+    "RecipientCount": 1,
+    "QueuedCount": 0,
+    "PendingCount": 0,
+    "SentCount": 0,
+    "ScheduledForSending": null,
+    "SmsMessageId": "51392dc6-cb57-40fb-9f47-f5fbe46dec2f",
+    "Subject": "Normalansatte +/- 19 timer - Vi sagner oppgifter",
+    "Modified": "2025-08-14T06:39:00Z",
+    "CreatedByUser": {
+      "UserId": "d0aa3a2b-d1d1-4371-80b2-9507aa154916",
+      "FirstName": "Oscar",
+      "LastName": "Uribe Enggren",
+      "Name": "Oscar Uribe Enggren",
+      "UserName": "oscar.uribe@ungapped.com",
+      "Email": "oscar.uribe@ungapped.com"
+    },
+    "ModifiedByUser": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Created": "2025-02-20T10:59:13.25Z",
+    "Sender": null,
+    "Body": "Kære [@Name].\nVi vil rigtig gerne kunne sende dig en velkomstmail, men vi mangler din e-mailadresse. Du kan opdatere dine data på https://mitdp.dk/ eller skrive til medlemsservice@dp.dk. Du kan selvfølgelig også altid ringe til os på: 35 26 99 55.\n\nMvh\nDansk Psykolog Forening",
+    "UseUrlShortener": false,
+    "Category": {
+      "CategoryId": "49676733-56b2-4f70-96a3-21ca81f78a25",
+      "Name": "Nyhedsbrev",
+      "Description": null
+    },
+    "Event": null,
+    "Journey": {
+      "JourneyId": "3c355d2b-d93f-4c7b-a865-df1440827df5",
+      "Title": "Normalansatte +/- 19 timer",
+      "Status": 1
+    },
+    "Status": 0
+  }
+]

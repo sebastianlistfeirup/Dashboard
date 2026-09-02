@@ -1,0 +1,11 @@
+{
+  "Waitlist": 2,
+  "Accepted": 3,
+  "Declined": 4,
+  "Cancelled": 5,
+  "Attended": 6,
+  "NoShow": 7,
+  "AttestationPending": 8,
+  "AttestationRejected": 9,
+  "Attestation": 10
+}

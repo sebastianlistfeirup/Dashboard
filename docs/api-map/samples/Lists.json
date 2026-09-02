@@ -1,0 +1,694 @@
+[
+  {
+    "ListId": "201964f5-b132-44c9-a7ec-6e8932082d86",
+    "Name": "Løbende medlemstilfredshedsmålinger",
+    "Description": null,
+    "Created": "2026-09-02T10:46:25.003Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "LastModified": "2026-09-02T13:44:46.097Z",
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ContactCount": 46,
+    "ActiveImportsCount": 0,
+    "ScheduledImportsCount": 0,
+    "FailedImportsCount": 0,
+    "Tags": []
+  },
+  {
+    "ListId": "824ff76f-7435-4832-8d56-2bafea385766",
+    "Name": "RSU valg - Region Øst",
+    "Description": null,
+    "Created": "2026-09-02T10:11:03.01Z",
+    "CreatedBy": {
+      "UserId": "3704921a-afc5-4adc-adb3-4627e042c30e",
+      "FirstName": "Michelle",
+      "LastName": "Lagergaard",
+      "Name": "Michelle Lagergaard",
+      "UserName": "mil@dp.dk",
+      "Email": "mil@dp.dk"
+    },
+    "LastModified": "2026-09-02T10:12:38.803Z",
+    "ModifiedBy": {
+      "UserId": "3704921a-afc5-4adc-adb3-4627e042c30e",
+      "FirstName": "Michelle",
+      "LastName": "Lagergaard",
+      "Name": "Michelle Lagergaard",
+      "UserName": "mil@dp.dk",
+      "Email": "mil@dp.dk"
+    },
+    "ContactCount": 353,
+    "ActiveImportsCount": 0,
+    "ScheduledImportsCount": 0,
+    "FailedImportsCount": 0,
+    "Tags": []
+  },
+  {
+    "ListId": "f30c7093-cfb4-420d-9770-a15ff574d6e4",
+    "Name": "RSU valg - region Midt ",
+    "Description": "",
+    "Created": "2026-09-02T10:08:10.54Z",
+    "CreatedBy": {
+      "UserId": "3704921a-afc5-4adc-adb3-4627e042c30e",
+      "FirstName": "Michelle",
+      "LastName": "Lagergaard",
+      "Name": "Michelle Lagergaard",
+      "UserName": "mil@dp.dk",
+      "Email": "mil@dp.dk"
+    },
+    "LastModified": "2026-09-02T10:08:58.347Z",
+    "ModifiedBy": {
+      "UserId": "3704921a-afc5-4adc-adb3-4627e042c30e",
+      "FirstName": "Michelle",
+      "LastName": "Lagergaard",
+      "Name": "Michelle Lagergaard",
+      "UserName": "mil@dp.dk",
+      "Email": "mil@dp.dk"
+    },
+    "ContactCount": 194,
+    "ActiveImportsCount": 0,
+    "ScheduledImportsCount": 0,
+    "FailedImportsCount": 0,
+    "Tags": []
+  },
+  {
+    "ListId": "5826462e-b2c2-447a-b7c0-f618eeb195db",
+    "Name": "Onboarding: Normaltansat (+/- 19)",
+    "Description": null,
+    "Created": "2025-02-20T10:33:33.647Z",
+    "CreatedBy": {
+      "UserId": "d0aa3a2b-d1d1-4371-80b2-9507aa154916",
+      "FirstName": "Oscar",
+      "LastName": "Uribe Enggren",
+      "Name": "Oscar Uribe Enggren",
+      "UserName": "oscar.uribe@ungapped.com",
+      "Email": "oscar.uribe@ungapped.com"
+    },
+    "LastModified": "2026-09-02T06:13:03.39Z",
+    "ModifiedBy": {
+      "UserId": "8deb6a15-1fdb-43d5-bc63-d755b7c8d0f3",
+      "FirstName": "Ungapped",
+      "LastName": "Systemkonto",
+      "Name": "Ungapped Systemkonto",
+      "UserName": "it@ungapped.com",
+      "Email": "it@ungapped.com"
+    },
+    "ContactCount": 1141,
+    "ActiveImportsCount": 0,
+    "ScheduledImportsCount": 1,
+    "FailedImportsCount": 0,
+    "Tags": [
+      {
+        "TagId": "e9e75a52-93ae-4e29-ae0a-15c070e152da",
+        "Title": "Automation"
+      }
+    ]
+  },
+  {
+    "ListId": "9edc5132-a9ac-47f9-9afe-e2e82b878967",
+    "Name": "75 år",
+    "Description": null,
+    "Created": "2026-03-04T11:36:12.183Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "LastModified": "2026-09-02T06:12:35.967Z",
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ContactCount": 85,
+    "ActiveImportsCount": 0,
+    "ScheduledImportsCount": 1,
+    "FailedImportsCount": 0,
+    "Tags": []
+  },
+  {
+    "ListId": "4c83081d-8024-4e74-ae37-d5aa917f7544",
+    "Name": "Exit: Udmeldeste medlemmer",
+    "Description": "Members leaving within 30 days",
+    "Created": "2025-09-01T12:26:19.443Z",
+    "CreatedBy": {
+      "UserId": "d0aa3a2b-d1d1-4371-80b2-9507aa154916",
+      "FirstName": "Oscar",
+      "LastName": "Uribe Enggren",
+      "Name": "Oscar Uribe Enggren",
+      "UserName": "oscar.uribe@ungapped.com",
+      "Email": "oscar.uribe@ungapped.com"
+    },
+    "LastModified": "2026-09-02T06:11:54.78Z",
+    "ModifiedBy": {
+      "UserId": "8deb6a15-1fdb-43d5-bc63-d755b7c8d0f3",
+      "FirstName": "Ungapped",
+      "LastName": "Systemkonto",
+      "Name": "Ungapped Systemkonto",
+      "UserName": "it@ungapped.com",
+      "Email": "it@ungapped.com"
+    },
+    "ContactCount": 256,
+    "ActiveImportsCount": 0,
+    "ScheduledImportsCount": 1,
+    "FailedImportsCount": 0,
+    "Tags": []
+  },
+  {
+    "ListId": "589d6779-1909-4b95-ab75-a6e6a6fb3e64",
+    "Name": "Onboarding: Pensionister",
+    "Description": null,
+    "Created": "2025-04-02T07:38:49.873Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "LastModified": "2026-09-02T06:10:09.337Z",
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ContactCount": 114,
+    "ActiveImportsCount": 0,
+    "ScheduledImportsCount": 1,
+    "FailedImportsCount": 0,
+    "Tags": [
+      {
+        "TagId": "e9e75a52-93ae-4e29-ae0a-15c070e152da",
+        "Title": "Automation"
+      },
+      {
+        "TagId": "d2c44ded-9590-4330-8f57-2136c67e6e2b",
+        "Title": "Pensionistflow"
+      }
+    ]
+  },
+  {
+    "ListId": "7f92f957-8bf5-4bab-97cd-9854178ef33f",
+    "Name": "Onboarding: AMR",
+    "Description": null,
+    "Created": "2026-04-22T12:13:37.813Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "LastModified": "2026-09-02T06:08:16.293Z",
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ContactCount": 2,
+    "ActiveImportsCount": 0,
+    "ScheduledImportsCount": 1,
+    "FailedImportsCount": 0,
+    "Tags": []
+  },
+  {
+    "ListId": "6aa73fde-4dc5-4ebf-a4c9-4a4395a3d577",
+    "Name": "Onboarding: Selvstændige",
+    "Description": "Nye selvstændige ",
+    "Created": "2025-02-20T11:01:47.487Z",
+    "CreatedBy": {
+      "UserId": "d0aa3a2b-d1d1-4371-80b2-9507aa154916",
+      "FirstName": "Oscar",
+      "LastName": "Uribe Enggren",
+      "Name": "Oscar Uribe Enggren",
+      "UserName": "oscar.uribe@ungapped.com",
+      "Email": "oscar.uribe@ungapped.com"
+    },
+    "LastModified": "2026-09-02T06:03:44.053Z",
+    "ModifiedBy": {
+      "UserId": "8deb6a15-1fdb-43d5-bc63-d755b7c8d0f3",
+      "FirstName": "Ungapped",
+      "LastName": "Systemkonto",
+      "Name": "Ungapped Systemkonto",
+      "UserName": "it@ungapped.com",
+      "Email": "it@ungapped.com"
+    },
+    "ContactCount": 442,
+    "ActiveImportsCount": 0,
+    "ScheduledImportsCount": 1,
+    "FailedImportsCount": 0,
+    "Tags": [
+      {
+        "TagId": "e9e75a52-93ae-4e29-ae0a-15c070e152da",
+        "Title": "Automation"
+      },
+      {
+        "TagId": "9bf616dd-86a1-4aa2-8cd5-458b3bb3394a",
+        "Title": "Selvstændige (flow)"
+      }
+    ]
+  },
+  {
+    "ListId": "0aff1973-ca8b-4f49-b126-211b21715bd6",
+    "Name": "Alle medlemmer (Något medlemskap + epost)",
+    "Description": null,
+    "Created": "2025-06-04T12:19:35.537Z",
+    "CreatedBy": {
+      "UserId": "d93e10a8-f1df-4e57-8e8a-6c09b946f580",
+      "FirstName": "Tobias",
+      "LastName": "Edström",
+      "Name": "Tobias Edström",
+      "UserName": "tobias.edstrom@ungapped.com",
+      "Email": "tobias.edstrom@ungapped.com"
+    },
+    "LastModified": "2026-09-02T06:02:26.39Z",
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ContactCount": 13509,
+    "ActiveImportsCount": 0,
+    "ScheduledImportsCount": 1,
+    "FailedImportsCount": 0,
+    "Tags": []
+  },
+  {
+    "ListId": "a0b4fe7f-174f-467c-b879-0cb954e839ec",
+    "Name": "Onboarding: Ydernummer",
+    "Description": "Nye ydernummerpsykologer",
+    "Created": "2025-04-02T07:52:27.493Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "LastModified": "2026-09-02T06:00:46.44Z",
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ContactCount": 820,
+    "ActiveImportsCount": 0,
+    "ScheduledImportsCount": 1,
+    "FailedImportsCount": 0,
+    "Tags": [
+      {
+        "TagId": "74f89421-f5f5-47d6-8487-44087efaa66e",
+        "Title": "Ydernummerflow"
+      }
+    ]
+  },
+  {
+    "ListId": "d72c2cf5-250e-45bd-9598-ed943c3dde51",
+    "Name": "Onboarding: Dimittender",
+    "Description": null,
+    "Created": "2025-06-03T09:29:02.057Z",
+    "CreatedBy": {
+      "UserId": "d0aa3a2b-d1d1-4371-80b2-9507aa154916",
+      "FirstName": "Oscar",
+      "LastName": "Uribe Enggren",
+      "Name": "Oscar Uribe Enggren",
+      "UserName": "oscar.uribe@ungapped.com",
+      "Email": "oscar.uribe@ungapped.com"
+    },
+    "LastModified": "2026-09-02T05:19:45.47Z",
+    "ModifiedBy": {
+      "UserId": "8deb6a15-1fdb-43d5-bc63-d755b7c8d0f3",
+      "FirstName": "Ungapped",
+      "LastName": "Systemkonto",
+      "Name": "Ungapped Systemkonto",
+      "UserName": "it@ungapped.com",
+      "Email": "it@ungapped.com"
+    },
+    "ContactCount": 10,
+    "ActiveImportsCount": 0,
+    "ScheduledImportsCount": 1,
+    "FailedImportsCount": 0,
+    "Tags": [
+      {
+        "TagId": "1d2a9f51-2d56-4a49-bcfb-4a00ad69ce81",
+        "Title": "Dimittendflow"
+      }
+    ]
+  },
+  {
+    "ListId": "77cd1318-0563-4342-ac84-882160fecaf9",
+    "Name": "Onboarding: ydernummer",
+    "Description": "Til nye ydernummerpsykologer",
+    "Created": "2025-05-09T12:02:11.827Z",
+    "CreatedBy": {
+      "UserId": "3704921a-afc5-4adc-adb3-4627e042c30e",
+      "FirstName": "Michelle",
+      "LastName": "Lagergaard",
+      "Name": "Michelle Lagergaard",
+      "UserName": "mil@dp.dk",
+      "Email": "mil@dp.dk"
+    },
+    "LastModified": "2026-09-02T05:10:53.127Z",
+    "ModifiedBy": {
+      "UserId": "3704921a-afc5-4adc-adb3-4627e042c30e",
+      "FirstName": "Michelle",
+      "LastName": "Lagergaard",
+      "Name": "Michelle Lagergaard",
+      "UserName": "mil@dp.dk",
+      "Email": "mil@dp.dk"
+    },
+    "ContactCount": 799,
+    "ActiveImportsCount": 0,
+    "ScheduledImportsCount": 1,
+    "FailedImportsCount": 1,
+    "Tags": [
+      {
+        "TagId": "74f89421-f5f5-47d6-8487-44087efaa66e",
+        "Title": "Ydernummerflow"
+      }
+    ]
+  },
+  {
+    "ListId": "c434901d-a6f8-4bc6-9da5-74013c0b01e1",
+    "Name": "Onboarding: Studerende",
+    "Description": null,
+    "Created": "2025-06-03T08:50:40.25Z",
+    "CreatedBy": {
+      "UserId": "d0aa3a2b-d1d1-4371-80b2-9507aa154916",
+      "FirstName": "Oscar",
+      "LastName": "Uribe Enggren",
+      "Name": "Oscar Uribe Enggren",
+      "UserName": "oscar.uribe@ungapped.com",
+      "Email": "oscar.uribe@ungapped.com"
+    },
+    "LastModified": "2026-09-02T05:10:02.11Z",
+    "ModifiedBy": {
+      "UserId": "8deb6a15-1fdb-43d5-bc63-d755b7c8d0f3",
+      "FirstName": "Ungapped",
+      "LastName": "Systemkonto",
+      "Name": "Ungapped Systemkonto",
+      "UserName": "it@ungapped.com",
+      "Email": "it@ungapped.com"
+    },
+    "ContactCount": 1042,
+    "ActiveImportsCount": 0,
+    "ScheduledImportsCount": 1,
+    "FailedImportsCount": 0,
+    "Tags": []
+  },
+  {
+    "ListId": "579ec9b7-8376-4c3a-9a79-6b6994e35fda",
+    "Name": "Udmeldte medlemmer",
+    "Description": null,
+    "Created": "2025-06-03T09:07:30.413Z",
+    "CreatedBy": {
+      "UserId": "d0aa3a2b-d1d1-4371-80b2-9507aa154916",
+      "FirstName": "Oscar",
+      "LastName": "Uribe Enggren",
+      "Name": "Oscar Uribe Enggren",
+      "UserName": "oscar.uribe@ungapped.com",
+      "Email": "oscar.uribe@ungapped.com"
+    },
+    "LastModified": "2026-09-02T05:09:31.76Z",
+    "ModifiedBy": {
+      "UserId": "8deb6a15-1fdb-43d5-bc63-d755b7c8d0f3",
+      "FirstName": "Ungapped",
+      "LastName": "Systemkonto",
+      "Name": "Ungapped Systemkonto",
+      "UserName": "it@ungapped.com",
+      "Email": "it@ungapped.com"
+    },
+    "ContactCount": 26,
+    "ActiveImportsCount": 0,
+    "ScheduledImportsCount": 1,
+    "FailedImportsCount": 0,
+    "Tags": []
+  },
+  {
+    "ListId": "14836135-78d7-4be9-9f84-60633d6efe4c",
+    "Name": "Onboarding: TR og TR-S",
+    "Description": null,
+    "Created": "2025-06-03T08:14:07.77Z",
+    "CreatedBy": {
+      "UserId": "d0aa3a2b-d1d1-4371-80b2-9507aa154916",
+      "FirstName": "Oscar",
+      "LastName": "Uribe Enggren",
+      "Name": "Oscar Uribe Enggren",
+      "UserName": "oscar.uribe@ungapped.com",
+      "Email": "oscar.uribe@ungapped.com"
+    },
+    "LastModified": "2026-09-02T05:08:28.97Z",
+    "ModifiedBy": {
+      "UserId": "3704921a-afc5-4adc-adb3-4627e042c30e",
+      "FirstName": "Michelle",
+      "LastName": "Lagergaard",
+      "Name": "Michelle Lagergaard",
+      "UserName": "mil@dp.dk",
+      "Email": "mil@dp.dk"
+    },
+    "ContactCount": 4,
+    "ActiveImportsCount": 0,
+    "ScheduledImportsCount": 1,
+    "FailedImportsCount": 0,
+    "Tags": []
+  },
+  {
+    "ListId": "c9a80e94-7329-4dd7-86b4-3089b1bc0175",
+    "Name": "Alle Medlemmer (självständig)",
+    "Description": null,
+    "Created": "2025-01-10T05:18:52.337Z",
+    "CreatedBy": {
+      "UserId": "d93e10a8-f1df-4e57-8e8a-6c09b946f580",
+      "FirstName": "Tobias",
+      "LastName": "Edström",
+      "Name": "Tobias Edström",
+      "UserName": "tobias.edstrom@ungapped.com",
+      "Email": "tobias.edstrom@ungapped.com"
+    },
+    "LastModified": "2026-09-02T05:04:21.607Z",
+    "ModifiedBy": {
+      "UserId": "8deb6a15-1fdb-43d5-bc63-d755b7c8d0f3",
+      "FirstName": "Ungapped",
+      "LastName": "Systemkonto",
+      "Name": "Ungapped Systemkonto",
+      "UserName": "it@ungapped.com",
+      "Email": "it@ungapped.com"
+    },
+    "ContactCount": 26,
+    "ActiveImportsCount": 0,
+    "ScheduledImportsCount": 1,
+    "FailedImportsCount": 0,
+    "Tags": []
+  },
+  {
+    "ListId": "bcb06cca-ea24-4293-aea5-72a6cec3076b",
+    "Name": "Magasinet P - subscribers",
+    "Description": "Fra Mailchimp",
+    "Created": "2025-02-14T10:44:17.287Z",
+    "CreatedBy": {
+      "UserId": "3704921a-afc5-4adc-adb3-4627e042c30e",
+      "FirstName": "Michelle",
+      "LastName": "Lagergaard",
+      "Name": "Michelle Lagergaard",
+      "UserName": "mil@dp.dk",
+      "Email": "mil@dp.dk"
+    },
+    "LastModified": "2026-08-27T11:17:55.533Z",
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ContactCount": 1424,
+    "ActiveImportsCount": 0,
+    "ScheduledImportsCount": 0,
+    "FailedImportsCount": 0,
+    "Tags": []
+  },
+  {
+    "ListId": "fc64be82-533d-42ed-8269-0b176c0d6998",
+    "Name": "Psykologernes Nyhedsbrev - subscribers",
+    "Description": "Fra Mailchimp",
+    "Created": "2025-02-06T13:34:09.71Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "LastModified": "2026-08-27T08:44:58.587Z",
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ContactCount": 1142,
+    "ActiveImportsCount": 0,
+    "ScheduledImportsCount": 0,
+    "FailedImportsCount": 0,
+    "Tags": []
+  },
+  {
+    "ListId": "b01af1ea-fc6f-484e-9020-f877ba4c02e2",
+    "Name": "Kompetencenyt - subscribers",
+    "Description": "Fra Mailchimp",
+    "Created": "2025-02-18T10:09:14.803Z",
+    "CreatedBy": {
+      "UserId": "3704921a-afc5-4adc-adb3-4627e042c30e",
+      "FirstName": "Michelle",
+      "LastName": "Lagergaard",
+      "Name": "Michelle Lagergaard",
+      "UserName": "mil@dp.dk",
+      "Email": "mil@dp.dk"
+    },
+    "LastModified": "2026-08-04T19:16:15.96Z",
+    "ModifiedBy": {
+      "UserId": "3704921a-afc5-4adc-adb3-4627e042c30e",
+      "FirstName": "Michelle",
+      "LastName": "Lagergaard",
+      "Name": "Michelle Lagergaard",
+      "UserName": "mil@dp.dk",
+      "Email": "mil@dp.dk"
+    },
+    "ContactCount": 1156,
+    "ActiveImportsCount": 0,
+    "ScheduledImportsCount": 0,
+    "FailedImportsCount": 0,
+    "Tags": [
+      {
+        "TagId": "3d656547-65e5-43fd-b702-6ce20f753d10",
+        "Title": "Kompetencenyt"
+      }
+    ]
+  },
+  {
+    "ListId": "93e30031-9ed4-4171-a2f8-981eef685870",
+    "Name": "Onboarding: Styrelsesmedlemmer og frivillige",
+    "Description": null,
+    "Created": "2025-06-12T08:05:24.137Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "LastModified": "2026-07-22T05:11:43.04Z",
+    "ModifiedBy": {
+      "UserId": "3704921a-afc5-4adc-adb3-4627e042c30e",
+      "FirstName": "Michelle",
+      "LastName": "Lagergaard",
+      "Name": "Michelle Lagergaard",
+      "UserName": "mil@dp.dk",
+      "Email": "mil@dp.dk"
+    },
+    "ContactCount": 5,
+    "ActiveImportsCount": 0,
+    "ScheduledImportsCount": 1,
+    "FailedImportsCount": 0,
+    "Tags": [
+      {
+        "TagId": "9486758a-d718-4d05-97f7-2d01d649b6b8",
+        "Title": "Velkomstmail frivillige"
+      }
+    ]
+  },
+  {
+    "ListId": "f32ea9ce-f23e-48dc-a96b-74bb60f14ce5",
+    "Name": "Medarbejdere DP",
+    "Description": "Alle ansatte i DP",
+    "Created": "2025-01-29T14:29:24.8Z",
+    "CreatedBy": {
+      "UserId": "3704921a-afc5-4adc-adb3-4627e042c30e",
+      "FirstName": "Michelle",
+      "LastName": "Lagergaard",
+      "Name": "Michelle Lagergaard",
+      "UserName": "mil@dp.dk",
+      "Email": "mil@dp.dk"
+    },
+    "LastModified": "2026-05-07T10:26:12.11Z",
+    "ModifiedBy": {
+      "UserId": "3704921a-afc5-4adc-adb3-4627e042c30e",
+      "FirstName": "Michelle",
+      "LastName": "Lagergaard",
+      "Name": "Michelle Lagergaard",
+      "UserName": "mil@dp.dk",
+      "Email": "mil@dp.dk"
+    },
+    "ContactCount": 56,
+    "ActiveImportsCount": 0,
+    "ScheduledImportsCount": 0,
+    "FailedImportsCount": 0,
+    "Tags": []
+  },
+  {
+    "ListId": "37d3c711-7ca0-4936-983a-9fe91ed3254c",
+    "Name": "Opsamling - autorisation",
+    "Description": null,
+    "Created": "2025-02-26T10:09:06.75Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "LastModified": "2025-02-26T11:38:21.743Z",
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ContactCount": 2,
+    "ActiveImportsCount": 0,
+    "ScheduledImportsCount": 0,
+    "FailedImportsCount": 0,
+    "Tags": []
+  }
+]

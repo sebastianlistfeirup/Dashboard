@@ -1,0 +1,5996 @@
+[
+  {
+    "path": "/BackOffice/TrustedDevices/{id}/Approve",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "TrustedDeviceAdmin"
+    ],
+    "params": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "id(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/BackOffice/TrustedDevices/Pending",
+    "method": "GET",
+    "summary": "",
+    "tags": [
+      "TrustedDeviceAdmin"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": null
+  },
+  {
+    "path": "/BackOffice/TrustedDevices/Pending/ByUser/{userId}",
+    "method": "GET",
+    "summary": "",
+    "tags": [
+      "TrustedDeviceAdmin"
+    ],
+    "params": [
+      {
+        "name": "userId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "userId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Compliance/Anonymize",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "Compliance"
+    ],
+    "params": [
+      {
+        "name": "contactId",
+        "in": "query",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "contactId(query)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Contacts",
+    "method": "DELETE",
+    "summary": "Deletes one or more contacts (recoverable).",
+    "tags": [
+      "Contacts"
+    ],
+    "params": [
+      {
+        "name": "contacts",
+        "in": "body",
+        "required": true,
+        "type": "array"
+      }
+    ],
+    "requiredParams": [
+      "contacts(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Contacts",
+    "method": "GET",
+    "summary": "Get all contacts.",
+    "tags": [
+      "Contacts"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": "#/definitions/Ungapped.Contracts.Contacts.ContactListing"
+  },
+  {
+    "path": "/Contacts",
+    "method": "POST",
+    "summary": "Creates the contacts.\r\nIf email already exists the contact is updated.",
+    "tags": [
+      "Contacts"
+    ],
+    "params": [
+      {
+        "name": "contacts",
+        "in": "body",
+        "required": true,
+        "type": "array"
+      },
+      {
+        "name": "includeFullResult",
+        "in": "query",
+        "required": false,
+        "type": "boolean"
+      }
+    ],
+    "requiredParams": [
+      "contacts(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Contacts/{contactId}",
+    "method": "GET",
+    "summary": "Get a contact by its id.",
+    "tags": [
+      "Contacts"
+    ],
+    "params": [
+      {
+        "name": "contactId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "contactId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Contacts/{contactId}/{property}",
+    "method": "POST",
+    "summary": "Updates one property of the contact.",
+    "tags": [
+      "Contacts"
+    ],
+    "params": [
+      {
+        "name": "contactId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "property",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "value",
+        "in": "body",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "contactId(path)",
+      "property(path)",
+      "value(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Contacts/{contactId}/Bounce",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "Contacts"
+    ],
+    "params": [
+      {
+        "name": "contactId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "issueId",
+        "in": "query",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "contactId(path)",
+      "issueId(query)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Contacts/{contactId}/Categories",
+    "method": "GET",
+    "summary": "Get all categories that the contact has not unsubscribed from.",
+    "tags": [
+      "Contacts"
+    ],
+    "params": [
+      {
+        "name": "contactId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "contactId(path)"
+    ],
+    "responseRef": "#/definitions/Ungapped.Contracts.Common.Category"
+  },
+  {
+    "path": "/Contacts/{contactId}/Categories",
+    "method": "POST",
+    "summary": "Handle categories(subscriptions) for a Contact",
+    "tags": [
+      "Contacts"
+    ],
+    "params": [
+      {
+        "name": "contactId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "categories",
+        "in": "body",
+        "required": true,
+        "type": "array"
+      }
+    ],
+    "requiredParams": [
+      "contactId(path)",
+      "categories(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Contacts/{contactId}/DataGroups",
+    "method": "GET",
+    "summary": "Gets all activity for one contact",
+    "tags": [
+      "Contacts"
+    ],
+    "params": [
+      {
+        "name": "contactId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "contactId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Contacts/{contactId}/Lists",
+    "method": "DELETE",
+    "summary": "Removes the contact from one or more lists.",
+    "tags": [
+      "Contacts"
+    ],
+    "params": [
+      {
+        "name": "contactId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "lists",
+        "in": "body",
+        "required": true,
+        "type": "array"
+      }
+    ],
+    "requiredParams": [
+      "contactId(path)",
+      "lists(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Contacts/{contactId}/Lists",
+    "method": "POST",
+    "summary": "Add contact in lists .",
+    "tags": [
+      "Contacts"
+    ],
+    "params": [
+      {
+        "name": "contactId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "lists",
+        "in": "body",
+        "required": true,
+        "type": "array"
+      }
+    ],
+    "requiredParams": [
+      "contactId(path)",
+      "lists(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Contacts/{contactId}/Tags",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "Contacts"
+    ],
+    "params": [
+      {
+        "name": "contactId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "tags",
+        "in": "body",
+        "required": true,
+        "type": "array"
+      }
+    ],
+    "requiredParams": [
+      "contactId(path)",
+      "tags(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Contacts/{contactId}/Timeline",
+    "method": "GET",
+    "summary": "Gets all activity for one contact",
+    "tags": [
+      "Contacts"
+    ],
+    "params": [
+      {
+        "name": "contactId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "contactId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Contacts/{contactId}/Unsubscribe",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "Contacts"
+    ],
+    "params": [
+      {
+        "name": "contactId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "issueId",
+        "in": "query",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "contactId(path)",
+      "issueId(query)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Contacts/{contactId}/UnsubscribeReason",
+    "method": "GET",
+    "summary": "",
+    "tags": [
+      "Contacts"
+    ],
+    "params": [
+      {
+        "name": "contactId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "contactId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Contacts/{id}",
+    "method": "POST",
+    "summary": "Update a contact.",
+    "tags": [
+      "Contacts"
+    ],
+    "params": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "contact",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.Contacts.UpdateContactDto"
+      }
+    ],
+    "requiredParams": [
+      "id(path)",
+      "contact(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Contacts/{id}/Lists",
+    "method": "GET",
+    "summary": "Get all lists containing the contact is in.",
+    "tags": [
+      "Contacts"
+    ],
+    "params": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "id(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Contacts/{listId}/PreUnsubscribedFromCategory/{categoryIdToUnsubscribe}",
+    "method": "POST",
+    "summary": "Handle pre unsubscribed for Contacts",
+    "tags": [
+      "Contacts"
+    ],
+    "params": [
+      {
+        "name": "listId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "categoryIdToUnsubscribe",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "listId(path)",
+      "categoryIdToUnsubscribe(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Contacts/Active",
+    "method": "GET",
+    "summary": "Get all  Active contacts.",
+    "tags": [
+      "Contacts"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": "#/definitions/Ungapped.Contracts.Contacts.Contact"
+  },
+  {
+    "path": "/Contacts/Autocomplete",
+    "method": "GET",
+    "summary": "Get values for autocomplete",
+    "tags": [
+      "Contacts"
+    ],
+    "params": [
+      {
+        "name": "property",
+        "in": "query",
+        "required": true,
+        "type": "integer"
+      },
+      {
+        "name": "value",
+        "in": "query",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "take",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      }
+    ],
+    "requiredParams": [
+      "property(query)",
+      "value(query)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Contacts/Autocomplete/DataPoint",
+    "method": "GET",
+    "summary": "Get values for autocomplete",
+    "tags": [
+      "Contacts"
+    ],
+    "params": [
+      {
+        "name": "value",
+        "in": "query",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "take",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      }
+    ],
+    "requiredParams": [
+      "value(query)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Contacts/Autocomplete/DataPoint/Key",
+    "method": "GET",
+    "summary": "Get values for autocomplete",
+    "tags": [
+      "Contacts"
+    ],
+    "params": [
+      {
+        "name": "key",
+        "in": "query",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "type",
+        "in": "query",
+        "required": true,
+        "type": "integer"
+      },
+      {
+        "name": "value",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "take",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      }
+    ],
+    "requiredParams": [
+      "key(query)",
+      "type(query)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Contacts/Block",
+    "method": "GET",
+    "summary": "Get all  Block or non Ative contacts.",
+    "tags": [
+      "Contacts"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": "#/definitions/Ungapped.Contracts.Contacts.Contact"
+  },
+  {
+    "path": "/Contacts/BlockSms",
+    "method": "GET",
+    "summary": "Get all BlockSms or No ActiveSms contacts.",
+    "tags": [
+      "Contacts"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": "#/definitions/Ungapped.Contracts.Contacts.Contact"
+  },
+  {
+    "path": "/Contacts/Bounce",
+    "method": "GET",
+    "summary": "Get all Bounced contacts.",
+    "tags": [
+      "Contacts"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": "#/definitions/Ungapped.Contracts.Contacts.Contact"
+  },
+  {
+    "path": "/Contacts/BulkByIds",
+    "method": "DELETE",
+    "summary": "Deletes contacts by ContactIds in bulk by sending batches via bus, processing up to 5000 contacts in 500-contact batches (recoverable).",
+    "tags": [
+      "Contacts"
+    ],
+    "params": [
+      {
+        "name": "contactIds",
+        "in": "body",
+        "required": true,
+        "type": "array"
+      }
+    ],
+    "requiredParams": [
+      "contactIds(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Contacts/Count",
+    "method": "GET",
+    "summary": "Count all contacts.",
+    "tags": [
+      "Contacts"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": null
+  },
+  {
+    "path": "/Contacts/Delete",
+    "method": "GET",
+    "summary": "Get all  Delete (marked with status delete) contacts.",
+    "tags": [
+      "Contacts"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": "#/definitions/Ungapped.Contracts.Contacts.Contact"
+  },
+  {
+    "path": "/Contacts/ExcelExport",
+    "method": "GET",
+    "summary": "Request Excel export of contacts for the current account\r\nIf listId is provided, exports only contacts in that list\r\nOtherwise exports all contacts for the account",
+    "tags": [
+      "Contacts"
+    ],
+    "params": [
+      {
+        "name": "listId",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [],
+    "responseRef": null
+  },
+  {
+    "path": "/Contacts/External/{externalId}",
+    "method": "GET",
+    "summary": "Get a contact by its external id.",
+    "tags": [
+      "Contacts"
+    ],
+    "params": [
+      {
+        "name": "externalId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "externalId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Contacts/External/{externalId}/Timeline",
+    "method": "GET",
+    "summary": "",
+    "tags": [
+      "Contacts"
+    ],
+    "params": [
+      {
+        "name": "externalId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "externalId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Contacts/Fields",
+    "method": "GET",
+    "summary": "Used for integration purposes to present possible fields on a contact which may be updated using UpdateContact.",
+    "tags": [
+      "Contacts"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": null
+  },
+  {
+    "path": "/Contacts/FilteredIds",
+    "method": "POST",
+    "summary": "Get ContactIds based on filter criteria (without OData)",
+    "tags": [
+      "Contacts"
+    ],
+    "params": [
+      {
+        "name": "filterRequest",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.Contacts.ContactFilterRequest"
+      }
+    ],
+    "requiredParams": [
+      "filterRequest(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Contacts/Full",
+    "method": "GET",
+    "summary": "Get all contacts.",
+    "tags": [
+      "Contacts"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": "#/definitions/Ungapped.Contracts.Contacts.Contact"
+  },
+  {
+    "path": "/Contacts/New",
+    "method": "GET",
+    "summary": "Get an empty contact.",
+    "tags": [
+      "Contacts"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": null
+  },
+  {
+    "path": "/EventIssueCommunicationTypes",
+    "method": "POST",
+    "summary": "Creates a new communication type.",
+    "tags": [
+      "EventIssueCommunicationType"
+    ],
+    "params": [
+      {
+        "name": "request",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.Issues.CreateEventIssueCommunicationTypeRequest"
+      }
+    ],
+    "requiredParams": [
+      "request(body)"
+    ],
+    "responseRef": "#/definitions/Ungapped.Contracts.Issues.EventIssueCommunicationType"
+  },
+  {
+    "path": "/EventIssueCommunicationTypes/{id}",
+    "method": "DELETE",
+    "summary": "Deletes a communication type.",
+    "tags": [
+      "EventIssueCommunicationType"
+    ],
+    "params": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "id(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/EventIssueCommunicationTypes/{id}",
+    "method": "PUT",
+    "summary": "Updates an existing communication type.",
+    "tags": [
+      "EventIssueCommunicationType"
+    ],
+    "params": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "request",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.Issues.UpdateEventIssueCommunicationTypeRequest"
+      }
+    ],
+    "requiredParams": [
+      "id(path)",
+      "request(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/EventIssueCommunicationTypes/Event/{eventId}",
+    "method": "GET",
+    "summary": "Gets communication types for an event.",
+    "tags": [
+      "EventIssueCommunicationType"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)"
+    ],
+    "responseRef": "#/definitions/Ungapped.Contracts.Issues.EventIssueCommunicationType"
+  },
+  {
+    "path": "/EventIssueCommunicationTypes/Object/{objectId}",
+    "method": "GET",
+    "summary": "Gets communication types for an object (Issue or SMS).",
+    "tags": [
+      "EventIssueCommunicationType"
+    ],
+    "params": [
+      {
+        "name": "objectId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "objectId(path)"
+    ],
+    "responseRef": "#/definitions/Ungapped.Contracts.Issues.EventIssueCommunicationType"
+  },
+  {
+    "path": "/Events",
+    "method": "DELETE",
+    "summary": "Flags all passed surveys as deleted.",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventIds",
+        "in": "body",
+        "required": true,
+        "type": "array"
+      }
+    ],
+    "requiredParams": [
+      "eventIds(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events",
+    "method": "GET",
+    "summary": "Gets all events",
+    "tags": [
+      "Events"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": null
+  },
+  {
+    "path": "/Events",
+    "method": "POST",
+    "summary": "Create a new event with an eventId",
+    "tags": [
+      "Events"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": "#/definitions/Ungapped.Contracts.Events2.Event2Dto"
+  },
+  {
+    "path": "/Events/{eventId}",
+    "method": "GET",
+    "summary": "Gets an event2 by id.",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)"
+    ],
+    "responseRef": "#/definitions/Ungapped.Contracts.Events2.Event2Dto"
+  },
+  {
+    "path": "/Events/{eventId}",
+    "method": "POST",
+    "summary": "Updates an event2 by id.",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "event2Dto",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.Events2.Event2Dto"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "event2Dto(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/{property}",
+    "method": "POST",
+    "summary": "Update event property",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "property",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "value",
+        "in": "body",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "isPublished",
+        "in": "query",
+        "required": false,
+        "type": "boolean"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "property(path)",
+      "value(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/AddDefaultContent",
+    "method": "POST",
+    "summary": "AddDefaultContent",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "contentType",
+        "in": "query",
+        "required": true,
+        "type": "integer"
+      },
+      {
+        "name": "segmentId",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "type",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "segmentRelation",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      },
+      {
+        "name": "communicationType",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      },
+      {
+        "name": "returnEvent",
+        "in": "query",
+        "required": false,
+        "type": "boolean"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "contentType(query)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/AddFromList",
+    "method": "POST",
+    "summary": "Adds all contacts from a list as participants",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "listId",
+        "in": "query",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "listId(query)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/AddNewParticipant",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "participant",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.Events2.AddParticipant"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "participant(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/AddSpeakersToEvent",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "eventSpeakers",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.Events2.EventSpeaker"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "eventSpeakers(body)"
+    ],
+    "responseRef": "#/definitions/Ungapped.Contracts.Events2.EventSpeaker"
+  },
+  {
+    "path": "/Events/{eventId}/AddSponsorsToEvent",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "eventSponsors",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.Events2.EventSponsor"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "eventSponsors(body)"
+    ],
+    "responseRef": "#/definitions/Ungapped.Contracts.Events2.EventSponsor"
+  },
+  {
+    "path": "/Events/{eventId}/attendance/AddNewParticipant",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "participant",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.Events2.AddParticipant"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "participant(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/attendance/CheckPublicPinCode",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "userPinCode",
+        "in": "body",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "userPinCode(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/attendance/EnrichParticipants",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "ids",
+        "in": "body",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "ids(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/attendance/ExportParticipants",
+    "method": "GET",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "status",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)"
+    ],
+    "responseRef": "#/definitions/Ungapped.Contracts.Resources.Resource"
+  },
+  {
+    "path": "/Events/{eventId}/attendance/FullParticipantStatus",
+    "method": "GET",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/attendance/GetParticipants",
+    "method": "GET",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/attendance/GuestList",
+    "method": "GET",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "preview",
+        "in": "query",
+        "required": false,
+        "type": "boolean"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/attendance/Language",
+    "method": "GET",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/attendance/ParticipantStates",
+    "method": "GET",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/attendance/UpdateParticipantStatus/{eventParticipantId}",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "eventParticipantId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "status",
+        "in": "body",
+        "required": true,
+        "type": "integer"
+      },
+      {
+        "name": "supressNotifications",
+        "in": "query",
+        "required": false,
+        "type": "boolean"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "eventParticipantId(path)",
+      "status(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/BulkStatusChange",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "request",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.Events2.BulkStatusChangeRequest"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "request(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/Copy",
+    "method": "POST",
+    "summary": "Create a new event from another",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "eventCopySettings",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.Events2.EventCopySettings"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "eventCopySettings(body)"
+    ],
+    "responseRef": "#/definitions/Ungapped.Contracts.Events2.Event2Dto"
+  },
+  {
+    "path": "/Events/{eventId}/CreateEventSegment",
+    "method": "POST",
+    "summary": "Create segment when needed",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "segmentRelation",
+        "in": "body",
+        "required": true,
+        "type": "integer"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "segmentRelation(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/CreateOrUpdateEventSpeakers",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "speaker",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.Speaker.NewSpeaker"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "speaker(body)"
+    ],
+    "responseRef": "#/definitions/Ungapped.Contracts.Events2.EventSpeaker"
+  },
+  {
+    "path": "/Events/{eventId}/CreateOrUpdateEventSponsors",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "sponsor",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.Sponsor.NewSponsor"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "sponsor(body)"
+    ],
+    "responseRef": "#/definitions/Ungapped.Contracts.Events2.EventSponsor"
+  },
+  {
+    "path": "/Events/{eventId}/DeleteAttestationIssue",
+    "method": "POST",
+    "summary": "Delete ParticipantStatusIssue",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/DeleteEventSpeakers/{speakerId}",
+    "method": "DELETE",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "speakerId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "speakerId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/DeleteEventSponsor/{sponsorId}",
+    "method": "DELETE",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "sponsorId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "sponsorId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/DeleteIssues",
+    "method": "POST",
+    "summary": "Delete issues",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "deleteIssues",
+        "in": "body",
+        "required": true,
+        "type": "array"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "deleteIssues(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/DeleteParticipantStatusIssue",
+    "method": "POST",
+    "summary": "Delete ParticipantStatusIssue",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/DeleteSmsMessages",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "smsMessagesToDelete",
+        "in": "body",
+        "required": true,
+        "type": "array"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "smsMessagesToDelete(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/DisconnectIssues",
+    "method": "POST",
+    "summary": "Disconnect issues from event",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "issuesToDisconnect",
+        "in": "body",
+        "required": true,
+        "type": "array"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "issuesToDisconnect(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/DisconnectSmsMessages",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "smsMessagesToDisconnect",
+        "in": "body",
+        "required": true,
+        "type": "array"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "smsMessagesToDisconnect(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/DisconnectSurveys",
+    "method": "POST",
+    "summary": "Disconnect surveys from event",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "surveysToDisconnect",
+        "in": "body",
+        "required": true,
+        "type": "array"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "surveysToDisconnect(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/EndEvent",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/EventSpeakerOrdinal",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "speakerListId",
+        "in": "body",
+        "required": true,
+        "type": "array"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "speakerListId(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/EventSponsorOrdinal",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "sponsorListId",
+        "in": "body",
+        "required": true,
+        "type": "array"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "sponsorListId(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/FullParticipantStatus",
+    "method": "GET",
+    "summary": "Gets the full participant status for an event",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/GetEventParticipantsWithChildren",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "eventGuestListParentSearch",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.Events2.EventGuestListParentSearch"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "eventGuestListParentSearch(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/ParticipantExport",
+    "method": "GET",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "status",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)"
+    ],
+    "responseRef": "#/definitions/Ungapped.Contracts.Resources.Resource"
+  },
+  {
+    "path": "/Events/{eventId}/Participants",
+    "method": "GET",
+    "summary": "Gets all participants for event",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "freeTextFilter",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/Participants/{participantId}/SendAttestationMail",
+    "method": "POST",
+    "summary": "Send confirmation mail",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "participantId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "participantId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/Participants/{participantId}/SendConfirmationMail",
+    "method": "POST",
+    "summary": "Send confirmation mail",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "participantId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "status",
+        "in": "body",
+        "required": true,
+        "type": "integer"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "participantId(path)",
+      "status(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/PauseEvent",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/Publish",
+    "method": "POST",
+    "summary": "Publish an event",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "scheduledObjects",
+        "in": "body",
+        "required": true,
+        "type": "array"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "scheduledObjects(body)"
+    ],
+    "responseRef": "#/definitions/Ungapped.Contracts.Events2.Event2Dto"
+  },
+  {
+    "path": "/Events/{eventId}/PublishEventSurvey",
+    "method": "POST",
+    "summary": "Publish event survey when it set to default and event is active",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/Registration/{contactId}",
+    "method": "GET",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "contactId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "contactId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/RemoveEventSensitiveAnswers",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "surveyId",
+        "in": "body",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "surveyId(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/RemoveParticipant/{eventParticipantId}",
+    "method": "DELETE",
+    "summary": "Remove participant from event",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "eventParticipantId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "eventParticipantId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/SendMultipleAttestationMail",
+    "method": "POST",
+    "summary": "Send attestation mail to all attesters",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/SendParticipantNotificationTest",
+    "method": "POST",
+    "summary": "Send a test mail",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "testMail",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.Events2.EventTestMail"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "testMail(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/Speakers",
+    "method": "GET",
+    "summary": "Gets Event Speakers",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)"
+    ],
+    "responseRef": "#/definitions/Ungapped.Contracts.Events2.EventSpeaker"
+  },
+  {
+    "path": "/Events/{eventId}/Sponsors",
+    "method": "GET",
+    "summary": "Gets Event Speakers",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)"
+    ],
+    "responseRef": "#/definitions/Ungapped.Contracts.Events2.EventSponsor"
+  },
+  {
+    "path": "/Events/{eventId}/StatusToAttended",
+    "method": "POST",
+    "summary": "Change selected participants status to attended",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "selectedParticipants",
+        "in": "body",
+        "required": true,
+        "type": "array"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "selectedParticipants(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/Tags",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "tags",
+        "in": "body",
+        "required": true,
+        "type": "array"
+      },
+      {
+        "name": "isPublished",
+        "in": "query",
+        "required": false,
+        "type": "boolean"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "tags(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/Unpublish",
+    "method": "POST",
+    "summary": "UnPublish an event",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)"
+    ],
+    "responseRef": "#/definitions/Ungapped.Contracts.Events2.Event2Dto"
+  },
+  {
+    "path": "/Events/{eventId}/UpdateEventParticipantInternalComment/{eventParticipantId}",
+    "method": "POST",
+    "summary": "Update participant internal comment",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "eventParticipantId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "internalComment",
+        "in": "body",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "eventParticipantId(path)",
+      "internalComment(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/UpdateExportList/{listId}",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "listId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "listId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{eventId}/UpdateParticipantStatus/{eventParticipantId}/{status}",
+    "method": "POST",
+    "summary": "Update participant status",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "eventParticipantId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "status",
+        "in": "path",
+        "required": true,
+        "type": "integer"
+      },
+      {
+        "name": "supressNotifications",
+        "in": "body",
+        "required": true,
+        "type": "boolean"
+      }
+    ],
+    "requiredParams": [
+      "eventId(path)",
+      "eventParticipantId(path)",
+      "status(path)",
+      "supressNotifications(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/{issueId}/AbortScheduledIssue",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "issueId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "issueId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/CreateOrUpdateSpeakers",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "speaker",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.Speaker.NewSpeaker"
+      }
+    ],
+    "requiredParams": [
+      "speaker(body)"
+    ],
+    "responseRef": "#/definitions/Ungapped.Contracts.Speaker.Speaker"
+  },
+  {
+    "path": "/Events/CreateOrUpdateSponsor",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "sponsor",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.Sponsor.NewSponsor"
+      }
+    ],
+    "requiredParams": [
+      "sponsor(body)"
+    ],
+    "responseRef": "#/definitions/Ungapped.Contracts.Sponsor.Sponsor"
+  },
+  {
+    "path": "/Events/Deleted",
+    "method": "GET",
+    "summary": "Gets all deleted events",
+    "tags": [
+      "Events"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/DeleteSpeakers/{speakerId}",
+    "method": "DELETE",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "speakerId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "speakerId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/DeleteSponsor/{sponsorId}",
+    "method": "DELETE",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "sponsorId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "sponsorId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/Draft",
+    "method": "GET",
+    "summary": "Gets all draft events",
+    "tags": [
+      "Events"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/Ended",
+    "method": "GET",
+    "summary": "Gets all published events",
+    "tags": [
+      "Events"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/Listing",
+    "method": "GET",
+    "summary": "Gets all event as listings",
+    "tags": [
+      "Events"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/listItems",
+    "method": "GET",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "page",
+        "in": "query",
+        "required": true,
+        "type": "integer"
+      },
+      {
+        "name": "pageSize",
+        "in": "query",
+        "required": true,
+        "type": "integer"
+      },
+      {
+        "name": "freeText",
+        "in": "query",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "status",
+        "in": "query",
+        "required": true,
+        "type": "integer"
+      },
+      {
+        "name": "orderByValue",
+        "in": "query",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "orderByDirection",
+        "in": "query",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "tagIds",
+        "in": "query",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "start",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "end",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "page(query)",
+      "pageSize(query)",
+      "freeText(query)",
+      "status(query)",
+      "orderByValue(query)",
+      "orderByDirection(query)",
+      "tagIds(query)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/ParticipantStates",
+    "method": "GET",
+    "summary": "Gets all participant states",
+    "tags": [
+      "Events"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/Paused",
+    "method": "GET",
+    "summary": "Gets all published events",
+    "tags": [
+      "Events"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/Published",
+    "method": "GET",
+    "summary": "Gets all published events",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "tagIds",
+        "in": "query",
+        "required": true,
+        "type": "array"
+      },
+      {
+        "name": "orderby",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "filter",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "tagIds(query)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/Speakers",
+    "method": "GET",
+    "summary": "Gets all Speakers",
+    "tags": [
+      "Events"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": "#/definitions/Ungapped.Contracts.Speaker.Speaker"
+  },
+  {
+    "path": "/Events/Sponsors",
+    "method": "GET",
+    "summary": "Gets all Sponsors",
+    "tags": [
+      "Events"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": "#/definitions/Ungapped.Contracts.Sponsor.Sponsor"
+  },
+  {
+    "path": "/Events/SurveyAnswer/Create/{surveyResponseId}/{eventParticipantId}",
+    "method": "POST",
+    "summary": "Create survey answer",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "surveyResponseId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "eventParticipantId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "surveyAnswer",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.Surveys.CompleteSurveyResponse.SurveyAnswer"
+      }
+    ],
+    "requiredParams": [
+      "surveyResponseId(path)",
+      "eventParticipantId(path)",
+      "surveyAnswer(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/SurveyAnswer/Update/{eventParticipantId}",
+    "method": "POST",
+    "summary": "Update survey answer",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventParticipantId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "surveyAnswer",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.Surveys.CompleteSurveyResponse.SurveyAnswer"
+      }
+    ],
+    "requiredParams": [
+      "eventParticipantId(path)",
+      "surveyAnswer(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/SurveyResponse/{responseId}",
+    "method": "GET",
+    "summary": "Gets a full surveyResponse for display",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "responseId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "responseId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/SurveyResponse/History/{eventParticipantId}",
+    "method": "GET",
+    "summary": "Get event participant history data",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventParticipantId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "eventParticipantId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/Translations",
+    "method": "DELETE",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "translation",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.Common.Translation"
+      }
+    ],
+    "requiredParams": [
+      "translation(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/Translations",
+    "method": "GET",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "eventId",
+        "in": "query",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "eventId(query)"
+    ],
+    "responseRef": "#/definitions/Ungapped.Contracts.Common.Translation"
+  },
+  {
+    "path": "/Events/Translations/Create",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "translation",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.Common.Translation"
+      }
+    ],
+    "requiredParams": [
+      "translation(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Events/Translations/Update",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "Events"
+    ],
+    "params": [
+      {
+        "name": "translation",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.Common.Translation"
+      }
+    ],
+    "requiredParams": [
+      "translation(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/ExtendedData",
+    "method": "GET",
+    "summary": "Gets all extended data items with paging",
+    "tags": [
+      "ExtendedData"
+    ],
+    "params": [
+      {
+        "name": "page",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      },
+      {
+        "name": "pageSize",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      }
+    ],
+    "requiredParams": [],
+    "responseRef": "#/definitions/Ungapped.Contracts.ExtendedData.ExtendedDataItem"
+  },
+  {
+    "path": "/ExtendedData",
+    "method": "POST",
+    "summary": "Creates a new extended data item",
+    "tags": [
+      "ExtendedData"
+    ],
+    "params": [
+      {
+        "name": "item",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.ExtendedData.ExtendedDataItem"
+      }
+    ],
+    "requiredParams": [
+      "item(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/ExtendedData/{type}",
+    "method": "GET",
+    "summary": "Gets all extended data items of a specific type on the account with paging",
+    "tags": [
+      "ExtendedData"
+    ],
+    "params": [
+      {
+        "name": "type",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "page",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      },
+      {
+        "name": "pageSize",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      }
+    ],
+    "requiredParams": [
+      "type(path)"
+    ],
+    "responseRef": "#/definitions/Ungapped.Contracts.ExtendedData.ExtendedDataItem"
+  },
+  {
+    "path": "/ExtendedData/Item/{id}",
+    "method": "DELETE",
+    "summary": "Deletes an extended data item",
+    "tags": [
+      "ExtendedData"
+    ],
+    "params": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "id(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/ExtendedData/Item/{id}",
+    "method": "GET",
+    "summary": "Gets a specific extended data item by ID",
+    "tags": [
+      "ExtendedData"
+    ],
+    "params": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "id(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/ExtendedData/Item/{id}",
+    "method": "PUT",
+    "summary": "Updates an existing extended data item",
+    "tags": [
+      "ExtendedData"
+    ],
+    "params": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "item",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.ExtendedData.ExtendedDataItem"
+      }
+    ],
+    "requiredParams": [
+      "id(path)",
+      "item(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/ExtendedData/mine",
+    "method": "GET",
+    "summary": "Gets all extended data items created by the current user (no paging)",
+    "tags": [
+      "ExtendedData"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": "#/definitions/Ungapped.Contracts.ExtendedData.ExtendedDataItem"
+  },
+  {
+    "path": "/ExtendedData/mine/{type}",
+    "method": "GET",
+    "summary": "Gets all extended data items of a specific type created by the current user with paging",
+    "tags": [
+      "ExtendedData"
+    ],
+    "params": [
+      {
+        "name": "type",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "page",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      },
+      {
+        "name": "pageSize",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      }
+    ],
+    "requiredParams": [
+      "type(path)"
+    ],
+    "responseRef": "#/definitions/Ungapped.Contracts.ExtendedData.ExtendedDataItem"
+  },
+  {
+    "path": "/Imports",
+    "method": "POST",
+    "summary": "Creates an Import.\r\nIf the same contact (email/sms) is found more than once only the _first_ instance will be imported.",
+    "tags": [
+      "Imports"
+    ],
+    "params": [
+      {
+        "name": "import",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/MailDirect.v4.Core.Models.Import"
+      }
+    ],
+    "requiredParams": [
+      "import(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Imports/AnalyzeColumns",
+    "method": "POST",
+    "summary": "Takes a resource and tries to identify column headers.",
+    "tags": [
+      "Imports"
+    ],
+    "params": [
+      {
+        "name": "resource",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.Resources.Resource"
+      }
+    ],
+    "requiredParams": [
+      "resource(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Imports/AnalyzeColumnsDataSource",
+    "method": "POST",
+    "summary": "Takes a json/xml and tries to identify column headers.",
+    "tags": [
+      "Imports"
+    ],
+    "params": [
+      {
+        "name": "dataSource",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/MailDirect.v4.Core.Models.DataSource"
+      }
+    ],
+    "requiredParams": [
+      "dataSource(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Imports/AnalyzeColumnsUrl",
+    "method": "POST",
+    "summary": "Takes a resource and tries to identify column headers.",
+    "tags": [
+      "Imports"
+    ],
+    "params": [
+      {
+        "name": "import",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/MailDirect.v4.Core.Models.Import"
+      }
+    ],
+    "requiredParams": [
+      "import(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Imports/AnalyzeColumnsUrlDataSource",
+    "method": "POST",
+    "summary": "Takes a resource and tries to identify column headers.",
+    "tags": [
+      "Imports"
+    ],
+    "params": [
+      {
+        "name": "import",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/MailDirect.v4.Core.Models.Import"
+      }
+    ],
+    "requiredParams": [
+      "import(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Imports/AnalyzeFile",
+    "method": "POST",
+    "summary": "Takes a resource and tries to identify column headers.",
+    "tags": [
+      "Imports"
+    ],
+    "params": [
+      {
+        "name": "resource",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.Resources.Resource"
+      }
+    ],
+    "requiredParams": [
+      "resource(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/IssueRecipients/{issueRecipientId}",
+    "method": "GET",
+    "summary": "Gets an issue recipient",
+    "tags": [
+      "IssueRecipients"
+    ],
+    "params": [
+      {
+        "name": "issueRecipientId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "issueRecipientId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Issues",
+    "method": "GET",
+    "summary": "Gets all issues.",
+    "tags": [
+      "Issues"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": "#/definitions/Ungapped.Contracts.Issues.Issue"
+  },
+  {
+    "path": "/Issues",
+    "method": "POST",
+    "summary": "Creates an issue.\r\n\r\n<p>Accepts null in which case a completely blank issue with default settings is created.</p>",
+    "tags": [
+      "Issues"
+    ],
+    "params": [
+      {
+        "name": "issue",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.Issues.Issue"
+      }
+    ],
+    "requiredParams": [
+      "issue(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Issues/{id}",
+    "method": "GET",
+    "summary": "Gets an issue by its id.",
+    "tags": [
+      "Issues"
+    ],
+    "params": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "id(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Issues/{id}/{property}",
+    "method": "POST",
+    "summary": "Updates an issue.",
+    "tags": [
+      "Issues"
+    ],
+    "params": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "property",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "value",
+        "in": "body",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "id(path)",
+      "property(path)",
+      "value(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Issues/{id}/Send",
+    "method": "POST",
+    "summary": "Schedules the issue for sending.\r\nDate passed must be in UTC format.",
+    "tags": [
+      "Issues"
+    ],
+    "params": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "sendIssue",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.Issues.SendIssue"
+      }
+    ],
+    "requiredParams": [
+      "id(path)",
+      "sendIssue(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Issues/{id}/Sender",
+    "method": "GET",
+    "summary": "Gets the sender of the issue by finding a task for it.",
+    "tags": [
+      "Issues"
+    ],
+    "params": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "id(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Issues/{issueId}/IssueRecipients/{issueRecipientId}",
+    "method": "GET",
+    "summary": "Gets an issue recipient",
+    "tags": [
+      "Issues"
+    ],
+    "params": [
+      {
+        "name": "issueId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "issueRecipientId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "issueId(path)",
+      "issueRecipientId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Issues/{issueId}/SendOccasions/{occasionId}/Recipients",
+    "method": "GET",
+    "summary": "Lists recipients for a specific send occasion.",
+    "tags": [
+      "Issues"
+    ],
+    "params": [
+      {
+        "name": "issueId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "occasionId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "issueId(path)",
+      "occasionId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Issues/{issueId}/SendTransactional",
+    "method": "POST",
+    "summary": "Schedules the issue for sending a transactional email without  list connection.",
+    "tags": [
+      "Issues"
+    ],
+    "params": [
+      {
+        "name": "issueId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "options",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.Issues.SendTransactionalOptions"
+      }
+    ],
+    "requiredParams": [
+      "issueId(path)",
+      "options(body)"
+    ],
+    "responseRef": "#/definitions/Ungapped.Contracts.Issues.IssueRecipient"
+  },
+  {
+    "path": "/Issues/{issueId}/Statistics/Overview",
+    "method": "GET",
+    "summary": "Gets statistics for an issue.",
+    "tags": [
+      "Issues"
+    ],
+    "params": [
+      {
+        "name": "issueId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "start",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "end",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "issueVariationFilter",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "issueId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Issues/{issueId}/Statistics/UnsubscribeReasons",
+    "method": "GET",
+    "summary": "",
+    "tags": [
+      "Issues"
+    ],
+    "params": [
+      {
+        "name": "issueId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "issueId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Issues/all",
+    "method": "GET",
+    "summary": "",
+    "tags": [
+      "Issues"
+    ],
+    "params": [
+      {
+        "name": "tagIds",
+        "in": "query",
+        "required": true,
+        "type": "array"
+      },
+      {
+        "name": "categoryIds",
+        "in": "query",
+        "required": true,
+        "type": "array"
+      },
+      {
+        "name": "fromAddress",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "sortOrder",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "currentFilter",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "orderByDirection",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "page",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      },
+      {
+        "name": "pageSize",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      },
+      {
+        "name": "sourceFilter",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      }
+    ],
+    "requiredParams": [
+      "tagIds(query)",
+      "categoryIds(query)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Issues/AllNoneTemplates",
+    "method": "GET",
+    "summary": "Gets all issues excluding templates.",
+    "tags": [
+      "Issues"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": "#/definitions/Ungapped.Contracts.Issues.Issue"
+  },
+  {
+    "path": "/Issues/Draft",
+    "method": "GET",
+    "summary": "",
+    "tags": [
+      "Issues"
+    ],
+    "params": [
+      {
+        "name": "tagIds",
+        "in": "query",
+        "required": true,
+        "type": "array"
+      },
+      {
+        "name": "categoryIds",
+        "in": "query",
+        "required": true,
+        "type": "array"
+      },
+      {
+        "name": "fromAddress",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "start",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "end",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "sortOrder",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "currentFilter",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "orderByDirection",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "page",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      },
+      {
+        "name": "pageSize",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      },
+      {
+        "name": "sourceFilter",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      }
+    ],
+    "requiredParams": [
+      "tagIds(query)",
+      "categoryIds(query)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Issues/Failed",
+    "method": "GET",
+    "summary": "",
+    "tags": [
+      "Issues"
+    ],
+    "params": [
+      {
+        "name": "tagIds",
+        "in": "query",
+        "required": true,
+        "type": "array"
+      },
+      {
+        "name": "categoryIds",
+        "in": "query",
+        "required": true,
+        "type": "array"
+      },
+      {
+        "name": "fromAddress",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "start",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "end",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "sortOrder",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "currentFilter",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "orderByDirection",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "page",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      },
+      {
+        "name": "pageSize",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      },
+      {
+        "name": "sourceFilter",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      }
+    ],
+    "requiredParams": [
+      "tagIds(query)",
+      "categoryIds(query)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Issues/IssueVariation",
+    "method": "GET",
+    "summary": "",
+    "tags": [
+      "Issues"
+    ],
+    "params": [
+      {
+        "name": "tagIds",
+        "in": "query",
+        "required": true,
+        "type": "array"
+      },
+      {
+        "name": "categoryIds",
+        "in": "query",
+        "required": true,
+        "type": "array"
+      },
+      {
+        "name": "fromAddress",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "start",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "end",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "sortOrder",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "currentFilter",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "orderByDirection",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "page",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      },
+      {
+        "name": "pageSize",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      },
+      {
+        "name": "sourceFilter",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      }
+    ],
+    "requiredParams": [
+      "tagIds(query)",
+      "categoryIds(query)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Issues/Listing",
+    "method": "GET",
+    "summary": "Gets all as listings",
+    "tags": [
+      "Issues"
+    ],
+    "params": [
+      {
+        "name": "journeyId",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [],
+    "responseRef": null
+  },
+  {
+    "path": "/Issues/Paused",
+    "method": "GET",
+    "summary": "",
+    "tags": [
+      "Issues"
+    ],
+    "params": [
+      {
+        "name": "tagIds",
+        "in": "query",
+        "required": true,
+        "type": "array"
+      },
+      {
+        "name": "categoryIds",
+        "in": "query",
+        "required": true,
+        "type": "array"
+      },
+      {
+        "name": "fromAddress",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "start",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "end",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "sortOrder",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "currentFilter",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "orderByDirection",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "page",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      },
+      {
+        "name": "pageSize",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      },
+      {
+        "name": "sourceFilter",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      }
+    ],
+    "requiredParams": [
+      "tagIds(query)",
+      "categoryIds(query)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Issues/PreviewDataSource",
+    "method": "GET",
+    "summary": "",
+    "tags": [
+      "Issues"
+    ],
+    "params": [
+      {
+        "name": "variableName",
+        "in": "query",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "variableName(query)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Issues/Recipient",
+    "method": "GET",
+    "summary": "Gets all issues sent to a contact by ContactId or ExternalId order by Scheduled descending.",
+    "tags": [
+      "Issues"
+    ],
+    "params": [
+      {
+        "name": "externalId",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "contactId",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "pageSize",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      },
+      {
+        "name": "page",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      }
+    ],
+    "requiredParams": [],
+    "responseRef": "#/definitions/Ungapped.Contracts.Issues.IssueListingForRecipient"
+  },
+  {
+    "path": "/Issues/Scheduled",
+    "method": "GET",
+    "summary": "",
+    "tags": [
+      "Issues"
+    ],
+    "params": [
+      {
+        "name": "tagIds",
+        "in": "query",
+        "required": true,
+        "type": "array"
+      },
+      {
+        "name": "categoryIds",
+        "in": "query",
+        "required": true,
+        "type": "array"
+      },
+      {
+        "name": "recurring",
+        "in": "query",
+        "required": false,
+        "type": "boolean"
+      },
+      {
+        "name": "fromAddress",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "start",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "end",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "sortOrder",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "currentFilter",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "orderByDirection",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "page",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      },
+      {
+        "name": "pageSize",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      },
+      {
+        "name": "sourceFilter",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      }
+    ],
+    "requiredParams": [
+      "tagIds(query)",
+      "categoryIds(query)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Issues/Sending",
+    "method": "GET",
+    "summary": "",
+    "tags": [
+      "Issues"
+    ],
+    "params": [
+      {
+        "name": "tagIds",
+        "in": "query",
+        "required": true,
+        "type": "array"
+      },
+      {
+        "name": "categoryIds",
+        "in": "query",
+        "required": true,
+        "type": "array"
+      },
+      {
+        "name": "fromAddress",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "start",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "end",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "sortOrder",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "currentFilter",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "orderByDirection",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "page",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      },
+      {
+        "name": "pageSize",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      },
+      {
+        "name": "sourceFilter",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      }
+    ],
+    "requiredParams": [
+      "tagIds(query)",
+      "categoryIds(query)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Issues/Sending/{issueId}",
+    "method": "GET",
+    "summary": "Gets sending issue with issueId.",
+    "tags": [
+      "Issues"
+    ],
+    "params": [
+      {
+        "name": "issueId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "issueId(path)"
+    ],
+    "responseRef": "#/definitions/Ungapped.Contracts.Issues.FullIssue"
+  },
+  {
+    "path": "/Issues/Sent",
+    "method": "GET",
+    "summary": "",
+    "tags": [
+      "Issues"
+    ],
+    "params": [
+      {
+        "name": "tagIds",
+        "in": "query",
+        "required": true,
+        "type": "array"
+      },
+      {
+        "name": "categoryIds",
+        "in": "query",
+        "required": true,
+        "type": "array"
+      },
+      {
+        "name": "fromAddress",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "start",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "end",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "sortOrder",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "currentFilter",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "orderByDirection",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "page",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      },
+      {
+        "name": "pageSize",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      },
+      {
+        "name": "sourceFilter",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      }
+    ],
+    "requiredParams": [
+      "tagIds(query)",
+      "categoryIds(query)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Issues/Sent/{issueId}/Statistics",
+    "method": "GET",
+    "summary": "",
+    "tags": [
+      "Issues"
+    ],
+    "params": [
+      {
+        "name": "issueId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "issueId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Issues/SentList",
+    "method": "GET",
+    "summary": "",
+    "tags": [
+      "Issues"
+    ],
+    "params": [
+      {
+        "name": "tagIds",
+        "in": "query",
+        "required": true,
+        "type": "array"
+      },
+      {
+        "name": "categoryIds",
+        "in": "query",
+        "required": true,
+        "type": "array"
+      },
+      {
+        "name": "fromAddress",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "start",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "end",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "sortOrder",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "currentFilter",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "orderByDirection",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "page",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      },
+      {
+        "name": "pageSize",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      },
+      {
+        "name": "sourceFilter",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      }
+    ],
+    "requiredParams": [
+      "tagIds(query)",
+      "categoryIds(query)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Issues/Statistics",
+    "method": "GET",
+    "summary": "Gets statistics for all issues.",
+    "tags": [
+      "Issues"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": null
+  },
+  {
+    "path": "/Issues/Templates",
+    "method": "GET",
+    "summary": "Gets all templates",
+    "tags": [
+      "Issues"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": "#/definitions/Ungapped.Contracts.Issues.Issue"
+  },
+  {
+    "path": "/Issues/TemplatesListing",
+    "method": "GET",
+    "summary": "",
+    "tags": [
+      "Issues"
+    ],
+    "params": [
+      {
+        "name": "tagIds",
+        "in": "query",
+        "required": true,
+        "type": "array"
+      },
+      {
+        "name": "categoryIds",
+        "in": "query",
+        "required": true,
+        "type": "array"
+      },
+      {
+        "name": "fromAddress",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "start",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "end",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "sortOrder",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "currentFilter",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "orderByDirection",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "page",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      },
+      {
+        "name": "pageSize",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      },
+      {
+        "name": "sourceFilter",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      }
+    ],
+    "requiredParams": [
+      "tagIds(query)",
+      "categoryIds(query)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Issues/UnlinkJourney",
+    "method": "POST",
+    "summary": "Removes any connected Journey as well as setting back the Issue status to Draft.",
+    "tags": [
+      "Issues"
+    ],
+    "params": [
+      {
+        "name": "issueIds",
+        "in": "body",
+        "required": true,
+        "type": "array"
+      }
+    ],
+    "requiredParams": [
+      "issueIds(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Lists",
+    "method": "GET",
+    "summary": "Gets all lists.",
+    "tags": [
+      "Lists"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": null
+  },
+  {
+    "path": "/Lists",
+    "method": "POST",
+    "summary": "Creates a new list in account",
+    "tags": [
+      "Lists"
+    ],
+    "params": [
+      {
+        "name": "list",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.Contacts.List"
+      }
+    ],
+    "requiredParams": [
+      "list(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Lists/{id}",
+    "method": "GET",
+    "summary": "Gets a list by its id.",
+    "tags": [
+      "Lists"
+    ],
+    "params": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "id(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Lists/{id}/Clear",
+    "method": "POST",
+    "summary": "Clear a list.",
+    "tags": [
+      "Lists"
+    ],
+    "params": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "id(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Lists/{listId}/ContactIds",
+    "method": "DELETE",
+    "summary": "Removes existing contact id(s) from list. No updates are made to the contacts themselves!",
+    "tags": [
+      "Lists"
+    ],
+    "params": [
+      {
+        "name": "listId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "contactIds",
+        "in": "body",
+        "required": true,
+        "type": "array"
+      }
+    ],
+    "requiredParams": [
+      "listId(path)",
+      "contactIds(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Lists/{listId}/ContactIds",
+    "method": "POST",
+    "summary": "Adds existing contactids to list. No updates are made to the contacts themselves!\r\nMuch faster than than passing objects to /Lists/{ListId}/Contacts.",
+    "tags": [
+      "Lists"
+    ],
+    "params": [
+      {
+        "name": "listId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "contactIds",
+        "in": "body",
+        "required": true,
+        "type": "array"
+      }
+    ],
+    "requiredParams": [
+      "listId(path)",
+      "contactIds(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Lists/{listId}/Contacts",
+    "method": "DELETE",
+    "summary": "Removes existing contact(s) from list. No updates are made to the contacts themselves!\r\nRecommended use is to only pass ContactId:s",
+    "tags": [
+      "Lists"
+    ],
+    "params": [
+      {
+        "name": "listId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "contacts",
+        "in": "body",
+        "required": true,
+        "type": "array"
+      }
+    ],
+    "requiredParams": [
+      "listId(path)",
+      "contacts(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Lists/{listId}/Contacts",
+    "method": "GET",
+    "summary": "Gets all contacts in this list.",
+    "tags": [
+      "Lists"
+    ],
+    "params": [
+      {
+        "name": "listId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "listId(path)"
+    ],
+    "responseRef": "#/definitions/Ungapped.Contracts.Contacts.ContactInList"
+  },
+  {
+    "path": "/Lists/{listId}/Contacts",
+    "method": "POST",
+    "summary": "Adds existing contact(s) to list. No updates are made to the contacts themselves!\r\nRecommended use is to only pass ContactId:s",
+    "tags": [
+      "Lists"
+    ],
+    "params": [
+      {
+        "name": "listId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "contacts",
+        "in": "body",
+        "required": true,
+        "type": "array"
+      }
+    ],
+    "requiredParams": [
+      "listId(path)",
+      "contacts(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Lists/{listId}/Import",
+    "method": "POST",
+    "summary": "Create a  new task-Import",
+    "tags": [
+      "Lists"
+    ],
+    "params": [
+      {
+        "name": "listId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "contacts",
+        "in": "body",
+        "required": true,
+        "type": "array"
+      },
+      {
+        "name": "clearlist",
+        "in": "query",
+        "required": true,
+        "type": "boolean"
+      }
+    ],
+    "requiredParams": [
+      "listId(path)",
+      "contacts(body)",
+      "clearlist(query)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Lists/{listId}/Stats",
+    "method": "GET",
+    "summary": "Gets contact statistics",
+    "tags": [
+      "Lists"
+    ],
+    "params": [
+      {
+        "name": "listId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "listId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/ProcessingTasks",
+    "method": "GET",
+    "summary": "",
+    "tags": [
+      "ProcessingTask"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": null
+  },
+  {
+    "path": "/ProcessingTasks/{id}/cancel",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "ProcessingTask"
+    ],
+    "params": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "id(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/ProcessingTasks/anonymizecontacts",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "ProcessingTask"
+    ],
+    "params": [
+      {
+        "name": "inactiveMonths",
+        "in": "body",
+        "required": true,
+        "type": "integer"
+      }
+    ],
+    "requiredParams": [
+      "inactiveMonths(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/ProcessingTasks/mergecontacts",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "ProcessingTask"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": null
+  },
+  {
+    "path": "/Surveys",
+    "method": "GET",
+    "summary": "Gets all surveys.",
+    "tags": [
+      "Surveys"
+    ],
+    "params": [
+      {
+        "name": "lastModified",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [],
+    "responseRef": "#/definitions/Ungapped.Contracts.Surveys.SurveyListing"
+  },
+  {
+    "path": "/Surveys/{surveyId}",
+    "method": "GET",
+    "summary": "Gets a survey for editing",
+    "tags": [
+      "Surveys"
+    ],
+    "params": [
+      {
+        "name": "surveyId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "surveyId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Surveys/{surveyId}/IsActive",
+    "method": "GET",
+    "summary": "Checks if a survey belongs to the current account and is active.",
+    "tags": [
+      "Surveys"
+    ],
+    "params": [
+      {
+        "name": "surveyId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "surveyId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Surveys/{surveyId}/QuestionOptions/{questionId}",
+    "method": "GET",
+    "summary": "Gets all QuestionOptions.",
+    "tags": [
+      "Surveys"
+    ],
+    "params": [
+      {
+        "name": "questionId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "surveyId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "questionId(path)",
+      "surveyId(path)"
+    ],
+    "responseRef": "#/definitions/Ungapped.Contracts.Surveys.QuestionOption"
+  },
+  {
+    "path": "/Surveys/{surveyId}/Questions",
+    "method": "GET",
+    "summary": "Gets all surveysQuestions.",
+    "tags": [
+      "Surveys"
+    ],
+    "params": [
+      {
+        "name": "surveyId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "surveyId(path)"
+    ],
+    "responseRef": "#/definitions/Ungapped.Contracts.Surveys.Question"
+  },
+  {
+    "path": "/Surveys/{surveyId}/RemoveSensitiveAnswers",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "Surveys"
+    ],
+    "params": [
+      {
+        "name": "surveyId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "surveyId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Surveys/{surveyId}/Report",
+    "method": "GET",
+    "summary": "Returns the survey data as a report.",
+    "tags": [
+      "Surveys"
+    ],
+    "params": [
+      {
+        "name": "surveyId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "format",
+        "in": "query",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "filters",
+        "in": "query",
+        "required": false,
+        "type": "array"
+      },
+      {
+        "name": "start",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "end",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "cultures",
+        "in": "query",
+        "required": false,
+        "type": "array"
+      },
+      {
+        "name": "includeDeleted",
+        "in": "query",
+        "required": false,
+        "type": "boolean"
+      }
+    ],
+    "requiredParams": [
+      "surveyId(path)",
+      "format(query)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Surveys/{surveyId}/Responses",
+    "method": "GET",
+    "summary": "Returns all responses for this survey",
+    "tags": [
+      "Surveys"
+    ],
+    "params": [
+      {
+        "name": "surveyId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "filters",
+        "in": "query",
+        "required": false,
+        "type": "array"
+      },
+      {
+        "name": "start",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "end",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "surveyId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Surveys/{surveyId}/Responses/{surveyResponseId}/Public",
+    "method": "GET",
+    "summary": "Gets one response by id",
+    "tags": [
+      "Surveys"
+    ],
+    "params": [
+      {
+        "name": "surveyId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "surveyResponseId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "surveyId(path)",
+      "surveyResponseId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Surveys/{surveyId}/Statistics",
+    "method": "GET",
+    "summary": "",
+    "tags": [
+      "Surveys"
+    ],
+    "params": [
+      {
+        "name": "surveyId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "filters",
+        "in": "query",
+        "required": false,
+        "type": "array"
+      },
+      {
+        "name": "start",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "end",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "cultures",
+        "in": "query",
+        "required": false,
+        "type": "array"
+      },
+      {
+        "name": "includeDeleted",
+        "in": "query",
+        "required": false,
+        "type": "boolean"
+      }
+    ],
+    "requiredParams": [
+      "surveyId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Surveys/{surveyId}/Statistics/HasDeletedQuestions",
+    "method": "GET",
+    "summary": "",
+    "tags": [
+      "Surveys"
+    ],
+    "params": [
+      {
+        "name": "surveyId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "surveyId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Surveys/{surveyId}/Statistics/Public",
+    "method": "GET",
+    "summary": "Gets a survey with full statistics filtered if filter is provided .",
+    "tags": [
+      "Surveys"
+    ],
+    "params": [
+      {
+        "name": "surveyId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "surveyId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Surveys/{surveyId}/Statistics/Summary",
+    "method": "GET",
+    "summary": "Gets a survey for editing",
+    "tags": [
+      "Surveys"
+    ],
+    "params": [
+      {
+        "name": "surveyId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "surveyId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Surveys/Active",
+    "method": "GET",
+    "summary": "Gets all surveys with status active and within date range.",
+    "tags": [
+      "Surveys"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": null
+  },
+  {
+    "path": "/Surveys/Drafts",
+    "method": "GET",
+    "summary": "Gets all surveys with status draft.",
+    "tags": [
+      "Surveys"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": null
+  },
+  {
+    "path": "/Surveys/Ended",
+    "method": "GET",
+    "summary": "Gets all surveys marked as ended or passed end date",
+    "tags": [
+      "Surveys"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": null
+  },
+  {
+    "path": "/Surveys/Listing",
+    "method": "GET",
+    "summary": "Gets all survey listings",
+    "tags": [
+      "Surveys"
+    ],
+    "params": [
+      {
+        "name": "journeyId",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [],
+    "responseRef": null
+  },
+  {
+    "path": "/Surveys/Scheduled",
+    "method": "GET",
+    "summary": "Gets all surveys with status active and within date range.",
+    "tags": [
+      "Surveys"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": null
+  },
+  {
+    "path": "/Surveys/Summary",
+    "method": "GET",
+    "summary": "Gets summarized surveys.",
+    "tags": [
+      "Surveys"
+    ],
+    "params": [
+      {
+        "name": "listSurveySummaryParams.eventId",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [],
+    "responseRef": null
+  },
+  {
+    "path": "/Textmessages",
+    "method": "GET",
+    "summary": "Gets all  SmsMessages.",
+    "tags": [
+      "Textmessages"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": "#/definitions/MailDirect.v4.Core.Models.SmsMessage"
+  },
+  {
+    "path": "/Textmessages",
+    "method": "POST",
+    "summary": "Creates an SmsMessage.\r\n\r\n<p>Accepts null in which case a completely blank SmsMessage with default settings is created.</p>",
+    "tags": [
+      "Textmessages"
+    ],
+    "params": [
+      {
+        "name": "smsMessage",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/MailDirect.v4.Core.Models.SmsMessage"
+      },
+      {
+        "name": "eventId",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "segmentId",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "communicationType",
+        "in": "query",
+        "required": false,
+        "type": "integer"
+      }
+    ],
+    "requiredParams": [
+      "smsMessage(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Textmessages/{id}",
+    "method": "GET",
+    "summary": "Gets an SmsMessage by its id.",
+    "tags": [
+      "Textmessages"
+    ],
+    "params": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "id(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Textmessages/{id}/Clone",
+    "method": "POST",
+    "summary": "Clones a smsMessage as draft",
+    "tags": [
+      "Textmessages"
+    ],
+    "params": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "eventId",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "segmentId",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "id(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Textmessages/{id}/CloneTemplate",
+    "method": "POST",
+    "summary": "Clones a smsMessage template",
+    "tags": [
+      "Textmessages"
+    ],
+    "params": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "id(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Textmessages/{id}/CountRecipients",
+    "method": "GET",
+    "summary": "",
+    "tags": [
+      "Textmessages"
+    ],
+    "params": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "id(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Textmessages/{id}/SaveAsTemplate",
+    "method": "POST",
+    "summary": "Clones a smsMessage as template",
+    "tags": [
+      "Textmessages"
+    ],
+    "params": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "id(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Textmessages/{id}/Send",
+    "method": "POST",
+    "summary": "Schedules the SMS for sending",
+    "tags": [
+      "Textmessages"
+    ],
+    "params": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "sendSms",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.TextMessages.SendSms"
+      }
+    ],
+    "requiredParams": [
+      "id(path)",
+      "sendSms(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Textmessages/{id}/Statistics",
+    "method": "GET",
+    "summary": "Gets statistics for one SmsMessage.",
+    "tags": [
+      "Textmessages"
+    ],
+    "params": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "id(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Textmessages/{smsId}/SendTransactional",
+    "method": "POST",
+    "summary": "Schedules the sms for sending.",
+    "tags": [
+      "Textmessages"
+    ],
+    "params": [
+      {
+        "name": "smsId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "options",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.Issues.SendTransactionalOptions"
+      }
+    ],
+    "requiredParams": [
+      "smsId(path)",
+      "options(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Textmessages/Aborted",
+    "method": "GET",
+    "summary": "Gets all aborted messages.",
+    "tags": [
+      "Textmessages"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": "#/definitions/Ungapped.Contracts.TextMessages.SmsScheduled"
+  },
+  {
+    "path": "/Textmessages/AllNoneTemplates",
+    "method": "GET",
+    "summary": "Gets all SmsMessages, excluding templates, sorted by Modified descending.",
+    "tags": [
+      "Textmessages"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": "#/definitions/MailDirect.v4.Core.Models.SmsMessage"
+  },
+  {
+    "path": "/Textmessages/Drafts",
+    "method": "GET",
+    "summary": "Gets all drafts (for editorversion 4 only).",
+    "tags": [
+      "Textmessages"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": null
+  },
+  {
+    "path": "/Textmessages/Listing",
+    "method": "GET",
+    "summary": "Gets all sms listings (for editorversion 4 only).",
+    "tags": [
+      "Textmessages"
+    ],
+    "params": [
+      {
+        "name": "journeyId",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [],
+    "responseRef": null
+  },
+  {
+    "path": "/Textmessages/Listings/{smsMessageId}/Statistics",
+    "method": "GET",
+    "summary": "Gets statistics for a text message.",
+    "tags": [
+      "Textmessages"
+    ],
+    "params": [
+      {
+        "name": "smsMessageId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "start",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "name": "end",
+        "in": "query",
+        "required": false,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "smsMessageId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Textmessages/Paused",
+    "method": "GET",
+    "summary": "Gets all paused messages",
+    "tags": [
+      "Textmessages"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": "#/definitions/Ungapped.Contracts.TextMessages.SmsScheduled"
+  },
+  {
+    "path": "/Textmessages/Scheduled",
+    "method": "GET",
+    "summary": "Gets all scheduled messages.",
+    "tags": [
+      "Textmessages"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": "#/definitions/Ungapped.Contracts.TextMessages.SmsScheduled"
+  },
+  {
+    "path": "/Textmessages/Sending",
+    "method": "GET",
+    "summary": "Gets all sending text messages.",
+    "tags": [
+      "Textmessages"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": "#/definitions/Ungapped.Contracts.TextMessages.SmsSending"
+  },
+  {
+    "path": "/Textmessages/Sent",
+    "method": "GET",
+    "summary": "Gets all sent messages.",
+    "tags": [
+      "Textmessages"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": "#/definitions/Ungapped.Contracts.TextMessages.SmsSent"
+  },
+  {
+    "path": "/Textmessages/SmsRecived",
+    "method": "GET",
+    "summary": "GetRecivesSms Gets all SmsRecived  by account",
+    "tags": [
+      "Textmessages"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": null
+  },
+  {
+    "path": "/Textmessages/Template",
+    "method": "POST",
+    "summary": "Creates an SmsMessage with Template status.\r\n\r\n<p>Always creates a completely blank SmsMessage with default settings and sets it to Template status.</p>",
+    "tags": [
+      "Textmessages"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": null
+  },
+  {
+    "path": "/Textmessages/Templates",
+    "method": "GET",
+    "summary": "Gets all template messages.",
+    "tags": [
+      "Textmessages"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": "#/definitions/Ungapped.Contracts.TextMessages.SmsDraft"
+  },
+  {
+    "path": "/TrustedDevice",
+    "method": "GET",
+    "summary": "",
+    "tags": [
+      "TrustedDevice"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": null
+  },
+  {
+    "path": "/TrustedDevice/{id}",
+    "method": "DELETE",
+    "summary": "",
+    "tags": [
+      "TrustedDevice"
+    ],
+    "params": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "id(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/TrustedDevice/Resend",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "TrustedDevice"
+    ],
+    "params": [
+      {
+        "name": "request",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.Auth.ResendDeviceCodeRequest"
+      }
+    ],
+    "requiredParams": [
+      "request(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/TrustedDevice/Verify",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "TrustedDevice"
+    ],
+    "params": [
+      {
+        "name": "request",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.Auth.VerifyDeviceRequest"
+      }
+    ],
+    "requiredParams": [
+      "request(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Zapier/{id}/Send",
+    "method": "POST",
+    "summary": "Schedules the issue for sending.\r\nDate passed must be in UTC format.",
+    "tags": [
+      "Zapier"
+    ],
+    "params": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "scheduleForSending",
+        "in": "body",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "id(path)",
+      "scheduleForSending(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Zapier/Contacts",
+    "method": "POST",
+    "summary": "Upsert contact. If found updates otherwise creates.",
+    "tags": [
+      "Zapier"
+    ],
+    "params": [
+      {
+        "name": "contact",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.Contacts.UpdateContactDto"
+      }
+    ],
+    "requiredParams": [
+      "contact(body)"
+    ],
+    "responseRef": "#/definitions/Ungapped.Contracts.Contacts.Contact"
+  },
+  {
+    "path": "/Zapier/Contacts/{contactId}",
+    "method": "GET",
+    "summary": "",
+    "tags": [
+      "Zapier"
+    ],
+    "params": [
+      {
+        "name": "contactId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "contactId(path)"
+    ],
+    "responseRef": "#/definitions/Ungapped.Contracts.Contacts.Contact"
+  },
+  {
+    "path": "/Zapier/Contacts/{contactId}",
+    "method": "POST",
+    "summary": "Updates the contact",
+    "tags": [
+      "Zapier"
+    ],
+    "params": [
+      {
+        "name": "contact",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.Contacts.UpdateContactDto"
+      },
+      {
+        "name": "contactId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "contact(body)",
+      "contactId(path)"
+    ],
+    "responseRef": "#/definitions/Ungapped.Contracts.Contacts.Contact"
+  },
+  {
+    "path": "/Zapier/Contacts/Find",
+    "method": "GET",
+    "summary": "Find the contact",
+    "tags": [
+      "Zapier"
+    ],
+    "params": [
+      {
+        "name": "contactId",
+        "in": "query",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "externalId",
+        "in": "query",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "email",
+        "in": "query",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "smsNumber",
+        "in": "query",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "contactId(query)",
+      "externalId(query)",
+      "email(query)",
+      "smsNumber(query)"
+    ],
+    "responseRef": "#/definitions/Ungapped.Contracts.Contacts.Contact"
+  },
+  {
+    "path": "/Zapier/Issues/{issueId}/SendTransactional",
+    "method": "POST",
+    "summary": "Schedules the issue for sending a transactional email without list connection.",
+    "tags": [
+      "Zapier"
+    ],
+    "params": [
+      {
+        "name": "issueId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "options",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.Issues.SendTransactionalOptions"
+      }
+    ],
+    "requiredParams": [
+      "issueId(path)",
+      "options(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Zapier/Issues/ForTransactional",
+    "method": "GET",
+    "summary": "Gets issues that can be used for transactional sending (ie. Sent).",
+    "tags": [
+      "Zapier"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": "#/definitions/Ungapped.Contracts.Issues.Issue"
+  },
+  {
+    "path": "/Zapier/Lists",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "Zapier"
+    ],
+    "params": [
+      {
+        "name": "list",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.Contacts.List"
+      }
+    ],
+    "requiredParams": [
+      "list(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Zapier/Lists/{listId}",
+    "method": "GET",
+    "summary": "Gets a list by its id.",
+    "tags": [
+      "Zapier"
+    ],
+    "params": [
+      {
+        "name": "listId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "listId(path)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Zapier/Lists/{listId}/ContactIds",
+    "method": "POST",
+    "summary": "",
+    "tags": [
+      "Zapier"
+    ],
+    "params": [
+      {
+        "name": "listId",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "contact",
+        "in": "body",
+        "required": true,
+        "type": "#/definitions/Ungapped.Contracts.Zapier.ZapierContact"
+      }
+    ],
+    "requiredParams": [
+      "listId(path)",
+      "contact(body)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Zapier/Lists/Find",
+    "method": "GET",
+    "summary": "",
+    "tags": [
+      "Zapier"
+    ],
+    "params": [
+      {
+        "name": "name",
+        "in": "query",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "requiredParams": [
+      "name(query)"
+    ],
+    "responseRef": null
+  },
+  {
+    "path": "/Zapier/Users/Current",
+    "method": "GET",
+    "summary": "Gets the current user. Used by Zapier to verify that the connection is authenticated correctly.",
+    "tags": [
+      "Zapier"
+    ],
+    "params": [],
+    "requiredParams": [],
+    "responseRef": null
+  }
+]

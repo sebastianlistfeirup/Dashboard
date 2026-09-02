@@ -1,0 +1,1277 @@
+[
+  {
+    "SmsMessageId": "4535a7e2-899d-40c1-b498-0c81516b0f8a",
+    "Subject": "",
+    "Body": "Har du sikret dig en gratis plads på det virtuelle årsmøde d.28. november? I år stiller vi ind på psykologers bidrag til det bæredygtige samfund. Læs meget mere om programmet og tilmeld dig her: Årsmøde 2025 – et samfund vi kan bære. Med Venlig Hilsen Dansk Psykolog Forening",
+    "Modified": "2025-11-07T06:14:00Z",
+    "Created": "2025-11-06T19:15:00.287Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 10,
+    "Category": {
+      "CategoryId": "d7892968-3cd0-4850-9967-fad5810aaa97",
+      "Name": "Medlemsoplysninger",
+      "Description": "Will be sent to EVERYONE even unsubscribed"
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "9d76e8f0-da98-4a54-825e-10acd642f0df",
+    "Subject": "",
+    "Body": "Kære [@Name]\nVi kan se, at \n\nSvar DP OUT for at ophæve abonnement",
+    "Modified": "2025-03-03T10:01:00Z",
+    "Created": "2025-03-03T10:00:27.903Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 10,
+    "Category": {
+      "CategoryId": "49676733-56b2-4f70-96a3-21ca81f78a25",
+      "Name": "Nyhedsbrev",
+      "Description": null
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "4d583e59-4069-4a8a-8ba7-235b61d32710",
+    "Subject": "",
+    "Body": "Svar med dansk-psykokolog-forening OUT for at ophæve abonnement",
+    "Modified": "2025-01-15T11:43:00Z",
+    "Created": "2025-01-15T11:43:10.837Z",
+    "CreatedBy": {
+      "UserId": "3704921a-afc5-4adc-adb3-4627e042c30e",
+      "FirstName": "Michelle",
+      "LastName": "Lagergaard",
+      "Name": "Michelle Lagergaard",
+      "UserName": "mil@dp.dk",
+      "Email": "mil@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "3704921a-afc5-4adc-adb3-4627e042c30e",
+      "FirstName": "Michelle",
+      "LastName": "Lagergaard",
+      "Name": "Michelle Lagergaard",
+      "UserName": "mil@dp.dk",
+      "Email": "mil@dp.dk"
+    },
+    "Status": 10,
+    "Category": {
+      "CategoryId": "49676733-56b2-4f70-96a3-21ca81f78a25",
+      "Name": "Nyhedsbrev",
+      "Description": null
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "e3195fab-d157-4620-945e-35d5a9793e50",
+    "Subject": "",
+    "Body": "Kære [@Name]\n\nDette er Riffat fra Dansk Psykolog Forening.\nJeg skriver til dig, fordi jeg kan se, at du stadig ikke har fået betalt det du skylder til Dansk Psykolog Forening. Fortsætter du med ikke at betale dit udestående, vil det få konsekvenser for dit medlemskab.\n\nHeldigvis kan du stadig nå det, men det er sidste chance.\nI løbet af de næste par dage vil jeg forsøge at ringe til dig og så kan vi sammen få lavet en god aftale. Vi plejer altid at finde en løsning 😊\n\nDe bedste hilsener\nRiffat fra Dansk Psykolog Forening",
+    "Modified": "2025-08-15T08:40:00Z",
+    "Created": "2025-08-15T08:39:07.087Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 3,
+    "Category": {
+      "CategoryId": "49676733-56b2-4f70-96a3-21ca81f78a25",
+      "Name": "Nyhedsbrev",
+      "Description": null
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "913e6a05-9db5-4927-83d8-4ad3c10aa9f5",
+    "Subject": "",
+    "Body": "Kære [@Name]\n",
+    "Modified": "2025-06-16T08:03:00Z",
+    "Created": "2025-06-16T08:01:49.657Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 10,
+    "Category": {
+      "CategoryId": "49676733-56b2-4f70-96a3-21ca81f78a25",
+      "Name": "Nyhedsbrev",
+      "Description": null
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "acc8a124-903e-4e29-a479-614dab0f8291",
+    "Subject": "",
+    "Body": "Svar med dansk-psykokolog-forening OUT for at ophæve abonnement",
+    "Modified": "2025-03-03T10:02:00Z",
+    "Created": "2025-03-03T10:01:31.25Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 10,
+    "Category": {
+      "CategoryId": "49676733-56b2-4f70-96a3-21ca81f78a25",
+      "Name": "Nyhedsbrev",
+      "Description": null
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "d4c09396-406b-46e1-bed1-64168a5370ac",
+    "Subject": "",
+    "Body": "Svar med dansk-psykokolog-forening OUT for at ophæve abonnement",
+    "Modified": "2026-04-15T07:35:00Z",
+    "Created": "2026-04-15T07:35:17.283Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 10,
+    "Category": {
+      "CategoryId": "49676733-56b2-4f70-96a3-21ca81f78a25",
+      "Name": "Nyhedsbrev",
+      "Description": null
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "4a0dcdac-a72e-49c1-9138-8534e80e29bd",
+    "Subject": "",
+    "Body": "Kære [@Name]\n\nDette er Riffat fra Dansk Psykolog Forening.\nJeg kan se, at stadig ikke har fået betalt det du skylder til Dansk Psykolog Forening.\n\nDette er absolut sidste chance inden det får konsekvenser for dit medlemskab. Så skynd dig at betale.\n\nSådan betaler du\n\nVi har sendt dig flere rykkere på mail og på dem fremgår der en girostreng, der kan benyttes til betalingen. Du kan selvfølgelig også kontakte os på:\n•\tE-mail: Regnskab@dp.dk\n•\tTlf: 35 26 99 55\n\nDe bedste hilsener\nRiffat fra Dansk Psykolog Forening\n",
+    "Modified": "2025-06-24T07:31:00Z",
+    "Created": "2025-06-24T07:29:51.32Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 10,
+    "Category": {
+      "CategoryId": "49676733-56b2-4f70-96a3-21ca81f78a25",
+      "Name": "Nyhedsbrev",
+      "Description": null
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "d7da718f-2c3a-44e1-b8b0-87e3b0b2dc3f",
+    "Subject": "",
+    "Body": "Svar med dansk-psykokolog-forening OUT for at ophæve abonnement",
+    "Modified": "2024-11-25T11:45:00Z",
+    "Created": "2024-11-25T11:45:02.313Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 10,
+    "Category": {
+      "CategoryId": "49676733-56b2-4f70-96a3-21ca81f78a25",
+      "Name": "Nyhedsbrev",
+      "Description": null
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "1e52fa11-e2e6-4e43-a127-d25b8e60f247",
+    "Subject": "",
+    "Body": "Kære [@Name]\n\nDette er Riffat fra Dansk Psykolog Forening.\nJeg skriver til dig, fordi jeg kan se, at du stadig ikke har fået betalt det du skylder til Dansk Psykolog Forening. Fortsætter du med ikke at betale dit udestående, vil det få konsekvenser for dit medlemskab.\n\nHeldigvis kan du stadig nå det, men det er sidste chance.\nI løbet af i dag vil jeg forsøge at ringe til dig og så kan vi sammen få lavet en god aftale. Vi plejer altid at finde en løsning 😊\n\nDe bedste hilsener\nRiffat fra Dansk Psykolog Forening",
+    "Modified": "2025-07-02T07:34:00Z",
+    "Created": "2025-07-02T07:15:48.56Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 10,
+    "Category": {
+      "CategoryId": "d7892968-3cd0-4850-9967-fad5810aaa97",
+      "Name": "Medlemsoplysninger",
+      "Description": "Will be sent to EVERYONE even unsubscribed"
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "3094b8a4-c93d-45d1-9e39-e3613fa2499a",
+    "Subject": "",
+    "Body": "Svar med dansk-psykokolog-forening OUT for at ophæve abonnement",
+    "Modified": "2025-11-21T09:12:00Z",
+    "Created": "2025-11-21T09:11:30.543Z",
+    "CreatedBy": {
+      "UserId": "80adac19-6622-4d56-a994-f8ca2b43f8e4",
+      "FirstName": "Catrine",
+      "LastName": "Vinter Justesen",
+      "Name": "Catrine Vinter Justesen",
+      "UserName": "cvj@dp.dk",
+      "Email": "cvj@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "80adac19-6622-4d56-a994-f8ca2b43f8e4",
+      "FirstName": "Catrine",
+      "LastName": "Vinter Justesen",
+      "Name": "Catrine Vinter Justesen",
+      "UserName": "cvj@dp.dk",
+      "Email": "cvj@dp.dk"
+    },
+    "Status": 10,
+    "Category": {
+      "CategoryId": "49676733-56b2-4f70-96a3-21ca81f78a25",
+      "Name": "Nyhedsbrev",
+      "Description": null
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "a4290fe7-fccb-4e02-9874-f3591bf0ef08",
+    "Subject": "",
+    "Body": "Kære [@Name]\n\nDette er Riffat fra Dansk Psykolog Forening.\nJeg skriver til dig, fordi jeg kan se, at du stadig ikke har fået betalt det du skylder til Dansk Psykolog Forening. Fortsætter du med ikke at betale dit udestående, vil det få konsekvenser for dit medlemskab.\n\nHeldigvis kan du stadig nå det, men det er sidste chance.\nI løbet af i dag vil jeg forsøge at ringe til dig og så kan vi sammen få lavet en god aftale. Vi plejer altid at finde en løsning 😊\n\nDe bedste hilsener\nRiffat fra Dansk Psykolog Forening",
+    "Modified": "2025-07-02T07:35:00Z",
+    "Created": "2025-07-02T07:34:22.333Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 3,
+    "Category": {
+      "CategoryId": "d7892968-3cd0-4850-9967-fad5810aaa97",
+      "Name": "Medlemsoplysninger",
+      "Description": "Will be sent to EVERYONE even unsubscribed"
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "6b280821-d4bd-48a1-9ade-fb1a6ff3d401",
+    "Subject": "",
+    "Body": "Svar med dansk-psykokolog-forening OUT for at ophæve abonnement",
+    "Modified": "2026-03-03T10:18:00Z",
+    "Created": "2026-03-03T10:18:29.653Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 110,
+    "Category": {
+      "CategoryId": "49676733-56b2-4f70-96a3-21ca81f78a25",
+      "Name": "Nyhedsbrev",
+      "Description": null
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "7d1f8f1f-0977-4261-9e99-44c3b2d5e6c6",
+    "Subject": "Fejl mail (21-04-26)",
+    "Body": "Kære [@Name]\n\nVi kan se, at vi har en mailadresse registreret på dig, men det ser ud til, at den ikke længere er gyldig. For at sikre, at du fortsat modtager information fra os, vil vi bede dig om at opdatere den.\n\nDu kan enten indtaste din mailadresse via linket her: https://dp.ungapped.io/Surveys/d3ba55c0-0066-4b47-8042-fe805548c3ef?ContactId={{Contact.ContactId}}\n\nEller logge ind på Mit DP og opdatere dine oplysninger her: https://mitdp.dk/Home/MyProfile\n\nHar du spørgsmål, er du som altid velkommen til at kontakte mig\n- E-mail: nfb@dp.dk\n- Tlf: 44 12 38 63\n\nVenlig hilsen\nNatasha Fonnesdorf Bluhme\nDansk Psykolog Forening",
+    "Modified": "2026-04-30T12:14:00Z",
+    "Created": "2026-04-21T11:06:43.627Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 3,
+    "Category": {
+      "CategoryId": "d7892968-3cd0-4850-9967-fad5810aaa97",
+      "Name": "Medlemsoplysninger",
+      "Description": "Will be sent to EVERYONE even unsubscribed"
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "882f4e80-27f3-4213-9035-d1132b09b86e",
+    "Subject": "Kopi af - ",
+    "Body": "Svar med dansk-psykokolog-forening OUT for at ophæve abonnement",
+    "Modified": "2026-05-11T12:16:00Z",
+    "Created": "2026-05-11T12:16:12.657Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 10,
+    "Category": {
+      "CategoryId": "49676733-56b2-4f70-96a3-21ca81f78a25",
+      "Name": "Nyhedsbrev",
+      "Description": null
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "d18e37c1-0934-421c-9e71-9bff72aad7aa",
+    "Subject": "Kopi af - ",
+    "Body": "Svar med dansk-psykokolog-forening OUT for at ophæve abonnement",
+    "Modified": "2026-06-08T06:11:00Z",
+    "Created": "2026-06-08T06:11:03.54Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 10,
+    "Category": {
+      "CategoryId": "49676733-56b2-4f70-96a3-21ca81f78a25",
+      "Name": "Nyhedsbrev",
+      "Description": null
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "63169609-0099-4620-bf92-5ea5696833a7",
+    "Subject": "Kopi af - ",
+    "Body": "Svar med dansk-psykokolog-forening OUT for at ophæve abonnement",
+    "Modified": "2026-03-03T10:19:00Z",
+    "Created": "2026-03-03T10:19:02.487Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 10,
+    "Category": {
+      "CategoryId": "49676733-56b2-4f70-96a3-21ca81f78a25",
+      "Name": "Nyhedsbrev",
+      "Description": null
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "fb40e6c5-7674-4a34-bd0d-539c58fb8f44",
+    "Subject": "Kopi af - Kopi af - SMS rykker 15-08-25",
+    "Body": "Kære [@Name]\n\nDet er Riffat fra Dansk Psykolog Forening.\nJeg skriver til dig, fordi jeg kan se, at du stadig ikke har fået betalt det du skylder. Vi har tidligere sendt påmindelser til din mail. \n\nDit udestående skal være betalt inden 3 dage fra denne sms er modtaget, ellers vil det få konsekvenser for dit medlemskab.\n\nDu kan stadig nå det – sidste chance. Husk at du altid kontakte os på:\n\n- Tlf: 35269955 (alle hverdage mellem 10-13 onsdag lukket)\n- Mail: Regnskab@dp.dk\n\nMvh\nDansk Psykolog Forening\n",
+    "Modified": "2025-09-23T10:56:00Z",
+    "Created": "2025-09-23T10:55:31.81Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 3,
+    "Category": {
+      "CategoryId": "d7892968-3cd0-4850-9967-fad5810aaa97",
+      "Name": "Medlemsoplysninger",
+      "Description": "Will be sent to EVERYONE even unsubscribed"
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "4768ac09-642a-4467-8e94-123f74a30439",
+    "Subject": "Kopi af - Kopi af - SMS rykker 15-08-25",
+    "Body": "Kære [@Name]\n\nDet er Riffat fra Dansk Psykolog Forening. Jeg skriver til dig, fordi jeg kan se, at du stadig ikke har fået betalt det du skylder. Vi har tidligere sendt påmindelser til din mail. \n\nDit udestående skal være betalt inden 3 dage fra denne sms er modtaget, ellers vil det få konsekvenser for dit medlemskab.\n\nDu kan stadig nå det – sidste chance. Husk at du altid kontakte os på:\n\n- Tlf: 35269955 (alle hverdage mellem 10-13 onsdag lukket)\n- Mail: Regnskab@dp.dk\n\nDe bedste hilsener\nRiffat fra Dansk Psykolog Forening",
+    "Modified": "2025-10-02T10:35:00Z",
+    "Created": "2025-10-02T10:34:12.217Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 3,
+    "Category": {
+      "CategoryId": "d7892968-3cd0-4850-9967-fad5810aaa97",
+      "Name": "Medlemsoplysninger",
+      "Description": "Will be sent to EVERYONE even unsubscribed"
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "583e3c45-03e0-4c9a-bc23-fa25253315fb",
+    "Subject": "Kopi af - Kopi af - SMS rykker 15-08-25",
+    "Body": "Kære [@Name]\n\nDet er Riffat fra Dansk Psykolog Forening.\nJeg skriver til dig, fordi jeg kan se, at du stadig ikke har fået betalt det du skylder. Vi har tidligere sendt påmindelser til din mail. \n\nDit udestående skal være betalt inden 3 dage fra denne sms er modtaget, ellers vil det få konsekvenser for dit medlemskab.\n\nDu kan stadig nå det – sidste chance. Husk at du altid kontakte os på:\n\n- Tlf: 35269955 (alle hverdage mellem 10-13 onsdag lukket)\n- Mail: Regnskab@dp.dk\n",
+    "Modified": "2025-09-18T09:37:00Z",
+    "Created": "2025-09-18T09:35:23.083Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 3,
+    "Category": {
+      "CategoryId": "d7892968-3cd0-4850-9967-fad5810aaa97",
+      "Name": "Medlemsoplysninger",
+      "Description": "Will be sent to EVERYONE even unsubscribed"
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "dedcf6f5-6c52-4016-b5c2-b4b1d1639e55",
+    "Subject": "Kopi af - SMS rykker 15-08-25",
+    "Body": "Kære [@Name]\n\nDet er Riffat fra Dansk Psykolog Forening.\nJeg skriver til dig, fordi jeg kan se, at du stadig ikke har fået betalt det du skylder. Vi har tidligere sendt påmindelser til din mail. \n\nDit udestående skal være betalt inden 3 dage fra denne sms er modtaget, ellers vil det få konsekvenser for dit medlemskab.\n\nDu kan stadig nå det – sidste chance. Husk at du altid kontakte os på:\n\n- Tlf: 35269955 (alle hverdage mellem 10-13 onsdag lukket)\n- Mail: Regnskab@dp.dk\n",
+    "Modified": "2025-09-16T08:05:00Z",
+    "Created": "2025-09-16T08:04:07.277Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 10,
+    "Category": {
+      "CategoryId": "d7892968-3cd0-4850-9967-fad5810aaa97",
+      "Name": "Medlemsoplysninger",
+      "Description": "Will be sent to EVERYONE even unsubscribed"
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "385df275-659d-4ba5-b92d-603f06973c56",
+    "Subject": "Kopi af - SMS-rykker",
+    "Body": "Kære [@Name]\n\nDet er Riffat fra Dansk Psykolog Forening.\nJeg skriver til dig, fordi jeg kan se, at du stadig ikke har fået betalt det du skylder. Vi har tidligere sendt påmindelser til din mail. \n\nDit udestående skal være betalt inden 3 dage fra denne sms er modtaget, ellers vil det få konsekvenser for dit medlemskab.\n\nDu kan stadig nå det – sidste chance. Husk at du altid kontakte os på:\n\n- Tlf: 35269955 (alle hverdage mellem 10-13 onsdag lukket)\n- Mail: Regnskab@dp.dk\n\nMvh Riffat fra Dansk Psykolog Forening",
+    "Modified": "2025-11-20T09:15:00Z",
+    "Created": "2025-11-20T09:11:05.713Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 10,
+    "Category": {
+      "CategoryId": "d7892968-3cd0-4850-9967-fad5810aaa97",
+      "Name": "Medlemsoplysninger",
+      "Description": "Will be sent to EVERYONE even unsubscribed"
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "19464994-f880-42a3-bcff-7b30c39ac40c",
+    "Subject": "Kopi af - SMS-rykker",
+    "Body": "Kære [@Name]\n\nDet er Catrine fra Dansk Psykolog Forening.\nJeg skriver til dig, fordi jeg kan se, at du stadig ikke har fået betalt det du skylder. Vi har tidligere sendt påmindelser til din mail. \n\nDit udestående skal være betalt inden 3 dage fra denne sms er modtaget, ellers vil det få konsekvenser for dit medlemskab.\n\nDu kan stadig nå det – sidste chance. Husk at du altid kontakte os på:\n\n- Tlf: 35269955 (alle hverdage mellem 10-13 onsdag lukket)\n- Mail: Regnskab@dp.dk\n\nMvh Catrine fra Dansk Psykolog Forening",
+    "Modified": "2026-03-03T10:20:00Z",
+    "Created": "2026-03-03T10:19:24.137Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 3,
+    "Category": {
+      "CategoryId": "d7892968-3cd0-4850-9967-fad5810aaa97",
+      "Name": "Medlemsoplysninger",
+      "Description": "Will be sent to EVERYONE even unsubscribed"
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "0807e911-1d68-4aab-bb61-a0cea5f88cf1",
+    "Subject": "Kopi af - SMS-rykker",
+    "Body": "Kære [@Name]\n\nDet er Riffat fra Dansk Psykolog Forening.\nJeg skriver til dig, fordi jeg kan se, at du stadig ikke har fået betalt det du skylder. Vi har tidligere sendt påmindelser til din mail. \n\nDit udestående skal være betalt inden 3 dage fra denne sms er modtaget, ellers vil det få konsekvenser for dit medlemskab.\n\nDu kan stadig nå det – sidste chance. Husk at du altid kontakte os på:\n\n- Tlf: 35269955 (alle hverdage mellem 10-13 onsdag lukket)\n- Mail: Regnskab@dp.dk\n\nMvh Riffat fra Dansk Psykolog Forening",
+    "Modified": "2026-04-15T07:36:00Z",
+    "Created": "2026-04-15T07:35:33.513Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 10,
+    "Category": {
+      "CategoryId": "d7892968-3cd0-4850-9967-fad5810aaa97",
+      "Name": "Medlemsoplysninger",
+      "Description": "Will be sent to EVERYONE even unsubscribed"
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "6abad7fd-e6d6-418a-abf1-8a131c7ba125",
+    "Subject": "Kopi af - SMS-rykker",
+    "Body": "Kære [@Name]\n\nDet er Riffat fra Dansk Psykolog Forening.\nJeg skriver til dig, fordi jeg kan se, at du stadig ikke har fået betalt det du skylder. Vi har tidligere sendt påmindelser til din mail. \n\nDit udestående skal være betalt inden 3 dage fra denne sms er modtaget, ellers vil det få konsekvenser for dit medlemskab.\n\nDu kan stadig nå det – sidste chance. Husk at du altid kontakte os på:\n\n- Tlf: 35269955 (alle hverdage mellem 10-13 onsdag lukket)\n- Mail: Regnskab@dp.dk\n\nMvh Riffat fra Dansk Psykolog Forening",
+    "Modified": "2026-06-08T06:11:00Z",
+    "Created": "2026-06-08T06:11:10.693Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 10,
+    "Category": {
+      "CategoryId": "d7892968-3cd0-4850-9967-fad5810aaa97",
+      "Name": "Medlemsoplysninger",
+      "Description": "Will be sent to EVERYONE even unsubscribed"
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "df9a0c90-5461-4555-81ac-13ae32a7e9ae",
+    "Subject": "Kopi af - SMS-rykker",
+    "Body": "Kære [@Name]\n\nDet er Catrine fra Dansk Psykolog Forening.\nJeg skriver til dig, fordi jeg kan se, at du stadig ikke har fået betalt det du skylder. Vi har tidligere sendt påmindelser til din mail. \n\nDit udestående skal være betalt inden 3 dage fra denne sms er modtaget, ellers vil det få konsekvenser for dit medlemskab.\n\nDu kan stadig nå det – sidste chance. Husk at du altid kontakte os på:\n\n- Tlf: 35269955 (alle hverdage mellem 10-13 onsdag lukket)\n- Mail: Regnskab@dp.dk\n\nMvh Catrine fra Dansk Psykolog Forening",
+    "Modified": "2026-04-20T08:31:00Z",
+    "Created": "2026-04-20T08:30:33.467Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 3,
+    "Category": {
+      "CategoryId": "d7892968-3cd0-4850-9967-fad5810aaa97",
+      "Name": "Medlemsoplysninger",
+      "Description": "Will be sent to EVERYONE even unsubscribed"
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "451f7423-8da8-4c10-8c20-2d44ab653963",
+    "Subject": "Kopi af - SMS-rykker",
+    "Body": "Kære [@Name]\n\nDet er Catrine fra Dansk Psykolog Forening.\nJeg skriver til dig, fordi jeg kan se, at du stadig ikke har fået betalt det du skylder. Vi har tidligere sendt påmindelser til din mail. \n\nDit udestående skal være betalt inden 3 dage fra denne sms er modtaget, ellers vil det få konsekvenser for dit medlemskab.\n\nDu kan stadig nå det – sidste chance. Husk at du altid kontakte os på:\n\n- Tlf: 35269955 (alle hverdage mellem 10-13 onsdag lukket)\n- Mail: Regnskab@dp.dk\n\nMvh Catrine fra Dansk Psykolog Forening",
+    "Modified": "2026-01-06T12:40:00Z",
+    "Created": "2026-01-06T12:39:22.893Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 10,
+    "Category": {
+      "CategoryId": "d7892968-3cd0-4850-9967-fad5810aaa97",
+      "Name": "Medlemsoplysninger",
+      "Description": "Will be sent to EVERYONE even unsubscribed"
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "2e99cf1c-1a43-4443-8036-55b521003e99",
+    "Subject": "Kopi af - SMS-rykker",
+    "Body": "Kære [@Name]\n\nDet er Catrine fra Dansk Psykolog Forening.\nJeg skriver til dig, fordi jeg kan se, at du stadig ikke har fået betalt det du skylder. Vi har tidligere sendt påmindelser til din mail. Dit udestående skal være betalt inden 3 dage fra denne sms er modtaget, ellers vil det få konsekvenser for dit medlemskab.\n\nDu kan stadig nå det\nHusk at du altid kontakte os på:\n\n- Tlf: 35269955 (alle hverdage mellem 10-13 onsdag lukket)\n- Mail: Regnskab@dp.dk\n\nVi plejer altid at kunne finde en løsning.\n\nMvh Catrine fra Dansk Psykolog Forening.",
+    "Modified": "2026-03-30T12:17:00Z",
+    "Created": "2026-03-30T12:14:43.213Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 3,
+    "Category": {
+      "CategoryId": "d7892968-3cd0-4850-9967-fad5810aaa97",
+      "Name": "Medlemsoplysninger",
+      "Description": "Will be sent to EVERYONE even unsubscribed"
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "4852a482-489f-4feb-beed-5bfb4a38b972",
+    "Subject": "Kopi af - SMS-rykker",
+    "Body": "Kære [@Name]\n\nDet er Catrine fra Dansk Psykolog Forening.\nJeg skriver til dig, fordi jeg kan se, at du stadig ikke har fået betalt det du skylder. Vi har tidligere sendt påmindelser til din mail. \n\nDit udestående skal være betalt inden 3 dage fra denne sms er modtaget, ellers vil det få konsekvenser for dit medlemskab.\n\nDu kan stadig nå det – sidste chance. Husk at du altid kontakte os på:\n\n- Tlf: 35269955 (alle hverdage mellem 10-13 onsdag lukket)\n- Mail: Regnskab@dp.dk\n\nMvh Catrine fra Dansk Psykolog Forening",
+    "Modified": "2026-05-20T06:50:00Z",
+    "Created": "2026-05-20T06:49:03.307Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 3,
+    "Category": {
+      "CategoryId": "d7892968-3cd0-4850-9967-fad5810aaa97",
+      "Name": "Medlemsoplysninger",
+      "Description": "Will be sent to EVERYONE even unsubscribed"
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "ec664e4c-3f29-40cb-b22b-4f91e81d68ea",
+    "Subject": "Kopi af - SMS-rykker",
+    "Body": "Kære [@Name]\n\nDet er Riffat fra Dansk Psykolog Forening.\nJeg skriver til dig, fordi jeg kan se, at du stadig ikke har fået betalt det du skylder. Vi har tidligere sendt påmindelser til din mail. \n\nDit udestående skal være betalt inden 3 dage fra denne sms er modtaget, ellers vil det få konsekvenser for dit medlemskab.\n\nDu kan stadig nå det – sidste chance. Husk at du altid kontakte os på:\n\n- Tlf: 35269955 (alle hverdage mellem 10-13 onsdag lukket)\n- Mail: Regnskab@dp.dk\n\nMvh Riffat fra Dansk Psykolog Forening",
+    "Modified": "2026-03-03T10:18:00Z",
+    "Created": "2026-03-03T10:18:04.807Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 10,
+    "Category": {
+      "CategoryId": "d7892968-3cd0-4850-9967-fad5810aaa97",
+      "Name": "Medlemsoplysninger",
+      "Description": "Will be sent to EVERYONE even unsubscribed"
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "0300299c-ee41-403a-b678-44d6a99ecae3",
+    "Subject": "Kopi af - SMS-rykker",
+    "Body": "Kære [@Name]\n\nDet er Catrine fra Dansk Psykolog Forening.\nJeg skriver til dig, fordi jeg kan se, at du stadig ikke har fået betalt det du skylder. Vi har tidligere sendt påmindelser til din mail. \n\nDit udestående skal være betalt inden 3 dage fra denne sms er modtaget, ellers vil det få konsekvenser for dit medlemskab.\n\nDu kan stadig nå det – sidste chance. Husk at du altid kontakte os på:\n\n- Tlf: 35269955 (alle hverdage mellem 10-13 onsdag lukket)\n- Mail: Regnskab@dp.dk\n\nMvh Catrine fra Dansk Psykolog Forening",
+    "Modified": "2026-01-06T12:47:00Z",
+    "Created": "2026-01-06T12:46:48.6Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 3,
+    "Category": {
+      "CategoryId": "d7892968-3cd0-4850-9967-fad5810aaa97",
+      "Name": "Medlemsoplysninger",
+      "Description": "Will be sent to EVERYONE even unsubscribed"
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "777a816b-3d42-4584-8714-391fb8269d3a",
+    "Subject": "Kopi af - SMS-rykker",
+    "Body": "Kære [@Name]\n\nDet er Riffat fra Dansk Psykolog Forening.\nJeg skriver til dig, fordi jeg kan se, at du stadig ikke har fået betalt det du skylder. Vi har tidligere sendt påmindelser til din mail. \n\nDit udestående skal være betalt inden 3 dage fra denne sms er modtaget, ellers vil det få konsekvenser for dit medlemskab.\n\nDu kan stadig nå det – sidste chance. Husk at du altid kontakte os på:\n\n- Tlf: 35269955 (alle hverdage mellem 10-13 onsdag lukket)\n- Mail: Regnskab@dp.dk\n\nMvh Riffat fra Dansk Psykolog Forening",
+    "Modified": "2025-11-20T09:22:00Z",
+    "Created": "2025-11-20T09:21:23.8Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 10,
+    "Category": {
+      "CategoryId": "d7892968-3cd0-4850-9967-fad5810aaa97",
+      "Name": "Medlemsoplysninger",
+      "Description": "Will be sent to EVERYONE even unsubscribed"
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "89e803ad-9dfe-4529-bd3a-447ddb961d60",
+    "Subject": "Kopi af - SMS-rykker",
+    "Body": "Kære [@Name]\n\nDet er Riffat fra Dansk Psykolog Forening.\nJeg skriver til dig, fordi jeg kan se, at du stadig ikke har fået betalt det du skylder. Vi har tidligere sendt påmindelser til din mail. \n\nDit udestående skal være betalt inden 3 dage fra denne sms er modtaget, ellers vil det få konsekvenser for dit medlemskab.\n\nDu kan stadig nå det – sidste chance. Husk at du altid kontakte os på:\n\n- Tlf: 35269955 (alle hverdage mellem 10-13 onsdag lukket)\n- Mail: Regnskab@dp.dk\n\nMvh Riffat fra Dansk Psykolog Forening",
+    "Modified": "2026-06-30T11:12:00Z",
+    "Created": "2026-06-30T11:12:20.077Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 10,
+    "Category": {
+      "CategoryId": "d7892968-3cd0-4850-9967-fad5810aaa97",
+      "Name": "Medlemsoplysninger",
+      "Description": "Will be sent to EVERYONE even unsubscribed"
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "39e49238-282e-4bdd-8072-fc0a2e1fd194",
+    "Subject": "Kopi af - SMS-rykker",
+    "Body": "Kære [@Name]\n\nDet er Catrine fra Dansk Psykolog Forening.\nJeg skriver til dig, fordi jeg kan se, at du stadig ikke har fået betalt det du skylder. Vi har tidligere sendt påmindelser til din mail. \n\nDit udestående skal være betalt inden 3 dage fra denne sms er modtaget, ellers vil det få konsekvenser for dit medlemskab.\n\nDu kan stadig nå det – sidste chance. Husk at du altid kontakte os på:\n\n- Tlf: 35269955 (alle hverdage mellem 10-13 onsdag lukket)\n- Mail: Regnskab@dp.dk\n\nMvh Catrine fra Dansk Psykolog Forening",
+    "Modified": "2026-04-15T07:38:00Z",
+    "Created": "2026-04-15T07:35:51.927Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 3,
+    "Category": {
+      "CategoryId": "d7892968-3cd0-4850-9967-fad5810aaa97",
+      "Name": "Medlemsoplysninger",
+      "Description": "Will be sent to EVERYONE even unsubscribed"
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "583cea2d-4511-4c86-a55b-d59c00a22fa5",
+    "Subject": "Mangler E-mail",
+    "Body": "Kære [@Name]\n\nDet er Sebastian fra Dansk Psykolog Forening.\n\nJeg skriver til dig, fordi vi gerne vil i kontakt med dig. Vi har registreret denne e-mailadresse på dig: [@Email], men når vi forsøger at sende dig en e-mail, kommer den desværre ikke frem. Vi tror, der er en fejl i e-mailadressen. Vil du hjælpe os med at få den rettet?\n\nDu kan enten skrive til os på medlemsservice@dp.dk, så hjælper vi dig med at ændre den, eller selv ændre den via MitDP: https://mitdp.dk/Home/MyProfile/.\n\nHar du spørgsmål, er du selvfølgelig altid velkommen til at kontakte os:\n\n- Tlf.: 35 26 99 55 (alle hverdage mellem kl. 10–13, onsdag lukket)\n- Mail: dp@dp.dk\n\nVi håber at høre fra dig.\n\nDe bedste hilsner\nSebastian fra Dansk Psykolog Forening",
+    "Modified": "2025-11-17T09:11:00Z",
+    "Created": "2025-11-06T19:51:38.403Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 110,
+    "Category": {
+      "CategoryId": "d7892968-3cd0-4850-9967-fad5810aaa97",
+      "Name": "Medlemsoplysninger",
+      "Description": "Will be sent to EVERYONE even unsubscribed"
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "178c5ef8-5ae2-4c8c-97ec-ca30743009b6",
+    "Subject": "Mangler E-mail (21-04-26)",
+    "Body": "Kære [@Name]\n\nVi kan se, at vi mangler din mailadresse i vores system. For at sikre, at du fortsat modtager information fra os, vil vi bede dig om at opdatere den.\n\nDu kan enten indtaste din mailadresse via linket her: https://dp.ungapped.io/Surveys/d3ba55c0-0066-4b47-8042-fe805548c3ef?ContactId={{Contact.ContactId}}\n\nEller logge ind på Mit DP og opdatere dine oplysninger her: https://mitdp.dk/Home/MyProfile\n\nHar du spørgsmål, er du som altid velkommen til at kontakte mig \n- E-mail: nfb@dp.dk \n- Tlf: 44 12 38 63\n\nVenlig hilsen\nNatasha Fonnesdorf Bluhme \nDansk Psykolog Forening",
+    "Modified": "2026-04-30T12:13:00Z",
+    "Created": "2026-04-21T10:47:43.1Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 3,
+    "Category": {
+      "CategoryId": "d7892968-3cd0-4850-9967-fad5810aaa97",
+      "Name": "Medlemsoplysninger",
+      "Description": "Will be sent to EVERYONE even unsubscribed"
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "51392dc6-cb57-40fb-9f47-f5fbe46dec2f",
+    "Subject": "Normalansatte +/- 19 timer - Vi sagner oppgifter",
+    "Body": "Kære [@Name].\nVi vil rigtig gerne kunne sende dig en velkomstmail, men vi mangler din e-mailadresse. Du kan opdatere dine data på https://mitdp.dk/ eller skrive til medlemsservice@dp.dk. Du kan selvfølgelig også altid ringe til os på: 35 26 99 55.\n\nMvh\nDansk Psykolog Forening",
+    "Modified": "2025-08-14T06:39:00Z",
+    "Created": "2025-02-20T10:59:13.25Z",
+    "CreatedBy": {
+      "UserId": "d0aa3a2b-d1d1-4371-80b2-9507aa154916",
+      "FirstName": "Oscar",
+      "LastName": "Uribe Enggren",
+      "Name": "Oscar Uribe Enggren",
+      "UserName": "oscar.uribe@ungapped.com",
+      "Email": "oscar.uribe@ungapped.com"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 40,
+    "Category": {
+      "CategoryId": "49676733-56b2-4f70-96a3-21ca81f78a25",
+      "Name": "Nyhedsbrev",
+      "Description": null
+    },
+    "Event": null,
+    "Journey": {
+      "JourneyId": "3c355d2b-d93f-4c7b-a865-df1440827df5",
+      "Title": "Normalansatte +/- 19 timer",
+      "Status": 1
+    }
+  },
+  {
+    "SmsMessageId": "83c81006-0b70-44a1-927e-01c2cc897fd0",
+    "Subject": "SMS rykker 15-08-25",
+    "Body": "Kære [@Name]\n\nDette er Riffat fra Dansk Psykolog Forening.\nJeg skriver til dig, fordi jeg kan se, at du stadig ikke har fået betalt det du skylder til Dansk Psykolog Forening. Fortsætter du med ikke at betale dit udestående, vil det få konsekvenser for dit medlemskab og sagen kan ende hos Inkasso.\n\nHeldigvis kan du stadig nå det, men det er sidste chance.\nI løbet af de næste par dage vil jeg forsøge at ringe til dig og så kan vi sammen få lavet en god aftale. Vi plejer altid at finde en løsning 😊\n\nDe bedste hilsener\nRiffat fra Dansk Psykolog Forening",
+    "Modified": "2025-08-15T08:38:00Z",
+    "Created": "2025-08-15T08:36:57.82Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 10,
+    "Category": {
+      "CategoryId": "d7892968-3cd0-4850-9967-fad5810aaa97",
+      "Name": "Medlemsoplysninger",
+      "Description": "Will be sent to EVERYONE even unsubscribed"
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "01ad1115-095d-4c10-9aad-28b5ca6a3fb7",
+    "Subject": "SMS-rykker",
+    "Body": "Kære [@Name]\n\nDet er Riffat fra Dansk Psykolog Forening.\nJeg skriver til dig, fordi jeg kan se, at du stadig ikke har fået betalt det du skylder. Vi har tidligere sendt påmindelser til din mail. \n\nDit udestående skal være betalt inden 3 dage fra denne sms er modtaget, ellers vil det få konsekvenser for dit medlemskab.\n\nDu kan stadig nå det – sidste chance. Husk at du altid kontakte os på:\n\n- Tlf: 35269955 (alle hverdage mellem 10-13 onsdag lukket)\n- Mail: Regnskab@dp.dk\n\nMvh Riffat fra Dansk Psykolog Forening",
+    "Modified": "2025-11-17T09:12:00Z",
+    "Created": "2025-09-16T08:05:13.57Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 110,
+    "Category": {
+      "CategoryId": "d7892968-3cd0-4850-9967-fad5810aaa97",
+      "Name": "Medlemsoplysninger",
+      "Description": "Will be sent to EVERYONE even unsubscribed"
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "ca703d55-bbda-4523-abea-31b3e2ddd4c9",
+    "Subject": "SMS-Rykker 06-11-25",
+    "Body": "Kære [@Name]\n\nDet er Sebastian fra Dansk Psykolog Forening.\n\nJeg skriver til dig, fordi vi gerne vil i kontakt med dig. Vi har registreret denne e-mailadresse på dig: [@Email], men når vi forsøger at sende dig en e-mail, kommer den desværre ikke frem. Vi tror, der er en fejl i e-mailadressen. Vil du hjælpe os med at få den rettet?\n\nDu kan enten skrive til os på medlemsservice@dp.dk, så hjælper vi dig med at ændre den, eller selv ændre den via MitDP: https://mitdp.dk/Home/MyProfile/.\n\nHar du spørgsmål, er du selvfølgelig altid velkommen til at kontakte os:\n\n- Tlf.: 35 26 99 55 (alle hverdage mellem kl. 10–13, onsdag lukket)\n- Mail: dp@dp.dk\n\nVi håber at høre fra dig.\n\nDe bedste hilsner\nSebastian fra Dansk Psykolog Forening",
+    "Modified": "2025-11-07T06:11:00Z",
+    "Created": "2025-11-06T19:15:32.613Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 3,
+    "Category": {
+      "CategoryId": "d7892968-3cd0-4850-9967-fad5810aaa97",
+      "Name": "Medlemsoplysninger",
+      "Description": "Will be sent to EVERYONE even unsubscribed"
+    },
+    "Event": null,
+    "Journey": null
+  },
+  {
+    "SmsMessageId": "ee5548a0-8424-4dfa-be3e-4565c8f2a6f3",
+    "Subject": "Vi ringer snart til dig",
+    "Body": "Kære [@Name]\n\nDette er Riffat fra Dansk Psykolog Forening.\nJeg skriver til dig, fordi jeg kan se, at du stadig ikke har fået betalt det du skylder til Dansk Psykolog Forening. Fortsætter du med ikke at betale dit udestående, vil det få konsekvenser for dit medlemskab og sagen kan ende hos Inkasso.\n\nHeldigvis kan du stadig nå det, men det er sidste chance.\nI løbet af de næste par dage vil jeg forsøge at ringe til dig og så kan vi sammen få lavet en god aftale. Vi plejer altid at finde en løsning 😊\n\nDe bedste hilsener\nRiffat fra Dansk Psykolog Forening",
+    "Modified": "2025-06-16T08:19:00Z",
+    "Created": "2025-06-16T08:17:03.897Z",
+    "CreatedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "ModifiedBy": {
+      "UserId": "e2c0f163-671a-4e02-bd22-300fc4ae9de8",
+      "FirstName": "Sebastian",
+      "LastName": "Feirup",
+      "Name": "Sebastian Feirup",
+      "UserName": "slf@dp.dk",
+      "Email": "slf@dp.dk"
+    },
+    "Status": 3,
+    "Category": {
+      "CategoryId": "d7892968-3cd0-4850-9967-fad5810aaa97",
+      "Name": "Medlemsoplysninger",
+      "Description": "Will be sent to EVERYONE even unsubscribed"
+    },
+    "Event": null,
+    "Journey": null
+  }
+]
