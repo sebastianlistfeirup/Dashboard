@@ -1,0 +1,229 @@
+{
+  "contacts/active count": 17441,
+  "Timeline": {
+    "status": 200,
+    "bytes": 25283,
+    "shape": {
+      "_array": 30,
+      "of": {
+        "Account": {
+          "AccountId": "guid",
+          "Name": "string(\"Dansk Psykolog Forening\")"
+        },
+        "Type": "number",
+        "TypeName": "string(\"IssueRecipient\")",
+        "Url": "string(len 55)",
+        "PublicUrl": "string(len 153)",
+        "PreviewUrl": "null",
+        "Title": "string(len 55)",
+        "Description": "string(\"Gf27 invitation\")",
+        "OccuredAt": "datetime",
+        "HardBounce": "boolean",
+        "BounceCount": "number",
+        "BounceCode": "null",
+        "BounceCategory": "null",
+        "BounceDiagnosis": "null",
+        "Data": "null",
+        "UnsubscribeReasonValue": "null",
+        "UnsubscribeReasonText": "null",
+        "RecipientCount": "number",
+        "OpenCount": "number",
+        "ClickCount": "number",
+        "ResponseCount": "number",
+        "EventParticipantStatus": "null",
+        "EventParticipantStatusName": "null",
+        "ModifiedByUser": "null"
+      }
+    }
+  },
+  "DataGroups": {
+    "status": 200,
+    "bytes": 2,
+    "shape": "array<empty>"
+  },
+  "Categories": {
+    "status": 200,
+    "bytes": 715,
+    "shape": {
+      "_array": 3,
+      "of": {
+        "CategoryId": "guid",
+        "Name": "string(\"Nyhedsbrev\")",
+        "Description": "null",
+        "IsPublic": "boolean",
+        "IgnoreUnsubscribe": "boolean",
+        "AllowedDays": "null",
+        "AllowedFromTime": "null",
+        "AllowedToTime": "null",
+        "AllowedTimezone": "null"
+      }
+    }
+  },
+  "UnsubscribeReason": {
+    "status": 200,
+    "bytes": 4,
+    "shape": null
+  },
+  "Lists for contact": {
+    "status": 200,
+    "bytes": 969,
+    "shape": {
+      "_array": 2,
+      "of": {
+        "ListId": "guid",
+        "AccountId": "guid",
+        "Name": "string(len 41)",
+        "IsDeleted": "boolean",
+        "Description": "null",
+        "LastModified": "datetime",
+        "LastModifiedByUserId": "guid",
+        "Created": "datetime",
+        "CreatedByUserId": "guid",
+        "WelcomeIssueId": "null",
+        "WelcomeSmsMessageId": "null",
+        "IsHidden": "boolean",
+        "DeletedDate": "null",
+        "DeletedByUserId": "null"
+      }
+    }
+  },
+  "Issues for contact": {
+    "status": 200,
+    "bytes": 13492,
+    "shape": {
+      "_array": 29,
+      "of": {
+        "RecipientId": "guid",
+        "IssueId": "guid",
+        "ContactId": "guid",
+        "Subject": "string(len 55)",
+        "Url": "string(len 153)",
+        "Scheduled": "datetime",
+        "OpenedCount": "number",
+        "ClickCount": "number"
+      }
+    }
+  },
+  "issue keys mentioning occasion/recipient": [
+    "ScheduledForSending",
+    "TestRecipients",
+    "DisableRecipientEditing",
+    "ResendToExistingRecipients",
+    "IsValidForSending"
+  ],
+  "Issues/Sent/{id}/Statistics body": {
+    "IssueId": "41f5e488-b24c-465e-b074-e5f4bb56ec0a",
+    "RecipientCount": 198,
+    "SentCount": 198,
+    "FailedCount": 0,
+    "BounceCount": 0,
+    "OpenCount": 121,
+    "ClickCount": 6,
+    "ResendToExistingRecipients": false,
+    "Started": "2025-06-30T12:53:35.55Z",
+    "Ended": "2025-06-30T12:53:44.117Z",
+    "Status": 50
+  },
+  "SendOccasions/issueId/Recipients": {
+    "status": 200,
+    "bytes": 2,
+    "count": 0,
+    "shape": "array<empty>"
+  },
+  "Lists/{id}/Contacts": {
+    "status": 200,
+    "bytes": 4146,
+    "count": 2,
+    "declaredContactCount": 2,
+    "shape": {
+      "_array": 1,
+      "of": {
+        "ContactId": "guid",
+        "AccountId": "guid",
+        "ExternalId": "string(\"706210\")",
+        "Number": "number",
+        "Email": "string<email>",
+        "EmailFormat": "number",
+        "FirstName": "string(\"Ea Kirstine\")",
+        "LastName": "string(\"Bloksgaard\")",
+        "Name": "string(\"Ea Kirstine Bloksgaard\")",
+        "SmsNumber": "string(\"+4550495717\")",
+        "GmtOffset": "number",
+        "Created": "datetime",
+        "LastModified": "datetime",
+        "PhotoUrl": "null",
+        "OptInDate": "null",
+        "SourceType": "number",
+        "SourceName": "null",
+        "IsDeleted": "boolean",
+        "IsAnonymized": "boolean",
+        "IsActive": "boolean",
+        "IsSmsActive": "boolean",
+        "HasBounced": "boolean",
+        "HasSmsBounced": "boolean",
+        "Custom1": "null",
+        "Custom2": "string(\"Person\")",
+        "Custom3": "string(len 59)",
+        "Custom4": "string(\"Arbejdsmiljørepræsentant\")",
+        "Custom5": "string(\"\")",
+        "Custom6": "string(\"Syddanmark\")",
+        "Custom7": "string(\"\")",
+        "Custom8": "null",
+        "Custom9": "null",
+        "Custom10": "null",
+        "PersonalReplyToEmail": "null",
+        "PersonalFromName": "null",
+        "Account": {
+          "AccountId": "guid",
+          "Name": "string(\"Dansk Psykolog Forening\")"
+        },
+        "Tags": "array<empty>",
+        "Categories": "array<empty>",
+        "JobTitle": "null",
+        "Salutation": "string(\"\")",
+        "StreetAddress": "string(\"Edvard Weies Vænge 15\")",
+        "City": "string(\"Odense SØ\")",
+        "PostalCode": "string(\"5220\")",
+        "State": "string(\"Odense\")",
+        "Country": "null",
+        "Region": "string(\"Syddanmark\")",
+        "Gender": "string(\"Female\")",
+        "Birthday": "null",
+        "CompanyName": "string(len 47)",
+        "Industry": "string(len 57)",
+        "LastNpsDate": "null",
+        "LastNpsRating": "null",
+        "LastCsatDate": "null",
+        "LastCsatRating": "null",
+        "Website": "null",
+        "CustomLong1": "string(len 59)",
+        "CustomLong2": "string(len 100)",
+        "CustomDate1": "datetime",
+        "CustomDate2": "null",
+        "CustomDate3": "null",
+        "CustomDate4": "null",
+        "CustomDate5": "null",
+        "CustomDate6": "null",
+        "CustomBool1": "null",
+        "CustomBool2": "null",
+        "CustomBool3": "null",
+        "CustomBool4": "null",
+        "CustomBool5": "null",
+        "CustomBool6": "null",
+        "CustomNumeric1": "number",
+        "CustomNumeric2": "number",
+        "CustomNumeric3": "null",
+        "CustomNumeric4": "null",
+        "CustomNumeric5": "null",
+        "CustomNumeric6": "null",
+        "BounceReason": {
+          "BounceType": "null",
+          "BounceCategory": "null",
+          "BounceCode": "null",
+          "BounceDiagnosis": "null"
+        },
+        "AddedDateTime": "datetime"
+      }
+    }
+  }
+}
