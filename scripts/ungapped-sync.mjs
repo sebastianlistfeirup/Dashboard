@@ -367,7 +367,9 @@ function profileOf(c) {
     postnummer: typeof c.PostalCode === 'string' ? c.PostalCode.trim().slice(0, 4) : null,
     isActive: Boolean(c.IsActive),
     hasBounced: Boolean(c.HasBounced),
-    smsActive: Boolean(c.IsSmsActive),
+    // IsSmsActive is set on almost every contact whether or not a mobile
+    // number exists, so on its own it says nothing about reach.
+    smsActive: Boolean(c.IsSmsActive && typeof c.SmsNumber === 'string' && c.SmsNumber.trim().length >= 8),
     oprettet: c.Created ?? null,
   }
 }
