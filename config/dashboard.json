@@ -1,0 +1,110 @@
+{
+  "_om": "Fælles indstillinger for dashboardet. Ret filen her, så gælder ændringen for alle. Ændringer du laver i browseren gemmes kun lokalt hos dig, indtil de skrives ind her.",
+
+  "maal": {
+    "_om": "Mål pr. nøgletal. Dashboardet viser afstanden til målet som en måler.",
+    "openRate": { "maal": 55, "retning": "op", "label": "Åbningsrate" },
+    "clickRate": { "maal": 12, "retning": "op", "label": "Klikrate" },
+    "ctor": { "maal": 22, "retning": "op", "label": "Klik pr. åbning" },
+    "unsubRate": { "maal": 0.15, "retning": "ned", "label": "Afmeldinger pr. udsendelse" },
+    "bounceRate": { "maal": 3, "retning": "ned", "label": "Bounce-andel i bestanden" }
+  },
+
+  "benchmarks": {
+    "_om": "Eksterne målestokke. Kilde og år står på hver enkelt, så ingen kommer til at citere et tal uden at vide hvor det kommer fra.",
+    "_forbehold": "Åbningsrater er ikke direkte sammenlignelige på tværs af organisationer: Apple Mail Privacy Protection åbner mails automatisk og løfter tallet, og hvor meget afhænger af hvilke mailprogrammer modtagerne bruger. Klikraten er det robuste tal at sammenligne på.",
+    "primaer": "foreninger",
+    "kilder": {
+      "foreninger": {
+        "navn": "Foreninger og medlemsorganisationer",
+        "kilde": "Higher Logic, Association Email Benchmark Report 2025–2026",
+        "grundlag": "ca. 1.500 foreninger og nonprofits, over 2 mia. udsendte mails",
+        "aar": 2025,
+        "url": "https://www.higherlogic.com/news/higher-logic-releases-2025-2026-association-email-benchmark-report/",
+        "tal": {
+          "openRate": 33.54,
+          "clickRate": 2.68
+        },
+        "noter": {
+          "openRate": "Automatiserede forløb ligger højere end enkeltudsendelser: 38,1 % mod 33,25 %."
+        }
+      },
+      "nonprofit": {
+        "navn": "Nonprofit-sektoren bredt",
+        "kilde": "Branchesammenstilling 2025–2026 (WebFX, Neon One)",
+        "grundlag": "Nonprofit-afsendere på tværs af platforme",
+        "aar": 2025,
+        "url": "https://www.webfx.com/blog/marketing/email-marketing-benchmarks/",
+        "tal": {
+          "openRate": 25.2,
+          "clickRate": 3.29,
+          "unsubRate": 0.19
+        }
+      },
+      "alle": {
+        "navn": "Alle brancher",
+        "kilde": "Branchesammenstilling 2025–2026 (WebFX)",
+        "grundlag": "Afsendere på tværs af alle brancher",
+        "aar": 2025,
+        "url": "https://www.webfx.com/blog/marketing/email-marketing-benchmarks/",
+        "tal": {
+          "openRate": 19.21,
+          "clickRate": 2.44,
+          "unsubRate": 0.89,
+          "bounceRate": 2.48
+        }
+      }
+    }
+  },
+
+  "alarmer": {
+    "_om": "Hvornår dashboardet skal gøre opmærksom på noget. Tærsklerne kan skrues på her.",
+    "aktiv": true,
+    "udsendelseUnderNormal": {
+      "_om": "En udsendelse markeres, når åbningsraten ligger mere end så mange procent under gennemsnittet for sin type.",
+      "relativFaldPct": 25,
+      "minLeverede": 1000
+    },
+    "afmeldingsboelge": {
+      "_om": "Markeres når en enkelt udsendelse koster mere end denne andel afmeldinger.",
+      "unsubRatePct": 0.5,
+      "minLeverede": 1000
+    },
+    "bounce": {
+      "_om": "Markeres når en udsendelse bouncer mere end dette.",
+      "bounceRatePct": 5,
+      "minLeverede": 500
+    },
+    "bestandBounce": {
+      "_om": "Markeres når andelen af bouncende adresser i hele bestanden overstiger dette.",
+      "andelPct": 4
+    }
+  },
+
+  "genaktivering": {
+    "_om": "Hvornår en modtager regnes for sovende.",
+    "maanederUdenAabning": 12,
+    "minModtagneUdsendelser": 3
+  },
+
+  "noter": {
+    "_om": "Noter der vises på tidslinjen. Skriv en note på en måned, så bliver den stående og fortæller hvad der skete.",
+    "poster": []
+  },
+
+  "ledelsesdashboard": {
+    "_om": "Hvilke moduler der vises på ledelsessiden, og i hvilken rækkefølge. Kan ændres direkte i browseren og gemmes tilbage hertil.",
+    "titel": "Medlemskommunikation",
+    "undertitel": "Status til ledergruppen",
+    "moduler": [
+      "maaned-tekst",
+      "kpi-maalere",
+      "benchmark",
+      "udvikling",
+      "typer",
+      "top-udsendelser",
+      "modtagere",
+      "alarmer"
+    ]
+  }
+}

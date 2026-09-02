@@ -12,6 +12,12 @@
 import { MAILING_TYPES, resolveType } from './types.mjs'
 import { pct } from './extract.mjs'
 import { buildFindings } from './findings.mjs'
+import {
+  buildAlerts, buildBenchmarks, buildCohorts, buildNarrative, buildReengagement,
+  buildSenders, buildTargets,
+} from './insights.mjs'
+import { buildCrossTabs } from './crosstab.mjs'
+import { TENURE_MONTH_BUCKETS } from './tenure.mjs'
 
 /** Minimum sendouts before a rate comparison is reported as a finding. */
 const MIN_SENDOUTS = 4
@@ -126,6 +132,18 @@ export function buildAnalysis(input) {
     audience: buildAudience(input.contacts, input.engagement, minBucket),
     segmentPerformance: buildSegmentPerformance(sent, input.lists),
   }
+
+  // Everything below reads the finished aggregation, so a figure can never
+  // disagree with the chart it sits next to.
+  const config = input.config ?? {}
+  analysis.targets = buildTargets(analysis.overview.pool, analysis.audience, config)
+  analysis.benchmarks = buildBenchmarks(analysis.overview.pool, config)
+  analysis.senders = buildSenders(sent)
+  analysis.alerts = buildAlerts(sent, analysis.byType, analysis.audience, config)
+  analysis.cohorts = buildCohorts(input.engagement, TENURE_MONTH_BUCKETS, MIN_PEOPLE)
+  analysis.reengagement = buildReengagement(input.engagement, analysis.audience, config)
+  analysis.crossTabs = buildCrossTabs(input.engagement, profileValue, MIN_PEOPLE)
+  analysis.narrative = buildNarrative(analysis.trends.monthly, analysis.byType, sent, analysis.alerts)
 
   // Findings read the finished aggregation, so they can compare across sections.
   analysis.findings = buildFindings(analysis)
@@ -506,6 +524,19 @@ function buildAudience(contacts, engagement, minBucket) {
     profile,
     churn,
     engagement: buildEngagement(engagement, minBucket),
+  }
+}
+
+/** Resolve a profile attribute by dimension key, for the cross-tab. */
+function profileValue(profile, key) {
+  switch (key) {
+    case 'kontingent': return profile.kontingent
+    case 'region': return profile.region
+    case 'alder': return ageBucket(profile.alder)
+    case 'anciennitet': return tenureBucket(profile.indmeldt)
+    case 'sektioner': return profile.sektioner
+    case 'koen': return translateGender(profile.koen)
+    default: return null
   }
 }
 

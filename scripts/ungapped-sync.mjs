@@ -21,6 +21,8 @@ import { createHash } from 'node:crypto'
 import { Ungapped, ISSUE_STATUS, SMS_STATUS, SMS_SENT_STATUSES, SURVEY_STATUS, CONTACT_FIELDS } from './lib/ungapped.mjs'
 import { analyseBody, analyseSubject, isoWeek, localParts, pct, round1 } from './lib/extract.mjs'
 import { buildAnalysis } from './lib/analyse.mjs'
+import { tenureBucketKey } from './lib/tenure.mjs'
+import { readFile } from 'node:fs/promises'
 
 const KEY = process.env.UNGAPPED_API_KEY?.trim()
 if (!KEY) { console.error('UNGAPPED_API_KEY is not set.'); process.exit(1) }
@@ -42,8 +44,20 @@ const t0 = Date.now()
 const step = (msg) => console.log(`[${String(Math.round((Date.now() - t0) / 1000)).padStart(4)}s] ${msg}`)
 const progress = (done, total, label) => step(`   ${label}: ${done}/${total}`)
 
+/** Shared settings: targets, benchmarks, alert thresholds, notes. */
+async function loadConfig() {
+  try {
+    const raw = await readFile(path.resolve('config/dashboard.json'), 'utf8')
+    return JSON.parse(raw)
+  } catch (err) {
+    console.warn(`kunne ikke læse config/dashboard.json (${err.message}) — kører med standarder`)
+    return {}
+  }
+}
+
 async function main() {
   await mkdir(outDir, { recursive: true })
+  const config = await loadConfig()
 
   /* ── Reference data ───────────────────────────────────────────────────── */
   step('henter stamdata')
@@ -144,16 +158,43 @@ async function main() {
   const engagement = await ug.map(sample, async (c) => {
     const rows = await ug.tryGet(`/Issues/Recipient?contactId=${c.ContactId}`)
     if (!Array.isArray(rows)) return null
+    const profile = profileOf(c)
     const opened = rows.filter((r) => (r.OpenedCount ?? 0) > 0).length
     const clicked = rows.filter((r) => (r.ClickCount ?? 0) > 0).length
+
+    // Bucket each mail by how long the member had been a member when it
+    // arrived. Aggregated by joining year this becomes the cohort curve —
+    // the only honest way to ask whether onboarding is getting better.
+    const joined = profile.indmeldt ? Date.parse(profile.indmeldt) : NaN
+    const tenure = {}
+    let lastOpenedAt = ''
+    let lastReceivedAt = ''
+    for (const r of rows) {
+      if (r.Scheduled) {
+        if (r.Scheduled > lastReceivedAt) lastReceivedAt = r.Scheduled
+        if ((r.OpenedCount ?? 0) > 0 && r.Scheduled > lastOpenedAt) lastOpenedAt = r.Scheduled
+      }
+      if (Number.isNaN(joined) || !r.Scheduled) continue
+      const months = (Date.parse(r.Scheduled) - joined) / (30.44 * 864e5)
+      if (months < 0) continue
+      const bucket = tenureBucketKey(months)
+      if (!tenure[bucket]) tenure[bucket] = { received: 0, opened: 0, clicked: 0 }
+      tenure[bucket].received += 1
+      if ((r.OpenedCount ?? 0) > 0) tenure[bucket].opened += 1
+      if ((r.ClickCount ?? 0) > 0) tenure[bucket].clicked += 1
+    }
+
     return {
-      profile: profileOf(c),
+      profile,
       received: rows.length,
       opened,
       clicked,
       opens: rows.reduce((s, r) => s + (r.OpenedCount ?? 0), 0),
       clicks: rows.reduce((s, r) => s + (r.ClickCount ?? 0), 0),
-      lastScheduled: rows.reduce((max, r) => (r.Scheduled && r.Scheduled > max ? r.Scheduled : max), ''),
+      lastReceivedAt: lastReceivedAt || null,
+      lastOpenedAt: lastOpenedAt || null,
+      cohortYear: Number.isNaN(joined) ? null : new Date(joined).getUTCFullYear(),
+      tenure,
     }
   }, { label: 'engagement', onProgress: progress })
 
@@ -177,6 +218,7 @@ async function main() {
     },
     engagement: engagement.filter(Boolean),
     minBucket: MIN_BUCKET,
+    config,
   })
 
   const payload = {
@@ -196,6 +238,7 @@ async function main() {
         seconds: Math.round((Date.now() - t0) / 1000),
       },
     },
+    config,
     ...analysis,
   }
 
