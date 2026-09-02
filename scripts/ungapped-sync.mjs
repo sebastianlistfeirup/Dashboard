@@ -272,7 +272,7 @@ function toMailing(row, detail, stats, sentStats, reasons) {
     content: analyseBody(d.BodyHtml, d.BodyText),
     unsubscribeReasons: Array.isArray(reasons)
       ? reasons.map((r) => ({
-          reason: (r.Reason ?? r.ReasonText ?? r.UnsubscribeReasonText ?? r.Name ?? 'Ikke oplyst').toString().slice(0, 120),
+          reason: scrubContactDetails((r.Reason ?? r.ReasonText ?? r.UnsubscribeReasonText ?? r.Name ?? 'Ikke oplyst').toString().slice(0, 120)),
           count: r.Count ?? r.Total ?? 1,
         }))
       : [],
@@ -287,7 +287,7 @@ function toSms(row, stats) {
   return {
     id: row.SmsMessageId,
     subject: row.Subject || row.Body?.slice(0, 60) || 'Uden emne',
-    body: (row.Body ?? '').slice(0, 400),
+    body: scrubContactDetails((row.Body ?? '').slice(0, 400)),
     sender: row.Sender ?? s.Sender ?? null,
     status: row.Status,
     statusName: SMS_STATUS[row.Status] ?? String(row.Status),
@@ -363,6 +363,18 @@ function profileOf(c) {
     smsActive: Boolean(c.IsSmsActive),
     oprettet: c.Created ?? null,
   }
+}
+
+/**
+ * Free text that DP writes, but which a recipient's details could also reach:
+ * an SMS body, an unsubscribe reason. Mask anything shaped like a way to
+ * contact a person, so the text stays readable but can never publish one.
+ */
+function scrubContactDetails(text) {
+  return String(text ?? '')
+    .replace(/[\w.+-]+@[\w-]+\.[\w.]{2,}/g, '[e-mail]')
+    .replace(/(?:\+45|0045)[\s-]?\d{2}[\s-]?\d{2}[\s-]?\d{2}[\s-]?\d{2}/g, '[telefonnummer]')
+    .replace(/(?<![\w-])\d{8}(?![\w-])/g, '[telefonnummer]')
 }
 
 const clean = (v) => {
