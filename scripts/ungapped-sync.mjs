@@ -397,3 +397,43 @@ main().catch((err) => {
   console.error(ug.redact(String(err?.stack ?? err)))
   process.exit(1)
 })
+
+/* ── Privatlivsvagt ──────────────────────────────────────────────────────── */
+
+const EMAIL_RE = /[\w.+-]+@[\w-]+\.[\w.]{2,}/
+const PHONE_RE = /(?:\+45[\s-]?)?\b\d{2}[\s-]?\d{2}[\s-]?\d{2}[\s-]?\d{2}\b/
+
+/**
+ * Fields that legitimately hold an organisational address or number: DP's own
+ * sender identity, and the numbers DP prints in its own SMS copy. Everything
+ * else is checked, so a recipient's details can never slip through unnoticed.
+ */
+const ORGANISATIONAL = [
+  /^mailings\.\d+\.from\.address$/,
+  /^sms\.\d+\.sender$/,
+]
+
+const mask = (v) => String(v).replace(/[^\s@+.-]/g, '•').slice(0, 40)
+
+/** Walk the payload and report every value that looks like it identifies a person. */
+function auditForPersonalData(node, path = '', found = []) {
+  if (node === null || node === undefined) return found
+  if (Array.isArray(node)) {
+    node.forEach((v, i) => auditForPersonalData(v, `${path}.${i}`, found))
+    return found
+  }
+  if (typeof node === 'object') {
+    for (const [k, v] of Object.entries(node)) {
+      if (/^contactid$|^recipientid$/i.test(k)) {
+        found.push({ kind: 'kontakt-id', path: path ? `${path}.${k}` : k, masked: mask(v) })
+      }
+      auditForPersonalData(v, path ? `${path}.${k}` : k, found)
+    }
+    return found
+  }
+  if (typeof node !== 'string') return found
+  if (ORGANISATIONAL.some((re) => re.test(path))) return found
+  if (EMAIL_RE.test(node)) found.push({ kind: 'e-mailadresse', path, masked: mask(node.match(EMAIL_RE)[0]) })
+  else if (PHONE_RE.test(node)) found.push({ kind: 'telefonnummer', path, masked: mask(node.match(PHONE_RE)[0]) })
+  return found
+}
