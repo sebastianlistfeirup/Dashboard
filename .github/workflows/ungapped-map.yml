@@ -1,0 +1,48 @@
+name: Ungapped API map
+
+# Pass 2: pulls the Swagger definition and samples every parameterless GET.
+# Endpoints that return people are recorded as shapes only — the repo is public.
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/ungapped-map.mjs'
+      - '.github/workflows/ungapped-map.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ungapped-map
+
+jobs:
+  map:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Map the API
+        env:
+          UNGAPPED_API_KEY: ${{ secrets.UG_API }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/out" && cd "$RUNNER_TEMP/out"
+          node "$GITHUB_WORKSPACE/scripts/ungapped-map.mjs"
+
+      - name: Commit the map to main
+        run: |
+          set -euo pipefail
+          cd "$GITHUB_WORKSPACE"
+          rm -rf docs/api-map
+          mkdir -p docs/api-map
+          cp -r "$RUNNER_TEMP/out/ungapped-map/." docs/api-map/
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/api-map
+          git diff --staged --quiet && { echo "no changes"; exit 0; }
+          git commit -m "Update Ungapped API map"
+          git pull --rebase origin main
+          git push origin HEAD:main
