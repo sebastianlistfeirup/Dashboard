@@ -94,7 +94,7 @@ export function buildFindings(analysis) {
   /* ── Tidspunkter ───────────────────────────────────────────────────────── */
   // Volume matters as much as count: eight sendouts to 1.000 people say less
   // than one to 13.000.
-  const days = timing.byWeekday.filter((d) => d.count >= MIN_SENDOUTS && d.delivered >= (timing.minDelivered ?? 0))
+  const days = timing.byWeekday.filter((d) => d.comparable)
   if (days.length >= 2) {
     const best = [...days].sort((a, b) => (b.openRate ?? 0) - (a.openRate ?? 0))[0]
     const worst = [...days].sort((a, b) => (a.openRate ?? 0) - (b.openRate ?? 0))[0]
@@ -112,7 +112,7 @@ export function buildFindings(analysis) {
     }
   }
 
-  const bands = timing.hourBands.filter((b) => b.count >= MIN_SENDOUTS && b.delivered >= (timing.minDelivered ?? 0))
+  const bands = timing.hourBands.filter((b) => b.comparable)
   if (bands.length >= 2) {
     const best = [...bands].sort((a, b) => (b.openRate ?? 0) - (a.openRate ?? 0))[0]
     const worst = [...bands].sort((a, b) => (a.openRate ?? 0) - (b.openRate ?? 0))[0]
@@ -131,7 +131,7 @@ export function buildFindings(analysis) {
   }
 
   /* ── Emnelinjer ────────────────────────────────────────────────────────── */
-  const lengths = subjects.byLength.filter((b) => b.count >= MIN_SENDOUTS)
+  const lengths = subjects.byLength.filter((b) => b.comparable)
   if (lengths.length >= 2) {
     const best = [...lengths].sort((a, b) => (b.openRate ?? 0) - (a.openRate ?? 0))[0]
     const worst = [...lengths].sort((a, b) => (a.openRate ?? 0) - (b.openRate ?? 0))[0]
@@ -168,7 +168,7 @@ export function buildFindings(analysis) {
   }
 
   /* ── Indhold ───────────────────────────────────────────────────────────── */
-  const linkBuckets = content.byLinks.filter((b) => b.count >= MIN_SENDOUTS)
+  const linkBuckets = content.byLinks.filter((b) => b.comparable)
   if (linkBuckets.length >= 2) {
     const best = [...linkBuckets].sort((a, b) => (b.clickRate ?? 0) - (a.clickRate ?? 0))[0]
     const worst = [...linkBuckets].sort((a, b) => (a.clickRate ?? 0) - (b.clickRate ?? 0))[0]
@@ -186,7 +186,7 @@ export function buildFindings(analysis) {
     }
   }
 
-  const wordBuckets = content.byWords.filter((b) => b.count >= MIN_SENDOUTS)
+  const wordBuckets = content.byWords.filter((b) => b.comparable)
   if (wordBuckets.length >= 2) {
     const best = [...wordBuckets].sort((a, b) => (b.ctor ?? 0) - (a.ctor ?? 0))[0]
     const worst = [...wordBuckets].sort((a, b) => (a.ctor ?? 0) - (b.ctor ?? 0))[0]
@@ -207,8 +207,13 @@ export function buildFindings(analysis) {
   /* ── Modtagere ─────────────────────────────────────────────────────────── */
   const eng = audience.engagement
   if (eng) {
+    // Rank by the measure the headline quotes, and require a group big enough
+    // that one unusual person cannot move it.
+    const HEADLINE_PEOPLE = 60
     const cmp = (rows, area, dimension, unit = 'gruppe') => {
-      const list = (rows ?? []).filter((x) => !x.isOther && x.people >= MIN_PEOPLE && x.received > 0)
+      const list = (rows ?? [])
+        .filter((x) => !x.isOther && x.people >= Math.max(MIN_PEOPLE, HEADLINE_PEOPLE) && x.received > 0)
+        .sort((a, b) => (b.clickRate ?? 0) - (a.clickRate ?? 0))
       if (list.length < 2) return
       const best = list[0]
       const worst = list[list.length - 1]

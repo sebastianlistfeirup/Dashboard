@@ -20,6 +20,8 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: ungapped-sync
@@ -48,7 +50,60 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add public/data/dashboard.json
-          git diff --staged --quiet && { echo "uændret"; exit 0; }
-          git commit -m "Opdater data $(date -u +'%Y-%m-%d %H:%M UTC')"
-          git pull --rebase origin main
-          git push origin HEAD:main
+          if git diff --staged --quiet; then
+            echo "data uændret"
+          else
+            git commit -m "Opdater data $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+
+      - name: Install and build
+        run: |
+          npm ci --no-audit --no-fund
+          npm run build
+
+      # The private build carries its data, so it works offline and never
+      # reaches a public URL. Downloaded from this run's artifacts.
+      - name: Build the self-contained file
+        run: |
+          npm run build:single
+          node scripts/make-singlefile.mjs dist-single/index.html public/data/dashboard.json DP-udsendelsesdashboard.html
+
+      - name: Upload the self-contained file
+        uses: actions/upload-artifact@v4
+        with:
+          name: DP-udsendelsesdashboard
+          path: DP-udsendelsesdashboard.html
+          retention-days: 30
+
+      - name: Configure Pages
+        id: pages
+        continue-on-error: true
+        uses: actions/configure-pages@v5
+
+      - name: Upload the site
+        if: steps.pages.outcome == 'success'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - name: Deploy to Pages
+        id: deploy
+        if: steps.pages.outcome == 'success'
+        uses: actions/deploy-pages@v4
+
+      - name: Where things ended up
+        run: |
+          if [ "${{ steps.pages.outcome }}" = "success" ]; then
+            echo "Dashboard: ${{ steps.deploy.outputs.page_url }}" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "GitHub Pages er ikke slået til for dette repo." >> "$GITHUB_STEP_SUMMARY"
+            echo "Slå det til under Settings → Pages → Source: GitHub Actions, så deployer næste kørsel automatisk." >> "$GITHUB_STEP_SUMMARY"
+          fi
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "Den private, selvstændige fil ligger under Artifacts på denne kørsel." >> "$GITHUB_STEP_SUMMARY"
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}

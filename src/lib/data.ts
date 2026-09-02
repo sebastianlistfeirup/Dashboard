@@ -219,15 +219,15 @@ export interface Dashboard {
   }
   timing: {
     heat: (PoolStats & { weekday: number; hour: number })[]
-    byWeekday: (PoolStats & { weekday: number; label: string })[]
-    hourBands: (PoolStats & { label: string; from: number; to: number })[]
+    byWeekday: (PoolStats & { weekday: number; label: string; comparable: boolean })[]
+    hourBands: (PoolStats & { label: string; from: number; to: number; comparable: boolean })[]
     weekdayLabels: string[]
     minSendouts: number
     minDelivered: number
     excludesJourneys: boolean
   }
   subjects: {
-    byLength: (PoolStats & { label: string; from: number; to: number })[]
+    byLength: (PoolStats & { label: string; from: number; to: number; comparable: boolean })[]
     flags: {
       label: string
       hint: string | null
@@ -241,14 +241,16 @@ export interface Dashboard {
     worst: SlimMailing[]
     words: { best: (PoolStats & { word: string })[]; worst: (PoolStats & { word: string })[] }
     minSendouts: number
+    minDelivered: number
   }
   content: {
-    byLinks: (PoolStats & { label: string })[]
-    byWords: (PoolStats & { label: string })[]
-    byImages: (PoolStats & { label: string })[]
+    byLinks: (PoolStats & { label: string; comparable: boolean })[]
+    byWords: (PoolStats & { label: string; comparable: boolean })[]
+    byImages: (PoolStats & { label: string; comparable: boolean })[]
     topHosts: { host: string; links: number; mailings: number; clickRate: number | null }[]
     topDestinations: { path: string; uses: number; mailings: number; clickRate: number | null }[]
     minSendouts: number
+    minDelivered: number
   }
   audience: {
     totals: {

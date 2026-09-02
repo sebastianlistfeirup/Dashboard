@@ -258,7 +258,7 @@ export function ChartTooltip({
   const flip = x > containerWidth - 190
   return (
     <div
-      className="pointer-events-none absolute z-20 min-w-[9.5rem] rounded-xl border border-dp-navy-100 bg-white/98 px-3 py-2.5 shadow-card backdrop-blur"
+      className="pointer-events-none absolute z-20 min-w-[9.5rem] rounded-xl border border-dp-navy-100 bg-white px-3 py-2.5 shadow-card backdrop-blur"
       style={{ left: flip ? x - 12 : x + 12, top: y, transform: `translate(${flip ? '-100%' : '0'}, -50%)` }}
     >
       <div className="mb-1.5 text-[0.6875rem] font-semibold uppercase tracking-wider text-dp-navy-500">

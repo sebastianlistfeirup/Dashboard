@@ -49,7 +49,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-white">
       {/* Toplinje */}
-      <header className="sticky top-0 z-50 border-b border-dp-navy-100 bg-white/92 backdrop-blur-md">
+      <header className="sticky top-0 z-50 border-b border-dp-navy-100 bg-white/95 backdrop-blur-md">
         <div className="mx-auto w-full max-w-[80rem] px-4 sm:px-6">
           <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3 py-3">
             <Wordmark />
@@ -71,7 +71,7 @@ export default function App() {
       </header>
 
       {/* Filtre */}
-      <div className="sticky top-[calc(var(--header-h,7.25rem))] z-40 border-b border-dp-navy-100 bg-dp-navy-50/80 backdrop-blur-md">
+      <div className="sticky top-[7.4rem] z-40 border-b border-dp-navy-100 bg-dp-navy-50/95 backdrop-blur-md">
         <div className="mx-auto w-full max-w-[80rem] px-4 py-3 sm:px-6">
           <FilterBar data={data} filters={filters} setFilters={setFilters} resultCount={filtered.length} />
         </div>

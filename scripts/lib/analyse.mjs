@@ -15,8 +15,23 @@ import { buildFindings } from './findings.mjs'
 
 /** Minimum sendouts before a rate comparison is reported as a finding. */
 const MIN_SENDOUTS = 4
+/**
+ * Minimum delivered mails before a group is comparable.
+ *
+ * Counting sendouts alone is not enough, and this is the single most important
+ * guard in the file. DP's flow and welcome mails go to a few hundred people and
+ * are opened far more often than a newsletter to thirteen thousand — so eleven
+ * personalised sendouts totalling 2.075 mails "proved" that personalisation
+ * lifts opening by 25 percentage points, and eight Sunday sendouts to 1.043
+ * people made Sunday the best day to send. Neither is true. A side of a
+ * comparison has to carry real volume before it may speak.
+ */
+const MIN_DELIVERED = 20_000
 /** Minimum sampled people before an engagement rate is reported. */
 const MIN_PEOPLE = 25
+
+/** Both sides of a comparison must clear the bar for the result to mean anything. */
+const comparable = (stats) => stats.count >= MIN_SENDOUTS && stats.delivered >= MIN_DELIVERED
 
 const sum = (xs, f = (x) => x) => xs.reduce((s, x) => s + (f(x) ?? 0), 0)
 const mean = (xs, f = (x) => x) => (xs.length ? sum(xs, f) / xs.length : null)
@@ -219,9 +234,6 @@ function buildTrends(sent) {
 
 const WEEKDAYS = ['Søndag', 'Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag']
 
-/** A weekday or hour band needs real volume behind it, not just a few sendouts. */
-const MIN_DELIVERED = 5000
-
 function buildTiming(mailings) {
   const cells = new Map()
   for (const m of mailings) {
@@ -237,7 +249,8 @@ function buildTiming(mailings) {
 
   const byWeekday = WEEKDAYS.map((label, weekday) => {
     const group = mailings.filter((m) => m.local?.weekday === weekday)
-    return { weekday, label, ...poolStats(group) }
+    const stats = poolStats(group)
+    return { weekday, label, ...stats, comparable: comparable(stats) }
   }).filter((r) => r.count > 0)
 
   const hourBands = [
@@ -249,7 +262,8 @@ function buildTiming(mailings) {
     { label: 'Efter kl. 16', from: 16, to: 24 },
   ].map((b) => {
     const group = mailings.filter((m) => m.local && m.local.hour >= b.from && m.local.hour < b.to)
-    return { ...b, ...poolStats(group) }
+    const stats = poolStats(group)
+    return { ...b, ...stats, comparable: comparable(stats) }
   }).filter((r) => r.count > 0)
 
   return {
@@ -276,7 +290,8 @@ function buildSubjects(mailings) {
 
   const byLength = LENGTH_BUCKETS.map((b) => {
     const group = withSubject.filter((m) => m.subjectAnalysis.length >= b.from && m.subjectAnalysis.length < b.to)
-    return { ...b, ...poolStats(group) }
+    const stats = poolStats(group)
+    return { ...b, ...stats, comparable: comparable(stats) }
   }).filter((r) => r.count > 0)
 
   const flag = (label, test, hint) => {
@@ -288,7 +303,7 @@ function buildSubjects(mailings) {
       without: { ...poolStats(no) },
       openDelta: round1((poolStats(yes).openRate ?? 0) - (poolStats(no).openRate ?? 0)),
       clickDelta: round1((poolStats(yes).clickRate ?? 0) - (poolStats(no).clickRate ?? 0)),
-      reliable: yes.length >= MIN_SENDOUTS && no.length >= MIN_SENDOUTS,
+      reliable: comparable(poolStats(yes)) && comparable(poolStats(no)),
     }
   }
 
@@ -357,12 +372,14 @@ const WORD_BUCKETS = [
 function buildContent(mailings) {
   const byLinks = LINK_BUCKETS.map((b) => {
     const group = mailings.filter((m) => m.content.uniqueLinks >= b.from && m.content.uniqueLinks < b.to)
-    return { ...b, ...poolStats(group) }
+    const stats = poolStats(group)
+    return { ...b, ...stats, comparable: comparable(stats) }
   }).filter((r) => r.count > 0)
 
   const byWords = WORD_BUCKETS.map((b) => {
     const group = mailings.filter((m) => m.content.words >= b.from && m.content.words < b.to)
-    return { ...b, ...poolStats(group) }
+    const stats = poolStats(group)
+    return { ...b, ...stats, comparable: comparable(stats) }
   }).filter((r) => r.count > 0)
 
   const byImages = [
@@ -372,7 +389,8 @@ function buildContent(mailings) {
     { label: 'Over 8 billeder', from: 9, to: 1e6 },
   ].map((b) => {
     const group = mailings.filter((m) => m.content.images >= b.from && m.content.images < b.to)
-    return { ...b, ...poolStats(group) }
+    const stats = poolStats(group)
+    return { ...b, ...stats, comparable: comparable(stats) }
   }).filter((r) => r.count > 0)
 
   // Which destinations DP links to, weighted by how well those sendouts clicked.
@@ -405,7 +423,7 @@ function buildContent(mailings) {
     .sort((a, b) => (b.clickRate ?? 0) - (a.clickRate ?? 0))
     .slice(0, 14)
 
-  return { byLinks, byWords, byImages, topHosts, topDestinations, minSendouts: MIN_SENDOUTS }
+  return { byLinks, byWords, byImages, topHosts, topDestinations, minSendouts: MIN_SENDOUTS, minDelivered: MIN_DELIVERED }
 }
 
 /* ── Modtagere ───────────────────────────────────────────────────────────── */

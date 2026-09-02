@@ -23,8 +23,7 @@ export function Timing({ data }: { data: Dashboard }) {
     ? Array.from({ length: hours[hours.length - 1] - hours[0] + 1 }, (_, i) => hours[0] + i)
     : []
 
-  const reliableDays = timing.byWeekday
-    .filter((d) => d.count >= timing.minSendouts && d.delivered >= timing.minDelivered)
+  const reliableDays = timing.byWeekday.filter((d) => d.comparable)
   const bestDay = [...reliableDays].sort((a, b) => (b[metric] ?? 0) - (a[metric] ?? 0))[0]
 
   return (
@@ -99,7 +98,7 @@ export function Timing({ data }: { data: Dashboard }) {
           >
             <BarRows
               rows={timing.byWeekday.map((d) => {
-                const solid = d.count >= timing.minSendouts && d.delivered >= timing.minDelivered
+                const solid = d.comparable
                 return {
                   label: d.label,
                   value: d[metric],
@@ -116,7 +115,7 @@ export function Timing({ data }: { data: Dashboard }) {
           <ChartCard title="Tidspunkt på dagen" subtitle="Samme forbehold gælder her.">
             <BarRows
               rows={data.timing.hourBands.map((b) => {
-                const solid = b.count >= timing.minSendouts && b.delivered >= timing.minDelivered
+                const solid = b.comparable
                 return {
                   label: b.label,
                   value: b[metric],
@@ -169,15 +168,16 @@ export function Subjects({ data }: { data: Dashboard }) {
             rows={subjects.byLength.map((b) => ({
               label: b.label,
               value: b.openRate,
-              color: b.count >= subjects.minSendouts ? '#eab922' : '#f8eabd',
+              color: b.comparable ? '#eab922' : '#f8eabd',
               n: b.count,
+              note: b.comparable ? `${fmtNum(b.delivered)} leverede mails` : 'For lidt volumen til at sammenligne',
             }))}
           />
         </ChartCard>
 
         <ChartCard
           title="Virkemidler"
-          subtitle={`Åbningsrate med og uden hvert træk. Kun træk med mindst ${subjects.minSendouts} udsendelser på hver side.`}
+          subtitle={`Åbningsrate med og uden hvert træk. Begge sider skal have mindst ${subjects.minSendouts} udsendelser og ${fmtNum(subjects.minDelivered)} leverede mails — ellers kan en håndfuld små velkomstmails komme til at "bevise" noget, der ikke gælder.`}
           legend={[{ label: 'Med', color: '#4e4897' }, { label: 'Uden', color: '#bcbbde' }]}
         >
           {reliable.length ? (
@@ -326,7 +326,7 @@ export function Content({ data }: { data: Dashboard }) {
             rows={content.byLinks.map((b) => ({
               label: b.label,
               value: b.clickRate,
-              color: b.count >= content.minSendouts ? '#4fa388' : '#cfe6dd',
+              color: b.comparable ? '#4fa388' : '#cfe6dd',
               n: b.count,
             }))}
           />
@@ -337,7 +337,7 @@ export function Content({ data }: { data: Dashboard }) {
             rows={content.byWords.map((b) => ({
               label: b.label,
               value: b.ctor,
-              color: b.count >= content.minSendouts ? '#4c7bbd' : '#c1cde9',
+              color: b.comparable ? '#4c7bbd' : '#c1cde9',
               n: b.count,
             }))}
           />
@@ -348,7 +348,7 @@ export function Content({ data }: { data: Dashboard }) {
             rows={content.byImages.map((b) => ({
               label: b.label,
               value: b.clickRate,
-              color: b.count >= content.minSendouts ? '#df790d' : '#f6d3b1',
+              color: b.comparable ? '#df790d' : '#f6d3b1',
               n: b.count,
             }))}
           />
