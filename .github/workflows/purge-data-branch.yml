@@ -1,7 +1,8 @@
 name: Purge discovery data
 
-# The repository is public, so raw API dumps must not live in it. This deletes
-# the ungapped-data branch and every run artifact.
+# The repository is public, so raw API dumps must not live in it. Deletes the
+# ungapped-data branch and every run artifact. Both deletions are unconditional:
+# a "not found" is the desired end state, not a failure.
 
 on:
   workflow_dispatch:
@@ -20,19 +21,21 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          if gh api "repos/${{ github.repository }}/git/refs/heads/ungapped-data" >/dev/null 2>&1; then
-            gh api -X DELETE "repos/${{ github.repository }}/git/refs/heads/ungapped-data"
-            echo "deleted branch ungapped-data"
-          else
-            echo "branch ungapped-data not present"
-          fi
+          gh api -X DELETE "repos/${{ github.repository }}/git/refs/heads/ungapped-data" \
+            && echo "deleted branch ungapped-data" \
+            || echo "branch ungapped-data already absent"
+          echo "--- remaining branches ---"
+          gh api "repos/${{ github.repository }}/branches" --jq '.[].name'
 
-      - name: Delete every workflow artifact in the repository
+      - name: Delete every workflow artifact
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          ids=$(gh api --paginate "repos/${{ github.repository }}/actions/artifacts" --jq '.artifacts[].id')
-          if [ -z "$ids" ]; then echo "no artifacts"; exit 0; fi
-          for id in $ids; do
-            gh api -X DELETE "repos/${{ github.repository }}/actions/artifacts/$id" && echo "deleted artifact $id"
-          done
+          ids=$(gh api --paginate "repos/${{ github.repository }}/actions/artifacts" --jq '.artifacts[].id' || true)
+          if [ -z "$ids" ]; then echo "no artifacts present"; else
+            for id in $ids; do
+              gh api -X DELETE "repos/${{ github.repository }}/actions/artifacts/$id" && echo "deleted artifact $id"
+            done
+          fi
+          echo "--- remaining artifacts ---"
+          gh api "repos/${{ github.repository }}/actions/artifacts" --jq '.total_count'
