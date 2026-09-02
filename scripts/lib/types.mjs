@@ -89,12 +89,12 @@ export const MAILING_TYPES = [
   },
   {
     key: 'ovrige',
-    label: 'Øvrige udsendelser',
-    short: 'Øvrige',
+    label: 'Enkeltudsendelser',
+    short: 'Enkeltudsend.',
     color: '#8299bb',
     soft: '#e7ebef',
     tags: [],
-    description: 'Udsendelser uden en genkendelig type-tag.',
+    description: 'Ad hoc-udsendelser uden type-tag i Ungapped — høringer, afstemninger, invitationer.',
   },
 ]
 

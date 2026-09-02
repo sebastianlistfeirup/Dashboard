@@ -109,6 +109,7 @@ export interface Sms {
   sender: string | null
   status: number
   statusName: string
+  wasSent: boolean
   category: string | null
   when: string | null
   local: Mailing['local']
@@ -375,7 +376,9 @@ export function useFilteredMailings(data: Dashboard | null, filters: Filters) {
   return useMemo(() => {
     if (!data) return []
     return data.mailings.filter((m) => {
-      if (m.status !== 50) return false
+      // Same rule as the analysis: a sendout counts when it delivered mail,
+      // whatever Ungapped's status says. Journey mails sit at "Sat på pause".
+      if (m.stats.delivered <= 0) return false
       if (filters.types.length && !filters.types.includes(m.type)) return false
       if (filters.segment) {
         const inList = m.lists.includes(filters.segment)

@@ -292,6 +292,23 @@ export function buildFindings(analysis) {
     }
   }
 
+  /* ── Mærkning ──────────────────────────────────────────────────────────── */
+  const untagged = (analysis.mailings ?? []).filter((m) => m.stats.delivered > 0 && m.type === 'ovrige')
+  const allSent = (analysis.mailings ?? []).filter((m) => m.stats.delivered > 0)
+  if (allSent.length && untagged.length / allSent.length >= 0.15) {
+    const share = (untagged.length / allSent.length) * 100
+    push({
+      id: 'untagged',
+      kind: 'opportunity',
+      area: 'Datakvalitet',
+      title: `${fmt(share)} af udsendelserne mangler en type-tag`,
+      body: `${num(untagged.length)} af ${num(allSent.length)} udsendelser har ingen tag i Ungapped og kan derfor ikke henføres til en udsendelsestype. De er talt med i totalerne, men forsvinder i sammenligninger mellem typer. Sæt en tag ved oprettelsen, så bliver hele dashboardet skarpere.`,
+      metric: fmt(share),
+      evidence: `${num(allSent.length)} udsendelser`,
+      section: 'typer',
+    })
+  }
+
   /* ── Segmenter ─────────────────────────────────────────────────────────── */
   const segs = (segmentPerformance.byList ?? []).filter((s) => s.count >= MIN_SENDOUTS && s.delivered > 500)
   if (segs.length >= 2) {
@@ -350,7 +367,7 @@ export function buildFindings(analysis) {
   }
 
   /* ── SMS ───────────────────────────────────────────────────────────────── */
-  const smsSent = (analysis.sms ?? []).filter((s) => s.status === 50 && s.stats.recipients > 0)
+  const smsSent = (analysis.sms ?? []).filter((s) => s.wasSent && s.stats.recipients > 0)
   if (smsSent.length >= 2) {
     const recipients = smsSent.reduce((s, x) => s + x.stats.recipients, 0)
     push({

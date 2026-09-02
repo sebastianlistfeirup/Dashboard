@@ -128,7 +128,12 @@ export const ISSUE_STATUS = {
   110: 'Skabelon',
 }
 
+// Text messages use their own scale, not the issue scale: on this account the
+// sent messages carry status 3, and 50 never appears. Confirmed against
+// /Textmessages/Sent, which returns exactly the 15 messages with status 3.
 export const SMS_STATUS = {
+  1: 'Kladde',
+  3: 'Sendt',
   10: 'Kladde',
   20: 'Planlagt',
   30: 'Sender',
@@ -138,6 +143,9 @@ export const SMS_STATUS = {
   70: 'Afbrudt',
   110: 'Skabelon',
 }
+
+/** Statuses that mean a text message actually went out. */
+export const SMS_SENT_STATUSES = new Set([3, 50])
 
 export const SURVEY_STATUS = {
   10: 'Kladde',

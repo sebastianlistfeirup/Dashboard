@@ -83,7 +83,10 @@ export function buildAnalysis(input) {
     type: resolveType({ tags: m.tags, journey: m.journey, category: m.category }),
   }))
 
-  const sent = mailings.filter((m) => m.status === 50 && m.stats.delivered > 0)
+  // A sendout counts when it actually delivered mail. Ungapped parks a
+  // journey's mails at status 60 once the journey is stopped, but those have
+  // already reached thousands of members — excluding them would hide every flow.
+  const sent = mailings.filter((m) => m.stats.delivered > 0)
   const measurable = sent.filter((m) => m.stats.delivered >= 30)
 
   const analysis = {
@@ -128,7 +131,7 @@ function buildOverview(all, sent, input) {
       drafts: all.filter((m) => m.status === 10).length,
       paused: all.filter((m) => m.status === 60).length,
       sms: input.sms.length,
-      smsSent: input.sms.filter((s) => s.status === 50).length,
+      smsSent: input.sms.filter((s) => s.wasSent).length,
       surveys: input.surveys.length,
       surveyResponses: sum(input.surveys, (s) => s.responses),
       lists: input.lists.length,

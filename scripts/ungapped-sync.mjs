@@ -18,7 +18,7 @@
 import { mkdir, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { createHash } from 'node:crypto'
-import { Ungapped, ISSUE_STATUS, SMS_STATUS, SURVEY_STATUS, CONTACT_FIELDS } from './lib/ungapped.mjs'
+import { Ungapped, ISSUE_STATUS, SMS_STATUS, SMS_SENT_STATUSES, SURVEY_STATUS, CONTACT_FIELDS } from './lib/ungapped.mjs'
 import { analyseBody, analyseSubject, isoWeek, localParts, pct } from './lib/extract.mjs'
 import { buildAnalysis } from './lib/analyse.mjs'
 
@@ -56,7 +56,10 @@ async function main() {
     ug.tryGet('/Contacts/Fields'),
     ug.tryGet('/Issues/Statistics'),
   ])
-  const account = accounts?.[0]?.Name ?? 'Dansk Psykolog Forening'
+  // The key reaches two accounts; one is a retired copy marked "(raderas)".
+  // Pick the live one rather than whichever the API lists first.
+  const account = (accounts ?? []).map((a) => a.Name).find((n) => n && !/raderas|slettes|delete/i.test(n))
+    ?? accounts?.[0]?.Name ?? 'Dansk Psykolog Forening'
   step(`   konto: ${account} · ${tags?.length ?? 0} tags · ${lists?.length ?? 0} lister · ${segments?.length ?? 0} segmenter`)
 
   // Warn if DP renamed a custom field, so the analysis never silently mislabels.
@@ -81,7 +84,8 @@ async function main() {
       ug.tryGet(`/Issues/${row.IssueId}/Statistics/Overview`),
       ug.tryGet(`/Issues/${row.IssueId}/Statistics/UnsubscribeReasons`),
     ])
-    const sentStats = row.Status === 50
+    // Paused journey mails carry send timestamps too, so ask for both.
+    const sentStats = row.Status === 50 || row.Status === 60
       ? await ug.tryGet(`/Issues/Sent/${row.IssueId}/Statistics`)
       : null
     return toMailing(row, detail, stats, sentStats, reasons)
@@ -291,6 +295,7 @@ function toSms(row, stats) {
     sender: row.Sender ?? s.Sender ?? null,
     status: row.Status,
     statusName: SMS_STATUS[row.Status] ?? String(row.Status),
+    wasSent: SMS_SENT_STATUSES.has(row.Status),
     category: (row.Category ?? s.Category)?.Name ?? null,
     when,
     local: localParts(when),
