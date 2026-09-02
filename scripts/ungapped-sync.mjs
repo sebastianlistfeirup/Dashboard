@@ -19,7 +19,7 @@ import { mkdir, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { createHash } from 'node:crypto'
 import { Ungapped, ISSUE_STATUS, SMS_STATUS, SMS_SENT_STATUSES, SURVEY_STATUS, CONTACT_FIELDS } from './lib/ungapped.mjs'
-import { analyseBody, analyseSubject, isoWeek, localParts, pct } from './lib/extract.mjs'
+import { analyseBody, analyseSubject, isoWeek, localParts, pct, round1 } from './lib/extract.mjs'
 import { buildAnalysis } from './lib/analyse.mjs'
 
 const KEY = process.env.UNGAPPED_API_KEY?.trim()
@@ -264,13 +264,13 @@ function toMailing(row, detail, stats, sentStats, reasons) {
       unsubscribes: s.UnsubscribeCount ?? 0,
       failed: s.FailedCount ?? sentStats?.FailedCount ?? 0,
       inactive: s.InactiveCount ?? 0,
-      openRate: s.OpenPercentage ?? pct(opens, delivered),
-      clickRate: s.ClickPercentage ?? pct(clicks, delivered),
+      openRate: round1(s.OpenPercentage) ?? pct(opens, delivered),
+      clickRate: round1(s.ClickPercentage) ?? pct(clicks, delivered),
       // Click-to-open: of those who opened, how many clicked. The honest
       // measure of whether the content delivered on the subject line.
       ctor: pct(clicks, opens),
-      bounceRate: s.BouncePercentage ?? pct(s.BounceCount ?? 0, recipients),
-      unsubRate: s.UnsubscribePercentage ?? pct(s.UnsubscribeCount ?? 0, delivered),
+      bounceRate: round1(s.BouncePercentage) ?? pct(s.BounceCount ?? 0, recipients),
+      unsubRate: round1(s.UnsubscribePercentage) ?? pct(s.UnsubscribeCount ?? 0, delivered),
     },
     subjectAnalysis: analyseSubject(subject),
     content: analyseBody(d.BodyHtml, d.BodyText),
@@ -308,9 +308,9 @@ function toSms(row, stats) {
       blocked: s.ContactsBlockedCount ?? 0,
       pending: s.ContactsPendingCount ?? 0,
       duplicates: s.ContactsDoubletsCount ?? 0,
-      sentRate: s.SentPercentage ?? null,
-      receivedRate: s.ReceivedPercentage ?? null,
-      failRate: s.FailPercentage ?? null,
+      sentRate: round1(s.SentPercentage),
+      receivedRate: round1(s.ReceivedPercentage),
+      failRate: round1(s.FailPercentage),
     },
     length: (row.Body ?? '').length,
     segments: Math.max(1, Math.ceil((row.Body ?? '').length / 160)),

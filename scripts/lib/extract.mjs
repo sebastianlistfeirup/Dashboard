@@ -114,3 +114,11 @@ export const pct = (numerator, denominator) => {
   const r = rate(numerator, denominator)
   return r === null ? null : Math.round(r * 1000) / 10
 }
+
+/**
+ * Round a percentage the API already computed. Ungapped returns full float
+ * precision — 47.46474647464746 — which is noise in the payload and reads as
+ * false precision on screen.
+ */
+export const round1 = (n) =>
+  n === null || n === undefined || !Number.isFinite(n) ? null : Math.round(n * 10) / 10
