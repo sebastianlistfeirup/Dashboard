@@ -236,7 +236,7 @@ export function buildFindings(analysis) {
     cmp(eng.byAnciennitet, 'Modtagere', 'anciennitet', 'medlemsgruppe')
     cmp(eng.bySektion, 'Modtagere', 'sektion', 'sektion')
 
-    const never = eng.distribution.find((d) => d.label === 'Har aldrig åbnet')
+    const never = eng.distribution.find((d) => d.label === 'Aldrig')
     if (never && never.share >= 10) {
       push({
         id: 'dormant',
@@ -250,7 +250,7 @@ export function buildFindings(analysis) {
       })
     }
 
-    const loyal = eng.distribution.find((d) => d.label === 'Åbner næsten alt (80 %+)')
+    const loyal = eng.distribution.find((d) => d.label === 'Næsten alt · 80 %+')
     if (loyal && loyal.n > 0) {
       push({
         id: 'loyal',

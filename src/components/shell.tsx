@@ -419,7 +419,7 @@ export function Section({
 }) {
   const bg = tone === 'dark' ? '#16233a' : tone === 'sunken' ? '#f4f1f1' : '#ffffff'
   return (
-    <section id={id} className={`scroll-mt-32 ${className}`} style={{ background: bg }}>
+    <section id={id} className={`scroll-mt-[11.5rem] ${className}`} style={{ background: bg }}>
       <div className="mx-auto w-full max-w-[80rem] px-4 py-14 sm:px-6 sm:py-20">{children}</div>
     </section>
   )
