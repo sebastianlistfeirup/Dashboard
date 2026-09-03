@@ -97,7 +97,7 @@ export function LinkCatalogue({ data }: { data: Dashboard }) {
           <thead>
             <tr className="border-b border-dp-navy-100 text-[0.625rem] uppercase tracking-wider text-dp-navy-400">
               <th className="w-full max-w-0 py-2 pr-3 text-left font-bold">Destination</th>
-              <th className="w-[5.5rem] py-2 pr-3 text-right font-bold">Udsendelser</th>
+              <th className="w-[6rem] py-2 pr-4 text-right font-bold">Udsendelser</th>
               <th className="w-[6rem] py-2 pr-3 text-left font-bold">Placering</th>
               {view === 'forskel'
                 ? <th className="w-[9.5rem] py-2 text-right font-bold">Forskel i klikrate</th>
@@ -114,7 +114,7 @@ export function LinkCatalogue({ data }: { data: Dashboard }) {
                 className="border-b border-dp-navy-50 last:border-0"
               >
                 <td className="w-full max-w-0 py-2 pr-3"><Path path={r.path} /></td>
-                <td className="tnum py-2 pr-3 text-right text-dp-navy-700">
+                <td className="tnum py-2 pr-4 text-right text-dp-navy-700">
                   {fmtNum(r.mailings)}
                   {r.everywhere && <span className="ml-1 text-[0.625rem] text-dp-navy-400">næsten alle</span>}
                 </td>
