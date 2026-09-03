@@ -492,13 +492,27 @@ function BenchmarkBlock({ data }: { data: Dashboard }) {
                 {fmtPct(m.own)} <span className="font-normal text-dp-navy-400">mod {fmtPct(m.external)}</span>
               </span>
             </div>
-            <div className="mt-1.5 flex h-2.5 gap-1">
-              <div className="flex-1 overflow-hidden rounded-full bg-dp-navy-100">
-                <motion.div className="h-full rounded-full bg-dp-gron"
-                  initial={{ width: 0 }} animate={{ width: `${Math.min(100, ((m.own ?? 0) / Math.max(m.own ?? 1, m.external)) * 100)}%` }}
-                  transition={{ duration: 0.8, ease: mo.ease }} />
-              </div>
-            </div>
+            {/* Skalaen går til den højeste af de to plus lidt luft, og de
+                andres niveau står som et mærke — ellers fylder DP's søjle
+                altid hele bredden og siger ingenting. */}
+            {(() => {
+              const top = Math.max(m.own ?? 0, m.external) * 1.15 || 1
+              return (
+                <div className="relative mt-1.5 h-2.5 overflow-hidden rounded-full bg-dp-navy-100">
+                  <motion.div
+                    className="h-full rounded-full bg-dp-gron"
+                    initial={{ width: 0 }}
+                    animate={{ width: `${Math.min(100, ((m.own ?? 0) / top) * 100)}%` }}
+                    transition={{ duration: 0.8, ease: mo.ease }}
+                  />
+                  <span
+                    className="absolute inset-y-0 w-[2px] bg-dp-navy-700"
+                    style={{ left: `${Math.min(100, (m.external / top) * 100)}%` }}
+                    aria-hidden="true"
+                  />
+                </div>
+              )
+            })()}
             {m.ratio && m.ratio > 1 && (
               <p className="mt-1 text-[0.6875rem] text-dp-gron">
                 {m.ratio.toLocaleString('da-DK')} gange benchmark
@@ -531,13 +545,15 @@ function FindingsBlock({ data }: { data: Dashboard }) {
 }
 
 function AlertsBlock({ data }: { data: Dashboard }) {
-  const items = (data.alerts?.recent ?? data.alerts?.items ?? []).slice(0, 4)
+  // De aktive alarmer først. `recent` er de allerede overståede, og de hører
+  // ikke hjemme under en overskrift der siger "kræver opmærksomhed".
+  const items = (data.alerts?.items ?? []).slice(0, 4)
   return (
     <>
-      <Heading note="Udsendelser der afveg markant fra det normale.">Kræver opmærksomhed</Heading>
+      <Heading note="Det der ligger uden for de tærskler, I har sat.">Kræver opmærksomhed</Heading>
       {!items.length ? (
         <p className="rounded-lg bg-dp-gron-15 px-3.5 py-2.5 text-[0.8125rem] text-dp-gron">
-          Ingen udsendelser afveg væsentligt i perioden.
+          Ingenting kræver opmærksomhed lige nu.
         </p>
       ) : (
         <ul className="space-y-2.5">
@@ -566,6 +582,7 @@ function TrendBlock({ data }: { data: Dashboard }) {
       <LineChart
         height={200}
         area={false}
+        revealOnScroll={false}
         series={[
           { key: 'open', label: 'Åbningsrate', color: '#eab922', points: points.map((p) => ({ x: p.month, y: p.openRate })) },
           { key: 'click', label: 'Klikrate', color: '#4fa388', points: points.map((p) => ({ x: p.month, y: p.clickRate })) },

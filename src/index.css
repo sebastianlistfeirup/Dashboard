@@ -119,4 +119,15 @@
   .shadow-card, .shadow-card-hover { box-shadow: none !important; }
 
   svg { max-width: 100%; }
+
+  /* Kurver tegnes med en animation der løber stregen op fra ingenting. Når
+     ingen scroller — og det gør man ikke på papir — kan animationen stå og
+     vente, og grafen komme ud af printeren tom. Framer-motion sætter
+     stroke-dashoffset som inline style, så her tvinges enhver sådan streg
+     færdigtegnet. De stiplede hjælpelinjer sætter deres mønster som attribut
+     og rammes derfor ikke. */
+  [style*="stroke-dashoffset"] {
+    stroke-dasharray: none !important;
+    stroke-dashoffset: 0 !important;
+  }
 }
