@@ -249,6 +249,7 @@ export interface Dashboard {
     byImages: (PoolStats & { label: string; comparable: boolean })[]
     topHosts: { host: string; links: number; mailings: number; clickRate: number | null }[]
     topDestinations: { path: string; uses: number; mailings: number; clickRate: number | null }[]
+    catalogue: LinkCatalogue | null
     minSendouts: number
     minDelivered: number
   }
@@ -417,6 +418,48 @@ export interface Narrative {
     openDelta: number | null
     clickDelta: number | null
   }
+  note: string
+}
+
+export interface LinkRow {
+  path: string
+  host: string
+  uses: number
+  mailings: number
+  share: number | null
+  delivered: number
+  withRate: number | null
+  withoutRate: number | null
+  delta: number | null
+  comparable: boolean
+  everywhere: boolean
+  avgDelivered: number
+  sizeRatio: number | null
+  at: number | null
+  place: 'øverst' | 'i midten' | 'nederst' | null
+  first: string | null
+  last: string | null
+}
+
+export interface LinkCatalogue {
+  totals: {
+    destinations: number
+    mailings: number
+    uses: number
+    oneOffs: number
+    recurring: number
+    comparable: number
+    houseClickRate: number | null
+  }
+  mostUsed: LinkRow[]
+  strongest: LinkRow[]
+  weakest: LinkRow[]
+  hosts: { host: string; paths: number; uses: number; mailings: number; share: number | null; clickRate: number | null; everywhere: boolean }[]
+  places: { label: string; destinations: number; uses: number }[]
+  oneOffSample: LinkRow[]
+  minSendouts: number
+  minDelivered: number
+  ubiquitousShare: number
   note: string
 }
 

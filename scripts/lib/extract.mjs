@@ -77,7 +77,11 @@ export function analyseBody(html, text) {
   const links = hrefs.filter((h) => /^https?:/i.test(h))
   const hosts = new Map()
   const paths = new Map()
-  for (const href of links) {
+  // Rækkefølgen er dokumentets egen, så den første forekomst af et link siger
+  // hvor højt oppe i mailen det står. Det kan ikke forklare klik — Ungapped
+  // rapporterer kun ét samlet klik pr. udsendelse — men det kan beskrive, hvor
+  // vi plejer at placere hvad.
+  links.forEach((href, i) => {
     try {
       const u = new URL(href)
       // Ungapped rewrites destinations for click tracking; keep the visible host
@@ -85,9 +89,11 @@ export function analyseBody(html, text) {
       const host = u.hostname.replace(/^www\./, '')
       hosts.set(host, (hosts.get(host) ?? 0) + 1)
       const key = `${host}${u.pathname}`.replace(/\/$/, '')
-      paths.set(key, (paths.get(key) ?? 0) + 1)
+      const seen = paths.get(key)
+      if (seen) seen.n += 1
+      else paths.set(key, { n: 1, first: i })
     } catch { /* malformed href */ }
-  }
+  })
   const plain = (text ?? body.replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim()
   const images = (body.match(/<img\b/gi) ?? []).length
   const buttons = (body.match(/class="[^"]*(?:btn|button|cta)[^"]*"/gi) ?? []).length
@@ -96,7 +102,14 @@ export function analyseBody(html, text) {
     links: links.length,
     uniqueLinks: new Set(links).size,
     hosts: [...hosts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 12).map(([host, n]) => ({ host, n })),
-    topPaths: [...paths.entries()].sort((a, b) => b[1] - a[1]).slice(0, 8).map(([p, n]) => ({ path: p, n })),
+    topPaths: [...paths.entries()].sort((a, b) => b[1].n - a[1].n).slice(0, 8).map(([p, v]) => ({ path: p, n: v.n })),
+    // Hele listen, ikke kun de otte hyppigste — den bruges til link-kataloget
+    // og bliver aggregeret væk igen, inden filen skrives.
+    destinations: [...paths.entries()].map(([p, v]) => ({
+      path: p,
+      n: v.n,
+      at: links.length > 1 ? Math.round((v.first / (links.length - 1)) * 100) / 100 : 0,
+    })),
     images,
     buttons,
     words: plain ? plain.split(/\s+/).length : 0,

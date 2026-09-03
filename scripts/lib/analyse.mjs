@@ -10,6 +10,7 @@
  *     a handful of members can never be singled out from the published file.
  */
 import { MAILING_TYPES, resolveType } from './types.mjs'
+import { buildLinkCatalogue } from './links.mjs'
 import { pct } from './extract.mjs'
 import { buildFindings } from './findings.mjs'
 import {
@@ -441,7 +442,17 @@ function buildContent(mailings) {
     .sort((a, b) => (b.clickRate ?? 0) - (a.clickRate ?? 0))
     .slice(0, 14)
 
-  return { byLinks, byWords, byImages, topHosts, topDestinations, minSendouts: MIN_SENDOUTS, minDelivered: MIN_DELIVERED }
+  return {
+    byLinks,
+    byWords,
+    byImages,
+    topHosts,
+    topDestinations,
+    // Hele link-kataloget: hver destination, ikke kun de otte hyppigste pr. mail.
+    catalogue: buildLinkCatalogue(mailings, { minSendouts: MIN_SENDOUTS, minDelivered: MIN_DELIVERED }),
+    minSendouts: MIN_SENDOUTS,
+    minDelivered: MIN_DELIVERED,
+  }
 }
 
 /* ── Modtagere ───────────────────────────────────────────────────────────── */

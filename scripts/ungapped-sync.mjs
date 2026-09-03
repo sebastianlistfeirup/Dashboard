@@ -221,6 +221,13 @@ async function main() {
     config,
   })
 
+  // Den fulde destinationsliste pr. mail er kun mellemregning til kataloget.
+  // Den ville lægge et par hundrede kilobyte på filen uden at blive læst, så
+  // den ryger ud igen, nu hvor analysen har brugt den.
+  for (const m of analysis.mailings ?? []) {
+    if (m.content) delete m.content.destinations
+  }
+
   const payload = {
     meta: {
       generatedAt: new Date().toISOString(),

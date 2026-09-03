@@ -90,6 +90,7 @@ export const MODULES: ModuleDef[] = [
   { id: 'tidspunkt', label: 'Udsendelsestidspunkter', summary: 'Ugedag og klokkeslæt mod åbningsrate.', section: 'tidspunkt', span: 'half' },
   { id: 'emnelinjer', label: 'Emnelinjer', summary: 'Hvad der får folk til at åbne.', section: 'emnelinjer', span: 'half' },
   { id: 'indhold', label: 'Indhold', summary: 'Længde, links og billeder mod klikrate.', section: 'indhold', span: 'half' },
+  { id: 'links', label: 'Link-katalog', summary: 'Hvor vi peger hen, hvor ofte, og hvor i mailen.', section: 'indhold', span: 'full' },
   { id: 'afsendere', label: 'Afsendernavne', summary: 'Om det betyder noget hvem mailen kommer fra.', section: 'emnelinjer', span: 'half' },
   { id: 'modtagere', label: 'Modtagerprofil', summary: 'Hvem medlemmerne er, og hvem der engagerer sig.', section: 'modtagere', span: 'full' },
   { id: 'kohorter', label: 'Onboarding over tid', summary: 'Om nye årgange engagerer sig som de tidligere.', section: 'modtagere', span: 'half' },

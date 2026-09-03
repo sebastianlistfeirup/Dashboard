@@ -410,6 +410,7 @@ function Body({ id, data, def }: { id: string; data: Dashboard; def: { label: st
     case 'emnelinjer': return <SubjectBlock data={data} />
     case 'indhold': return <ContentBlock data={data} />
     case 'afsendere': return <SenderBlock data={data} />
+    case 'links': return <LinkBlock data={data} />
     default:
       return (
         <>
@@ -1182,5 +1183,42 @@ function MailComposer({ data, onClose }: { data: Dashboard; onClose: () => void 
         </>
       )}
     </div>
+  )
+}
+
+/** Link-kataloget i ledelsesudgave: omfanget og de fire tydeligste udslag. */
+function LinkBlock({ data }: { data: Dashboard }) {
+  const cat = data.content.catalogue
+  if (!cat) return null
+  const t = cat.totals
+  const rows = cat.strongest.slice(0, 4)
+  return (
+    <>
+      <Heading note="Ungapped tæller klik pr. udsendelse, ikke pr. link. Tallene beskriver derfor hvad vi linker til — ikke hvad der blev klikket på.">
+        Hvor vi peger hen
+      </Heading>
+      <div className="grid gap-3 sm:grid-cols-3">
+        <KeyFact label="Destinationer" value={fmtNum(t.destinations)} note={`i ${fmtNum(t.mailings)} udsendelser`} />
+        <KeyFact label="Går igen" value={fmtNum(t.recurring)} note={`brugt i mindst ${cat.minSendouts} udsendelser`} />
+        <KeyFact label="Kun brugt én gang" value={fmtNum(t.oneOffs)} note={`${Math.round((t.oneOffs / Math.max(1, t.destinations)) * 100)} % af alle links`} />
+      </div>
+      {rows.length > 0 && (
+        <>
+          <p className="mt-4 text-[0.6875rem] font-bold uppercase tracking-wider text-dp-navy-400">
+            Udsendelser med disse links klikker højest
+          </p>
+          <ul className="mt-2 space-y-1.5">
+            {rows.map((r) => (
+              <li key={r.path} className="flex items-baseline justify-between gap-4 text-[0.8125rem]">
+                <span className="min-w-0 truncate text-dp-navy-800" title={r.path}>{r.path}</span>
+                <span className="tnum shrink-0 text-dp-navy-500">
+                  <strong style={{ color: '#179fa0' }}>{fmtDelta(r.delta)} point</strong> · {fmtNum(r.mailings)} udsendelser
+                </span>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+    </>
   )
 }

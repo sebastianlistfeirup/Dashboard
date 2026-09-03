@@ -19,6 +19,7 @@ import { YearWheel } from '@/sections/YearWheel'
 import { Comparisons } from '@/sections/Compare'
 import { SubjectLab } from '@/sections/SubjectLab'
 import { DeepDive, Senders } from '@/sections/Deep'
+import { LinkCatalogue } from '@/sections/Links'
 import { Leadership } from '@/pages/Leadership'
 import { SettingsProvider } from '@/lib/settings'
 import {
@@ -175,6 +176,9 @@ function Shell({ state }: { state: ReturnType<typeof useDashboard> }) {
 
         <Section id="indhold">
           <Content data={data} />
+          <div className="mt-6">
+            <LinkCatalogue data={data} />
+          </div>
         </Section>
 
         <Section id="modtagere" tone="sunken">
