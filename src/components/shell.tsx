@@ -168,6 +168,22 @@ export function SectionNav({ sections }: { sections: SectionDef[] }) {
     el?.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' })
   }, [active])
 
+  // Rækken kan være bredere end skærmen. En fadekant i hver ende siger, at der
+  // er mere — ellers ser en afskåret sektion bare ud som om den ikke findes.
+  const [edges, setEdges] = useState({ left: false, right: false })
+  useEffect(() => {
+    const el = railRef.current
+    if (!el) return
+    const read = () => setEdges({
+      left: el.scrollLeft > 4,
+      right: el.scrollLeft + el.clientWidth < el.scrollWidth - 4,
+    })
+    read()
+    el.addEventListener('scroll', read, { passive: true })
+    window.addEventListener('resize', read)
+    return () => { el.removeEventListener('scroll', read); window.removeEventListener('resize', read) }
+  }, [sections])
+
   return (
     <nav aria-label="Sektioner" className="relative">
       <div ref={railRef} className="thin-scroll -mx-1 flex items-center gap-1 overflow-x-auto px-1 py-1">
@@ -200,6 +216,17 @@ export function SectionNav({ sections }: { sections: SectionDef[] }) {
           </Fragment>
         ))}
       </div>
+
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-white to-transparent transition-opacity duration-300"
+        style={{ opacity: edges.left ? 1 : 0 }}
+      />
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-white to-transparent transition-opacity duration-300"
+        style={{ opacity: edges.right ? 1 : 0 }}
+      />
     </nav>
   )
 }
