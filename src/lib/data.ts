@@ -567,6 +567,16 @@ export function poolOf(mailings: Mailing[]): PoolStats {
 }
 
 /** Monthly series for a filtered set, so the trend follows the filters. */
+/**
+ * En måneds rate skal have noget bag sig for at være en rate.
+ *
+ * November og december 2024 rummer én leveret mail hver, begge åbnet. To punkter
+ * på 100 % låste y-aksen og trykkede to års rigtige tal ned i bunden af grafen.
+ * Måneden tæller stadig med i volumen og i alle totaler — det er kun raten der
+ * ikke bliver tegnet, hvor den ikke kan betyde noget.
+ */
+export const MIN_MONTH_DELIVERED = 500
+
 export function monthlyOf(mailings: Mailing[]) {
   const map = new Map<string, Mailing[]>()
   for (const m of mailings) {
@@ -577,7 +587,12 @@ export function monthlyOf(mailings: Mailing[]) {
   }
   return [...map.entries()]
     .sort((a, b) => a[0].localeCompare(b[0]))
-    .map(([month, group]) => ({ month, ...poolOf(group) }))
+    .map(([month, group]) => {
+      const pool = poolOf(group)
+      // Raten tegnes kun, når måneden har volumen nok til at bære den.
+      const thin = pool.delivered < MIN_MONTH_DELIVERED
+      return { month, ...pool, thin }
+    })
 }
 
 /* ── Formatering ─────────────────────────────────────────────────────────── */

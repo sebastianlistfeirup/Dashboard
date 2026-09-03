@@ -13,7 +13,7 @@ import { useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { moduleById, MODULES, CONFIG_EDIT_URL } from '@/lib/config'
 import { useSettingsRequired } from '@/lib/settings'
-import { formatDate, monthLabel, poolOf, type Dashboard } from '@/lib/data'
+import { formatDate, MIN_MONTH_DELIVERED, monthLabel, poolOf, type Dashboard } from '@/lib/data'
 import { fmtDelta, fmtNum, fmtPct, LineChart, Sparkline } from '@/components/charts'
 import { buildAlertNotice, buildWeeklyReport, mailtoLink, stamp, type Report } from '@/lib/report'
 import { motion as mo } from '@/design/tokens'
@@ -575,7 +575,11 @@ function AlertsBlock({ data }: { data: Dashboard }) {
 }
 
 function TrendBlock({ data }: { data: Dashboard }) {
-  const points = data.trends.monthly.slice(-14)
+  // Samme regel som i det fulde dashboard: en måned uden volumen bag sig får
+  // ingen rate tegnet — ellers strækker den aksen og flader alt andet ud.
+  const points = data.trends.monthly
+    .slice(-14)
+    .map((m) => (m.delivered < MIN_MONTH_DELIVERED ? { ...m, openRate: null, clickRate: null } : m))
   return (
     <>
       <Heading note="Åbnings- og klikrate måned for måned.">Udvikling</Heading>

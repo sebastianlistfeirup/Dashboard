@@ -11,7 +11,7 @@ import { BarRows, DataTable, LineChart, fmtNum, fmtPct } from '@/components/char
 import { useSettingsMaybe } from '@/lib/settings'
 import { AnimatePresence } from 'framer-motion'
 import { Band, ChartCard, Reveal, SectionHeading } from '@/components/primitives'
-import { monthlyOf, monthLabel, type Dashboard, type Mailing, type SegmentRow } from '@/lib/data'
+import { MIN_MONTH_DELIVERED, monthlyOf, monthLabel, type Dashboard, type Mailing, type SegmentRow } from '@/lib/data'
 import { motion as mo } from '@/design/tokens'
 
 /* ── Udvikling over tid ──────────────────────────────────────────────────── */
@@ -42,6 +42,7 @@ export function Trends({ data, mailings, filtersActive }: {
         key: week,
         count: group.length,
         delivered,
+        thin: delivered < MIN_MONTH_DELIVERED,
         openRate: delivered ? Math.round((opens / delivered) * 1000) / 10 : null,
         clickRate: delivered ? Math.round((clicks / delivered) * 1000) / 10 : null,
       }
@@ -52,18 +53,24 @@ export function Trends({ data, mailings, filtersActive }: {
     ? monthly.map((m) => ({ key: m.month, ...m }))
     : weekly
 
+  // En periode med en håndfuld leverede mails giver en rate på 100 %, der
+  // strækker aksen og flader alt andet ud. Raten udelades; volumen står stadig
+  // i søjlerne ved siden af.
+  const rate = (p: { thin?: boolean }, v: number | null) => (p.thin ? null : v)
+  const thinCount = points.filter((p) => p.thin).length
+
   const combined = [
     {
       key: 'open',
       label: 'Åbningsrate',
       color: '#eab922',
-      points: points.map((p) => ({ x: p.key, y: p.openRate })),
+      points: points.map((p) => ({ x: p.key, y: rate(p, p.openRate) })),
     },
     {
       key: 'click',
       label: 'Klikrate',
       color: '#4fa388',
-      points: points.map((p) => ({ x: p.key, y: p.clickRate })),
+      points: points.map((p) => ({ x: p.key, y: rate(p, p.clickRate) })),
     },
   ]
 
@@ -76,7 +83,7 @@ export function Trends({ data, mailings, filtersActive }: {
         key: t.key,
         label: t.short,
         color: t.color,
-        points: series.map((s) => ({ x: s.month, y: s.openRate })),
+        points: series.map((s) => ({ x: s.month, y: s.thin ? null : s.openRate })),
       }
     })
     .filter((s) => s.points.filter((p) => p.y !== null).length >= 3)
@@ -149,7 +156,10 @@ export function Trends({ data, mailings, filtersActive }: {
           title={split ? 'Åbningsrate pr. udsendelsestype' : 'Åbningsrate og klikrate'}
           subtitle={split
             ? 'Kun typer med mindst tre måneders data. Farven følger typen, ikke placeringen.'
-            : `${points.length} ${grain === 'month' ? 'måneder' : 'uger'} · ${fmtNum(mailings.length)} udsendelser`}
+            : `${points.length} ${grain === 'month' ? 'måneder' : 'uger'} · ${fmtNum(mailings.length)} udsendelser`
+              + (thinCount > 0
+                ? ` · ${thinCount} ${grain === 'month' ? (thinCount === 1 ? 'måned' : 'måneder') : thinCount === 1 ? 'uge' : 'uger'} med under ${fmtNum(MIN_MONTH_DELIVERED)} leverede mails er uden rate`
+                : '')}
           legend={(split ? perType : combined).map((s) => ({ label: s.label, color: s.color }))}
           table={
             <DataTable
