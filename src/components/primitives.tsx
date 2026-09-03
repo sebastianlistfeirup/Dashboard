@@ -18,6 +18,7 @@ import {
 import { motion as m } from 'framer-motion'
 import { motion as _m } from 'framer-motion'
 import { dp, ink, motion as mo } from '@/design/tokens'
+import { ModuleToggle } from './ModuleToggle'
 
 void m; void _m
 
@@ -198,9 +199,12 @@ export function HeroStat({
 
 /* ── Sektionsoverskrift ────────────────────────────────────────────────────*/
 export function SectionHeading({
-  kicker, title, lead, color, onDark = false, right,
+  kicker, title, lead, color, onDark = false, right, moduleId,
 }: {
-  kicker: string; title: string; lead?: string; color?: string; onDark?: boolean; right?: ReactNode
+  kicker: string; title: string; lead?: string; color?: string; onDark?: boolean
+  right?: ReactNode
+  /** Makes the whole section pinnable to the leadership page. */
+  moduleId?: string
 }) {
   return (
     <div className="mb-8 flex flex-wrap items-end justify-between gap-x-8 gap-y-4">
@@ -223,7 +227,10 @@ export function SectionHeading({
           </p>
         )}
       </div>
-      {right}
+      <div className="flex items-center gap-3">
+        {right}
+        {moduleId && <ModuleToggle moduleId={moduleId} onDark={onDark} />}
+      </div>
     </div>
   )
 }
@@ -285,7 +292,7 @@ const TableViewContext = createContext(false)
 export const useTableView = () => useContext(TableViewContext)
 
 export function ChartCard({
-  title, subtitle, legend, children, table, className = '', actions,
+  title, subtitle, legend, children, table, className = '', actions, moduleId,
 }: {
   title: string; subtitle?: string
   legend?: { label: string; color: string }[]
@@ -293,6 +300,8 @@ export function ChartCard({
   table?: ReactNode
   className?: string
   actions?: ReactNode
+  /** Makes the card pinnable to the leadership page. */
+  moduleId?: string
 }) {
   const [showTable, setShowTable] = useState(false)
   const id = useId()
@@ -303,8 +312,9 @@ export function ChartCard({
           <h3 id={id} className="text-[1.0625rem] font-semibold text-dp-navy-900">{title}</h3>
           {subtitle && <p className="mt-1 text-[0.8125rem] leading-snug text-dp-navy-500">{subtitle}</p>}
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2.5">
           {actions}
+          {moduleId && <ModuleToggle moduleId={moduleId} />}
           {table && (
             <button
               type="button"

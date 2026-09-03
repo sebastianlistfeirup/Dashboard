@@ -282,6 +282,142 @@ export interface Dashboard {
   }
   segmentPerformance: { byList: SegmentRow[]; bySegment: SegmentRow[] }
   findings: Finding[]
+
+  /** Shared settings as committed in config/dashboard.json. */
+  config: Record<string, unknown>
+  targets: TargetStatus[]
+  benchmarks: Benchmarks | null
+  senders: { rows: SenderRow[]; minSendouts: number; minDelivered: number }
+  alerts: Alerts
+  cohorts: Cohorts | null
+  reengagement: Reengagement | null
+  crossTabs: CrossTabs
+  narrative: Narrative | null
+}
+
+export interface TargetStatus {
+  key: string
+  label: string
+  value: number | null
+  target: number
+  direction: 'op' | 'ned'
+  reached: boolean | null
+  gap: number | null
+  progress: number | null
+}
+
+export interface Benchmarks {
+  primary: string | null
+  caveat: string | null
+  sources: {
+    key: string
+    name: string
+    source: string
+    basis: string
+    year: number
+    url: string
+    notes: Record<string, string>
+    metrics: { metric: string; external: number; own: number | null; delta: number | null; ratio: number | null }[]
+  }[]
+}
+
+export interface SenderRow {
+  name: string
+  count: number
+  delivered: number
+  openRate: number | null
+  clickRate: number | null
+  ctor: number | null
+  types: string[]
+  comparable: boolean
+  lastUsed: string
+}
+
+export interface Alert {
+  kind: 'under-normal' | 'afmeldinger' | 'bounce' | 'bestand'
+  severity: 'critical' | 'warning'
+  title: string
+  subject: string | null
+  id: string | null
+  when: string | null
+  value: number | null
+  reference: number | null
+  detail: string
+}
+
+export interface Alerts {
+  active: boolean
+  items: Alert[]
+  recent?: Alert[]
+  thresholds?: Record<string, unknown>
+}
+
+export interface CohortBucket {
+  key: string
+  label: string
+  received: number
+  openRate: number | null
+  clickRate: number | null
+  reached: boolean
+}
+
+export interface Cohorts {
+  buckets: { key: string; label: string }[]
+  cohorts: { year: number; people: number; buckets: CohortBucket[] }[]
+  firstWindow: (Partial<CohortBucket> & { year: number; people: number })[]
+  minPeople: number
+  note: string
+}
+
+export interface Reengagement {
+  monthsWithoutOpen: number
+  minReceived: number
+  sample: number
+  dormantInSample: number
+  neverOpenedInSample: number
+  dormantShare: number | null
+  estimatedPeople: number
+  currentOpenRate: number | null
+  openRateWithoutDormant: number | null
+  lift: number | null
+  byKontingent: { name: string; dormant: number; total: number; share: number | null }[]
+  byAnciennitet: { name: string; dormant: number; total: number; share: number | null }[]
+  byRegion: { name: string; dormant: number; total: number; share: number | null }[]
+  ideas: { title: string; body: string; effort: string }[]
+  caveat: string
+}
+
+export interface CrossTabPair {
+  rowKey: string
+  rowLabel: string
+  colKey: string
+  colLabel: string
+  rows: string[]
+  cols: string[]
+  cells: { row: string; col: string; people: number; received: number; openRate: number | null; clickRate: number | null }[]
+  suppressed: number
+}
+
+export interface CrossTabs {
+  dimensions: { key: string; label: string }[]
+  pairs: Record<string, CrossTabPair>
+  minPeople: number
+  note: string
+}
+
+export interface Narrative {
+  month: string
+  monthName: string
+  text: string
+  figures: {
+    count: number
+    delivered: number
+    openRate: number | null
+    clickRate: number | null
+    openDelta: number | null
+    clickDelta: number | null
+  }
+  note: string
 }
 
 export interface SlimMailing {

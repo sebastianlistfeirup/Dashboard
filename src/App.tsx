@@ -4,7 +4,7 @@
  * One filter surface at the top, then the sections in the order a reader needs
  * them: what happened, what it means, and then the detail behind each claim.
  */
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { FilterBar, RefreshControls, Section, SectionNav, Wordmark, type SectionDef } from '@/components/shell'
 import { Hero } from '@/sections/Hero'
@@ -14,27 +14,59 @@ import { Segments, Trends, Types } from '@/sections/Performance'
 import { Content, Subjects, Timing } from '@/sections/Optimisation'
 import { Audience } from '@/sections/Audience'
 import { SmsSection, Surveys } from '@/sections/Channels'
+import { Status } from '@/sections/Goals'
+import { YearWheel } from '@/sections/YearWheel'
+import { Comparisons } from '@/sections/Compare'
+import { SubjectLab } from '@/sections/SubjectLab'
+import { DeepDive, Senders } from '@/sections/Deep'
+import { Leadership } from '@/pages/Leadership'
+import { SettingsProvider } from '@/lib/settings'
 import {
   emptyFilters, poolOf, useAutoRefresh, useDashboard, useFilteredMailings, type Filters,
 } from '@/lib/data'
 import { motion as mo } from '@/design/tokens'
 
 const SECTIONS: SectionDef[] = [
-  { id: 'findings', label: 'Findings' },
-  { id: 'udvikling', label: 'Udvikling' },
-  { id: 'typer', label: 'Typer' },
-  { id: 'segmenter', label: 'Segmenter' },
-  { id: 'udsendelser', label: 'Alle udsendelser' },
-  { id: 'tidspunkt', label: 'Tidspunkter' },
-  { id: 'emnelinjer', label: 'Emnelinjer' },
-  { id: 'indhold', label: 'Indhold' },
-  { id: 'modtagere', label: 'Modtagere' },
-  { id: 'sms', label: 'SMS' },
-  { id: 'sporgeskemaer', label: 'Spørgeskemaer' },
+  { id: 'status', label: 'Status', group: 'Overblik' },
+  { id: 'findings', label: 'Findings', group: 'Overblik' },
+  { id: 'udvikling', label: 'Udvikling', group: 'Udsendelser' },
+  { id: 'aarshjul', label: 'Årshjul', group: 'Udsendelser' },
+  { id: 'typer', label: 'Typer', group: 'Udsendelser' },
+  { id: 'segmenter', label: 'Segmenter', group: 'Udsendelser' },
+  { id: 'udsendelser', label: 'Alle udsendelser', group: 'Udsendelser' },
+  { id: 'sammenlign', label: 'Sammenlign', group: 'Udsendelser' },
+  { id: 'tidspunkt', label: 'Tidspunkter', group: 'Hvad virker' },
+  { id: 'emnelinjer', label: 'Emnelinjer', group: 'Hvad virker' },
+  { id: 'indhold', label: 'Indhold', group: 'Hvad virker' },
+  { id: 'modtagere', label: 'Modtagere', group: 'Medlemmer' },
+  { id: 'dybde', label: 'Dybdeanalyse', group: 'Medlemmer' },
+  { id: 'sms', label: 'SMS', group: 'Andre kanaler' },
+  { id: 'sporgeskemaer', label: 'Spørgeskemaer', group: 'Andre kanaler' },
 ]
 
+/** Hash-routing: to sider, ingen router — #/ledelse er 1-pageren. */
+function useRoute() {
+  const [hash, setHash] = useState(() => (typeof window === 'undefined' ? '' : window.location.hash))
+  useEffect(() => {
+    const on = () => setHash(window.location.hash)
+    window.addEventListener('hashchange', on)
+    return () => window.removeEventListener('hashchange', on)
+  }, [])
+  return hash.startsWith('#/ledelse') ? 'ledelse' : 'dashboard'
+}
+
 export default function App() {
-  const { status, data, error, fetchedAt, refreshing, reload, embedded } = useDashboard()
+  const state = useDashboard()
+  return (
+    <SettingsProvider data={state.data}>
+      <Shell state={state} />
+    </SettingsProvider>
+  )
+}
+
+function Shell({ state }: { state: ReturnType<typeof useDashboard> }) {
+  const { status, data, error, fetchedAt, refreshing, reload, embedded } = state
+  const route = useRoute()
   const [autoRefresh, setAutoRefresh] = useState(true)
   const [filters, setFilters] = useState<Filters>(emptyFilters)
   const nextRefreshAt = useAutoRefresh(autoRefresh && !embedded, reload)
@@ -45,6 +77,7 @@ export default function App() {
 
   if (status === 'loading') return <Splash />
   if (!data) return <LoadError message={error ?? 'Ukendt fejl'} onRetry={reload} />
+  if (route === 'ledelse') return <Leadership data={data} />
 
   return (
     <div className="min-h-screen bg-white">
@@ -53,6 +86,8 @@ export default function App() {
         <div className="mx-auto w-full max-w-[80rem] px-4 sm:px-6">
           <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3 py-3">
             <Wordmark />
+            <div className="flex flex-wrap items-center gap-3">
+              <LeadershipLink />
             <RefreshControls
               generatedAt={data.meta.generatedAt}
               fetchedAt={fetchedAt}
@@ -63,6 +98,7 @@ export default function App() {
               nextAt={nextRefreshAt}
               embedded={embedded}
             />
+            </div>
           </div>
           <div className="border-t border-dp-navy-50 py-2">
             <SectionNav sections={SECTIONS} />
@@ -86,6 +122,10 @@ export default function App() {
       <main>
         <Hero data={data} filtered={filtered} pool={pool} filtersActive={filtersActive} />
 
+        <Section id="status">
+          <Status data={data} />
+        </Section>
+
         <Section id="findings" tone="sunken">
           <Findings findings={data.findings} />
         </Section>
@@ -94,11 +134,15 @@ export default function App() {
           <Trends data={data} mailings={filtered} filtersActive={filtersActive} />
         </Section>
 
-        <Section id="typer" tone="sunken">
+        <Section id="aarshjul" tone="sunken">
+          <YearWheel data={data} mailings={filtered} />
+        </Section>
+
+        <Section id="typer">
           <Types data={data} mailings={filtered} />
         </Section>
 
-        <Section id="segmenter">
+        <Section id="segmenter" tone="sunken">
           <Segments
             data={data}
             active={filters.segment}
@@ -109,8 +153,12 @@ export default function App() {
           />
         </Section>
 
-        <Section id="udsendelser" tone="sunken">
+        <Section id="udsendelser">
           <Mailings data={data} mailings={filtered} />
+        </Section>
+
+        <Section id="sammenlign" tone="sunken">
+          <Comparisons data={data} mailings={filtered} />
         </Section>
 
         <Section id="tidspunkt">
@@ -119,6 +167,10 @@ export default function App() {
 
         <Section id="emnelinjer" tone="sunken">
           <Subjects data={data} />
+          <div className="mt-6 space-y-6">
+            <SubjectLab data={data} />
+            <Senders senders={data.senders} />
+          </div>
         </Section>
 
         <Section id="indhold">
@@ -129,11 +181,15 @@ export default function App() {
           <Audience data={data} />
         </Section>
 
-        <Section id="sms">
+        <Section id="dybde">
+          <DeepDive data={data} />
+        </Section>
+
+        <Section id="sms" tone="sunken">
           <SmsSection data={data} />
         </Section>
 
-        <Section id="sporgeskemaer" tone="sunken">
+        <Section id="sporgeskemaer">
           <Surveys data={data} />
         </Section>
       </main>
@@ -254,5 +310,32 @@ function BackToTop() {
         </motion.button>
       )}
     </AnimatePresence>
+  )
+}
+
+/* ── Genvej til ledelsessiden ────────────────────────────────────────────── */
+
+/**
+ * The one-pager is a different document with a different reader, so it gets a
+ * door of its own rather than a nav pill among the sections.
+ */
+function LeadershipLink() {
+  return (
+    <a
+      href="#/ledelse"
+      className="group inline-flex items-center gap-2 rounded-full border border-dp-navy-200 bg-white px-3.5 py-1.5 text-[0.75rem] font-semibold text-dp-navy-700 transition-all duration-300 ease-dp hover:border-dp-orange hover:text-dp-orange"
+    >
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"
+           strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="3" y="4" width="18" height="16" rx="2" />
+        <path d="M7 9h6M7 13h10M7 17h5" />
+      </svg>
+      Ledelsessiden
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6"
+           strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"
+           className="transition-transform duration-300 ease-dp group-hover:translate-x-0.5">
+        <path d="M5 12h14M13 6l6 6-6 6" />
+      </svg>
+    </a>
   )
 }

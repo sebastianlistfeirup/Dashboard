@@ -18,6 +18,14 @@ export const fmtNum = (n: number | null | undefined) => (n === null || n === und
 export const fmtPct = (n: number | null | undefined, d = 1) =>
   n === null || n === undefined ? '–' : `${n.toLocaleString('da-DK', { minimumFractionDigits: d, maximumFractionDigits: d })} %`
 
+/** Et decimaltal med dansk komma. */
+export const fmtDec = (n: number | null | undefined, d = 1) =>
+  n === null || n === undefined ? '–' : n.toLocaleString('da-DK', { minimumFractionDigits: d, maximumFractionDigits: d })
+
+/** Et fortegnstal — plus eller rigtigt minustegn, ikke bindestreg. */
+export const fmtDelta = (n: number | null | undefined, d = 1) =>
+  n === null || n === undefined ? '–' : `${n >= 0 ? '+' : '−'}${fmtDec(Math.abs(n), d)}`
+
 /* ── Akse-hjælpere ───────────────────────────────────────────────────────── */
 
 function niceTicks(max: number, count = 4): number[] {
@@ -39,8 +47,11 @@ export interface LineSeries {
   points: { x: string; y: number | null }[]
 }
 
+export interface ChartNote { x: string; text: string; local?: boolean }
+
 export function LineChart({
   series, height = 260, yLabel = '%', valueFormat = fmtPct, area = true, xTickEvery,
+  notes = [], onPickX, picking = false, revealOnScroll = true,
 }: {
   series: LineSeries[]
   height?: number
@@ -48,6 +59,17 @@ export function LineChart({
   valueFormat?: (n: number | null) => string
   area?: boolean
   xTickEvery?: number
+  /** Noter på tidslinjen — det, der skete den måned. */
+  notes?: ChartNote[]
+  /** Sat, når man er ved at vælge en måned at skrive en note på. */
+  onPickX?: (x: string) => void
+  picking?: boolean
+  /**
+   * Kurven tegnes normalt, når man scroller ned til den. På ledelsessiden — og
+   * på papir — er der ingen der scroller, så dér tegnes den ved indlæsning.
+   * Ellers kunne en udskrift ende med en tom graf.
+   */
+  revealOnScroll?: boolean
 }) {
   const ref = useRef<HTMLDivElement>(null)
   const [hover, setHover] = useState<{ i: number; x: number; y: number } | null>(null)
@@ -59,7 +81,7 @@ export function LineChart({
     return [...all].sort()
   }, [series])
 
-  const pad = { top: 14, right: 16, bottom: 26, left: 40 }
+  const pad = { top: notes.length ? 26 : 14, right: 16, bottom: 26, left: 40 }
   const W = 760
   const H = height
   const innerW = W - pad.left - pad.right
@@ -147,8 +169,9 @@ export function LineChart({
               strokeLinecap="round"
               strokeLinejoin="round"
               initial={reduced ? false : { pathLength: 0 }}
-              whileInView={{ pathLength: 1 }}
-              viewport={{ once: true, margin: '-40px' }}
+              {...(revealOnScroll
+                ? { whileInView: { pathLength: 1 }, viewport: { once: true, margin: '-40px' } }
+                : { animate: { pathLength: 1 } })}
               transition={{ duration: 1.1, ease: mo.ease, delay: si * 0.12 }}
             />
           ))}
@@ -172,9 +195,42 @@ export function LineChart({
             </text>
           ) : null))}
 
+          {/* Noter: hvad der skete den måned, sat på selve tidslinjen */}
+          {notes.map((n) => {
+            if (!xs.includes(n.x)) return null
+            const nx = xAt(n.x)
+            return (
+              <g key={`note-${n.x}`} className="cursor-help">
+                <line x1={nx} x2={nx} y1={-10} y2={innerH} stroke="#df790d" strokeWidth={1} strokeDasharray="4 3" opacity={0.75} />
+                <motion.g
+                  initial={reduced ? false : { opacity: 0, y: -6 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, ease: mo.ease }}
+                >
+                  <circle cx={nx} cy={-11} r={7} fill="#df790d" />
+                  <text x={nx} y={-11} dy="0.34em" textAnchor="middle" fontSize={9} fontWeight="700" fill="#fff">
+                    i
+                  </text>
+                </motion.g>
+                <title>{`${n.x}: ${n.text}`}</title>
+              </g>
+            )
+          })}
+
           <rect
-            x={0} y={0} width={innerW} height={innerH} fill="transparent"
-            onMouseMove={onMove} onMouseLeave={() => setHover(null)}
+            x={0} y={0} width={innerW} height={innerH}
+            fill="transparent"
+            style={{ cursor: picking ? 'crosshair' : 'default' }}
+            onMouseMove={onMove}
+            onMouseLeave={() => setHover(null)}
+            onClick={(e) => {
+              if (!onPickX) return
+              const rect = e.currentTarget.getBoundingClientRect()
+              const rel = ((e.clientX - rect.left) / rect.width) * innerW
+              const i = Math.round((rel / innerW) * (xs.length - 1))
+              if (i >= 0 && i < xs.length) onPickX(xs[i])
+            }}
           />
         </g>
       </svg>

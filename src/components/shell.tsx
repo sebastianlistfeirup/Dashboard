@@ -6,7 +6,7 @@
  * for dem" everywhere below.
  */
 import { AnimatePresence, motion } from 'framer-motion'
-import { useEffect, useRef, useState, type ReactNode } from 'react'
+import { Fragment, useEffect, useRef, useState, type ReactNode } from 'react'
 import { motion as mo } from '@/design/tokens'
 import { relativeTime, type Dashboard, type Filters } from '@/lib/data'
 
@@ -134,7 +134,7 @@ export function RefreshControls({
 
 /* ── Sektionsnavigation ──────────────────────────────────────────────────── */
 
-export interface SectionDef { id: string; label: string }
+export interface SectionDef { id: string; label: string; group?: string }
 
 export function SectionNav({ sections }: { sections: SectionDef[] }) {
   const [active, setActive] = useState(sections[0]?.id)
@@ -165,10 +165,19 @@ export function SectionNav({ sections }: { sections: SectionDef[] }) {
 
   return (
     <nav aria-label="Sektioner" className="relative">
-      <div ref={railRef} className="thin-scroll -mx-1 flex gap-1 overflow-x-auto px-1 py-1">
-        {sections.map((s) => (
+      <div ref={railRef} className="thin-scroll -mx-1 flex items-center gap-1 overflow-x-auto px-1 py-1">
+        {sections.map((s, i) => (
+          <Fragment key={s.id}>
+            {/* Grupperne holder rækken læsbar, når der er mange sektioner */}
+            {s.group && s.group !== sections[i - 1]?.group && (
+              <span className="ml-1.5 mr-0.5 flex shrink-0 items-center gap-1.5 first:ml-0">
+                {i > 0 && <span className="h-4 w-px bg-dp-navy-200" aria-hidden="true" />}
+                <span className="text-[0.5625rem] font-bold uppercase tracking-[0.14em] text-dp-navy-400">
+                  {s.group}
+                </span>
+              </span>
+            )}
           <a
-            key={s.id}
             href={`#${s.id}`}
             data-nav={s.id}
             className="relative shrink-0 rounded-full px-3.5 py-1.5 text-[0.75rem] font-semibold transition-colors duration-200"
@@ -183,6 +192,7 @@ export function SectionNav({ sections }: { sections: SectionDef[] }) {
             )}
             <span className="relative">{s.label}</span>
           </a>
+          </Fragment>
         ))}
       </div>
     </nav>

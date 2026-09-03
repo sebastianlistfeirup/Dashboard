@@ -38,6 +38,7 @@ export function Findings({ findings }: { findings: Finding[] }) {
   return (
     <>
       <SectionHeading
+        moduleId="findings"
         kicker="Interessante findings"
         title="Hvad tallene faktisk siger"
         lead="Automatisk fundne mønstre på tværs af alle udsendelser. Hvert fund viser sit grundlag, så du kan se forskel på en tendens og et tilfælde."

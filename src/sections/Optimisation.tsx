@@ -29,6 +29,7 @@ export function Timing({ data }: { data: Dashboard }) {
   return (
     <>
       <SectionHeading
+        moduleId="tidspunkt"
         kicker="Udsendelsestidspunkter"
         title="Hvornår rammer vi bedst"
         lead={`${bestDay
@@ -141,6 +142,7 @@ export function Subjects({ data }: { data: Dashboard }) {
   return (
     <>
       <SectionHeading
+        moduleId="emnelinjer"
         kicker="Emnelinjer"
         title="Hvad der får folk til at åbne"
         lead="Hvert træk sammenlignet med de udsendelser, der ikke har det. Forskellen er ikke et bevis for årsag — men den siger, hvor det er værd at eksperimentere."
@@ -315,6 +317,7 @@ export function Content({ data }: { data: Dashboard }) {
   return (
     <>
       <SectionHeading
+        moduleId="indhold"
         kicker="Indhold"
         title="Hvad der bliver klikket på"
         lead="Længde, antal links og billeder holdt op mod klikraten — og hvilke destinationer DP faktisk sender folk hen til."

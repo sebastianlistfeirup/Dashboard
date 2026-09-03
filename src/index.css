@@ -75,3 +75,43 @@
   .thin-scroll::-webkit-scrollbar-thumb { background: #d4dbe1; border-radius: 99px; }
   .thin-scroll::-webkit-scrollbar-track { background: transparent; }
 }
+
+/* ────────────────────────────────────────────────────────────────────────────
+ * Tryk — ledelsessiden skal kunne blive til en PDF, der ser ud af noget.
+ * A4 med rigtige marginer, ingen interface, og ingen moduler der brækkes
+ * midt over en sideskift.
+ * ──────────────────────────────────────────────────────────────────────────── */
+@page {
+  size: A4;
+  margin: 16mm 15mm 14mm;
+}
+
+@media print {
+  html { scroll-padding-top: 0; }
+
+  body {
+    background: #fff;
+    font-size: 10.5pt;
+    /* Farverne bærer betydning i graferne, så de skal med på papiret. */
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Interaktion hører ikke hjemme på tryk. */
+  .print\:hidden,
+  button:not(.print-keep),
+  select,
+  input,
+  textarea { display: none !important; }
+
+  a { text-decoration: none; color: inherit; }
+
+  /* Et modul må gerne flytte til næste side, men ikke deles i to. */
+  section, article, figure, table, li { break-inside: avoid; page-break-inside: avoid; }
+  h1, h2, h3 { break-after: avoid; page-break-after: avoid; }
+
+  /* Skygger og runde hjørner bliver til grå kanter på papir. */
+  .shadow-card, .shadow-card-hover { box-shadow: none !important; }
+
+  svg { max-width: 100%; }
+}

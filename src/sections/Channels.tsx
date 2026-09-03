@@ -23,6 +23,7 @@ export function SmsSection({ data }: { data: Dashboard }) {
   return (
     <>
       <SectionHeading
+        moduleId="sms"
         kicker="SMS"
         title="Beskeder der lander i lommen"
         lead={`${fmtNum(data.sms.length)} sms'er i Ungapped, heraf ${fmtNum(sent.length)} sendt. ${fmtNum(data.audience.totals.smsReachable)} kontakter har et mobilnummer, vi må skrive til.`}
@@ -139,6 +140,7 @@ export function Surveys({ data }: { data: Dashboard }) {
   return (
     <>
       <SectionHeading
+        moduleId="sporgeskemaer"
         kicker="Spørgeskemaer"
         title="Hvad medlemmerne svarer"
         lead={`${fmtNum(data.surveys.length)} spørgeskemaer i Ungapped med ${fmtNum(totalResponses)} besvarelser i alt. ${fmtNum(active.length)} er aktive lige nu.`}

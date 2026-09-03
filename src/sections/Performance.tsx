@@ -8,6 +8,8 @@
 import { useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
 import { BarRows, DataTable, LineChart, fmtNum, fmtPct } from '@/components/charts'
+import { useSettingsMaybe } from '@/lib/settings'
+import { AnimatePresence } from 'framer-motion'
 import { Band, ChartCard, Reveal, SectionHeading } from '@/components/primitives'
 import { monthlyOf, monthLabel, type Dashboard, type Mailing, type SegmentRow } from '@/lib/data'
 import { motion as mo } from '@/design/tokens'
@@ -19,6 +21,10 @@ export function Trends({ data, mailings, filtersActive }: {
 }) {
   const [grain, setGrain] = useState<'month' | 'week'>('month')
   const [split, setSplit] = useState(false)
+  const settings = useSettingsMaybe()
+  const [noteMonth, setNoteMonth] = useState<string | null>(null)
+  const [picking, setPicking] = useState(false)
+  const [draft, setDraft] = useState('')
 
   const monthly = useMemo(() => monthlyOf(mailings), [mailings])
   const weekly = useMemo(() => {
@@ -75,9 +81,17 @@ export function Trends({ data, mailings, filtersActive }: {
     })
     .filter((s) => s.points.filter((p) => p.y !== null).length >= 3)
 
+  // Noterne hører til måneder, så de kun vises når kurven er på måneder.
+  const monthsShown = new Set(monthly.map((m) => m.month))
+  const chartNotes = (settings?.notes ?? [])
+    .filter((n) => monthsShown.has(n.month))
+    .map((n) => ({ x: n.month, text: n.text }))
+  const noteFor = (month: string) => settings?.notes.find((n) => n.month === month)?.text ?? ''
+
   return (
     <>
       <SectionHeading
+        moduleId="udvikling"
         kicker="Udvikling over tid"
         title="Åbninger og klik måned for måned"
         lead={filtersActive
@@ -102,6 +116,20 @@ export function Trends({ data, mailings, filtersActive }: {
                 </button>
               ))}
             </div>
+            {settings && grain === 'month' && (
+              <button
+                type="button"
+                onClick={() => { setPicking((v) => !v); setNoteMonth(null) }}
+                aria-pressed={picking}
+                className={`rounded-full border px-3 py-1.5 text-[0.75rem] font-semibold transition ${
+                  picking
+                    ? 'border-dp-orange bg-dp-orange text-white'
+                    : 'border-dp-navy-200 text-dp-navy-700 hover:border-dp-navy-400'
+                }`}
+              >
+                {picking ? 'Vælg en måned på kurven' : 'Skriv en note'}
+              </button>
+            )}
             {perType.length > 1 && (
               <button
                 type="button"
@@ -145,7 +173,94 @@ export function Trends({ data, mailings, filtersActive }: {
           {points.length < 2 ? (
             <Empty>Der er ikke nok perioder til at tegne en udvikling.</Empty>
           ) : (
-            <LineChart series={split ? perType : combined} height={288} area={false} />
+            <LineChart
+              series={split ? perType : combined}
+              height={288}
+              area={false}
+              notes={grain === 'month' ? chartNotes : []}
+              picking={picking}
+              onPickX={picking ? (x) => { setNoteMonth(x); setDraft(noteFor(x)); setPicking(false) } : undefined}
+            />
+          )}
+
+          {/* Noteskriveren — kun synlig når man er i gang */}
+          <AnimatePresence>
+            {noteMonth && settings && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3, ease: mo.ease }}
+                className="overflow-hidden"
+              >
+                <div className="mt-4 rounded-2xl border border-dp-orange-30 bg-dp-orange-15 p-4">
+                  <label htmlFor="note-text" className="text-[0.6875rem] font-bold uppercase tracking-[0.14em] text-dp-orange">
+                    Note på {monthLabel(noteMonth)}
+                  </label>
+                  <textarea
+                    id="note-text"
+                    value={draft}
+                    onChange={(e) => setDraft(e.target.value)}
+                    rows={2}
+                    placeholder="Fx: Ny skabelon taget i brug, eller OK-forhandlinger fyldte alt."
+                    className="mt-2 w-full resize-none rounded-xl border border-dp-orange-30 bg-white px-3 py-2 text-[0.875rem] text-dp-navy-900 focus:border-dp-orange focus:outline-none"
+                  />
+                  <div className="mt-2.5 flex flex-wrap items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() => { settings.setNote(noteMonth, draft); setNoteMonth(null); setDraft('') }}
+                      className="rounded-full bg-dp-navy-900 px-4 py-1.5 text-[0.75rem] font-semibold text-white transition hover:bg-dp-navy-700"
+                    >
+                      Gem noten
+                    </button>
+                    {noteFor(noteMonth) && (
+                      <button
+                        type="button"
+                        onClick={() => { settings.setNote(noteMonth, ''); setNoteMonth(null); setDraft('') }}
+                        className="rounded-full border border-dp-navy-200 px-4 py-1.5 text-[0.75rem] font-semibold text-dp-navy-700 transition hover:border-dp-rod hover:text-dp-rod"
+                      >
+                        Slet
+                      </button>
+                    )}
+                    <button
+                      type="button"
+                      onClick={() => { setNoteMonth(null); setDraft('') }}
+                      className="text-[0.75rem] font-semibold text-dp-navy-500 underline underline-offset-2"
+                    >
+                      Fortryd
+                    </button>
+                    <span className="ml-auto text-[0.6875rem] text-dp-navy-500">
+                      Gemmes i din browser
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Noterne som liste, så de også kan læses uden at pege på kurven */}
+          {chartNotes.length > 0 && grain === 'month' && (
+            <ul className="mt-4 space-y-2 border-t border-dp-navy-50 pt-4">
+              {chartNotes.map((n) => (
+                <li key={n.x} className="flex gap-2.5 text-[0.8125rem]">
+                  <span className="mt-[0.1rem] grid h-4 w-4 shrink-0 place-items-center rounded-full bg-dp-orange text-[0.5625rem] font-bold text-white">
+                    i
+                  </span>
+                  <span className="text-dp-navy-700">
+                    <strong className="text-dp-navy-900">{monthLabel(n.x)}:</strong> {n.text}
+                  </span>
+                  {settings && (
+                    <button
+                      type="button"
+                      onClick={() => { setNoteMonth(n.x); setDraft(n.text) }}
+                      className="ml-auto shrink-0 text-[0.6875rem] font-semibold text-dp-navy-400 underline underline-offset-2 hover:text-dp-navy-900"
+                    >
+                      ret
+                    </button>
+                  )}
+                </li>
+              ))}
+            </ul>
           )}
         </ChartCard>
 
@@ -221,6 +336,7 @@ export function Types({ data, mailings }: { data: Dashboard; mailings: Mailing[]
   return (
     <>
       <SectionHeading
+        moduleId="typer"
         kicker="Udsendelsestyper"
         title="Hvilke typer bliver læst"
         lead="Hver type sammenlignet på de fire mål, der betyder noget: hvor mange der åbner, hvor mange der klikker, hvor mange af dem der åbnede der klikkede, og hvad det koster i afmeldinger."
@@ -300,6 +416,7 @@ export function Segments({ data, onPick, active }: {
   return (
     <>
       <SectionHeading
+        moduleId="segmenter"
         kicker="Segmenter"
         title="Hvem åbner mest"
         lead="Hver liste og hvert segment målt på de udsendelser, det faktisk har modtaget. Klik på en række for at filtrere hele dashboardet til den gruppe."

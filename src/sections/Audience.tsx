@@ -50,6 +50,7 @@ export function Audience({ data }: { data: Dashboard }) {
   return (
     <>
       <SectionHeading
+        moduleId="modtagere"
         kicker="Modtagerne"
         title="Hvem læser med"
         lead={`${fmtNum(audience.totals.all)} kontakter i alt. Profilen kommer fra medlemsoplysningerne i Ungapped; engagementet fra en fast stikprøve på ${fmtNum(eng?.sample ?? 0)} medlemmer, hvor hver enkelt udsendelse er talt op.`}

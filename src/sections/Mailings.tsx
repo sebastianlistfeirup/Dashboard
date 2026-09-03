@@ -60,6 +60,7 @@ export function Mailings({ data, mailings }: { data: Dashboard; mailings: Mailin
   return (
     <>
       <SectionHeading
+        moduleId="top-udsendelser"
         kicker="Alle udsendelser"
         title={`${mailings.length.toLocaleString('da-DK')} sendte udsendelser`}
         lead="Klik på en række for at se afsender, modtagerlister, indhold og afmeldingsgrunde. Klik på en kolonneoverskrift for at sortere."
