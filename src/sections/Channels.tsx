@@ -16,8 +16,26 @@ import { Empty } from './Performance'
 export function SmsSection({ data }: { data: Dashboard }) {
   const sent = data.sms.filter((s) => s.wasSent)
   const drafts = data.sms.filter((s) => !s.wasSent && s.stats.recipients === 0)
-  const recipients = sent.reduce((s, x) => s + x.stats.recipients, 0)
+
+  /**
+   * Ungapped tæller tre forskellige ting, og de må ikke blandes sammen.
+   *
+   * `recipients` er segmentets størrelse, `unique` er de numre der faktisk blev
+   * skrevet til — derfor melder Ungapped selv "sendt" på over 100 % på flere
+   * udsendelser. Numrene er dem der blev skrevet til.
+   *
+   * `bounced` er ContactsUniqueBouncedCount: kontakter i segmentet hvis nummer
+   * er registreret som bouncet, akkumuleret på kontakten over tid — ikke fejl i
+   * netop denne afsendelse. Dividerede man den med segmentstørrelsen, fik man
+   * 57 % fejlede, samtidig med at hver enkelt sms viste 0 %. Tallet står nu som
+   * en optælling, og fejlraten er Ungapps egen pr. udsendelse, vægtet efter
+   * hvor mange numre den ramte.
+   */
+  const numbers = sent.reduce((s, x) => s + (x.stats.unique ?? x.stats.recipients), 0)
   const bounced = sent.reduce((s, x) => s + x.stats.bounced, 0)
+  const failWeighted = numbers
+    ? sent.reduce((s, x) => s + (x.stats.failRate ?? 0) * (x.stats.unique ?? x.stats.recipients), 0) / numbers
+    : null
   const avgLength = sent.length ? Math.round(sent.reduce((s, x) => s + x.length, 0) / sent.length) : 0
 
   return (
@@ -33,9 +51,9 @@ export function SmsSection({ data }: { data: Dashboard }) {
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {[
           { label: "Sendte sms'er", value: sent.length, color: '#4fa388', sub: `${drafts.length} kladder` },
-          { label: 'Modtagere i alt', value: recipients, color: '#4c7bbd', sub: sent.length ? `${fmtNum(Math.round(recipients / sent.length))} pr. udsendelse` : '—' },
+          { label: 'Numre skrevet til', value: numbers, color: '#4c7bbd', sub: sent.length ? `${fmtNum(Math.round(numbers / sent.length))} pr. udsendelse` : '—' },
           { label: 'Kan modtage sms', value: data.audience.totals.smsReachable, color: '#df790d', sub: `${fmtPct((data.audience.totals.smsReachable / Math.max(1, data.audience.totals.active)) * 100)} af de aktive` },
-          { label: 'Fejlede numre', value: bounced, color: '#d24e46', sub: recipients ? `${fmtPct((bounced / recipients) * 100, 2)} af modtagerne` : '—' },
+          { label: 'Bouncede numre', value: bounced, color: '#d24e46', sub: failWeighted === null ? '—' : `fejlrate ${fmtPct(failWeighted)} på selve afsendelserne` },
         ].map((s, i) => (
           <Reveal key={s.label} delay={i * 0.06}>
             <div className="card p-5">

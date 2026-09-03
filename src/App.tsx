@@ -107,7 +107,7 @@ function Shell({ state }: { state: ReturnType<typeof useDashboard> }) {
       </header>
 
       {/* Filtre */}
-      <div className="z-40 border-b border-dp-navy-100 bg-dp-navy-50/95 backdrop-blur-md sm:sticky sm:top-[7.4rem]">
+      <div data-sticky-bar className="z-40 border-b border-dp-navy-100 bg-dp-navy-50/95 backdrop-blur-md sm:sticky sm:top-[7.4rem]">
         <div className="mx-auto w-full max-w-[80rem] px-4 py-3 sm:px-6">
           <FilterBar data={data} filters={filters} setFilters={setFilters} resultCount={filtered.length} />
         </div>

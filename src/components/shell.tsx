@@ -162,11 +162,44 @@ export function SectionNav({ sections }: { sections: SectionDef[] }) {
     return () => observer.disconnect()
   }, [sections])
 
-  // Keep the active pill in view on narrow screens.
+  /**
+   * Hold den aktive knap synlig i rækken — men rul kun rækken.
+   *
+   * Her sad en scrollIntoView på selve knappen. Den ruller alle scrollbare
+   * forfædre, dokumentet med, og en ny blød rulning afbryder den der er i gang.
+   * Klikkede man på en sektion, satte observeren `active` undervejs, denne
+   * effekt bad om en ny rulning, og siden stoppede hvor den var. Resultatet var
+   * at næsten ingen af knapperne førte nogen steder hen.
+   */
   useEffect(() => {
-    const el = railRef.current?.querySelector<HTMLElement>(`[data-nav="${active}"]`)
-    el?.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' })
+    const rail = railRef.current
+    const el = rail?.querySelector<HTMLElement>(`[data-nav="${active}"]`)
+    if (!rail || !el) return
+    const target = el.offsetLeft - rail.clientWidth / 2 + el.clientWidth / 2
+    const max = rail.scrollWidth - rail.clientWidth
+    rail.scrollTo({ left: Math.max(0, Math.min(max, target)), behavior: 'smooth' })
   }, [active])
+
+  /**
+   * Spring selv til sektionen i stedet for at overlade det til ankeret.
+   *
+   * Toplinjen klæber, og hvor højt den er afhænger af skærmbredden og af om
+   * filterlinjen klæber med. Et fast scroll-margin gætter på det; her måles det,
+   * så overskriften altid lander lige under linjen og aldrig bag den.
+   */
+  const jumpTo = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    const target = document.getElementById(id)
+    if (!target) return
+    e.preventDefault()
+    const header = document.querySelector('header')
+    const sticky = [...document.querySelectorAll<HTMLElement>('header, [data-sticky-bar]')]
+      .filter((el) => getComputedStyle(el).position === 'sticky')
+      .reduce((h, el) => h + el.getBoundingClientRect().height, 0)
+    const top = target.getBoundingClientRect().top + window.scrollY - (sticky || header?.getBoundingClientRect().height || 0) - 8
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' })
+    history.replaceState(null, '', `#${id}`)
+    setActive(id)
+  }
 
   // Rækken kan være bredere end skærmen. En fadekant i hver ende siger, at der
   // er mere — ellers ser en afskåret sektion bare ud som om den ikke findes.
@@ -201,6 +234,7 @@ export function SectionNav({ sections }: { sections: SectionDef[] }) {
           <a
             href={`#${s.id}`}
             data-nav={s.id}
+            onClick={(e) => jumpTo(e, s.id)}
             className="relative shrink-0 rounded-full px-3.5 py-1.5 text-[0.75rem] font-semibold transition-colors duration-200"
             style={{ color: active === s.id ? '#fff' : '#4a5a72' }}
           >
