@@ -76,8 +76,11 @@ export function RefreshControls({
           <span className="relative inline-flex h-2 w-2 rounded-full" style={{ background: embedded ? '#8299bb' : '#329d9e' }} />
         </span>
         <span className="text-[0.75rem] text-dp-navy-500">
-          Data hentet {relativeTime(generatedAt)}
-          {fetchedAt && !embedded && <span className="text-dp-navy-400"> · side læst {relativeTime(fetchedAt)}</span>}
+          <span className="sm:hidden">{relativeTime(generatedAt)}</span>
+          <span className="hidden sm:inline">
+            Data hentet {relativeTime(generatedAt)}
+            {fetchedAt && !embedded && <span className="text-dp-navy-400"> · side læst {relativeTime(fetchedAt)}</span>}
+          </span>
         </span>
       </div>
 
@@ -96,7 +99,8 @@ export function RefreshControls({
             >
               <path d="M21 12a9 9 0 1 1-2.64-6.36M21 3v6h-6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            {refreshing ? 'Opdaterer…' : 'Opdater nu'}
+            <span className="hidden sm:inline">{refreshing ? 'Opdaterer…' : 'Opdater nu'}</span>
+            <span className="sm:hidden">{refreshing ? 'Henter…' : 'Opdater'}</span>
           </button>
 
           <label className="inline-flex cursor-pointer items-center gap-2 text-[0.75rem] text-dp-navy-600">
@@ -116,9 +120,10 @@ export function RefreshControls({
                 transition={{ duration: 0.28, ease: mo.ease }}
               />
             </span>
-            Opdater automatisk
+            <span className="hidden sm:inline">Opdater automatisk</span>
+            <span className="sm:hidden">Auto</span>
             {autoRefresh && countdown !== null && (
-              <span className="tnum text-dp-navy-400">om {countdown} min.</span>
+              <span className="tnum hidden text-dp-navy-400 sm:inline">om {countdown} min.</span>
             )}
           </label>
         </>
@@ -429,7 +434,7 @@ export function Section({
 }) {
   const bg = tone === 'dark' ? '#16233a' : tone === 'sunken' ? '#f4f1f1' : '#ffffff'
   return (
-    <section id={id} className={`scroll-mt-[11.5rem] ${className}`} style={{ background: bg }}>
+    <section id={id} className={`scroll-mt-[8.5rem] sm:scroll-mt-[11.5rem] ${className}`} style={{ background: bg }}>
       <div className="mx-auto w-full max-w-[80rem] px-4 py-14 sm:px-6 sm:py-20">{children}</div>
     </section>
   )

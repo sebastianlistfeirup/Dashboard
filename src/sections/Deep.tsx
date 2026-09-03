@@ -207,7 +207,7 @@ export function Cohorts({ cohorts }: { cohorts: CohortData | null }) {
     >
       <LineChart series={lines} height={280} />
 
-      {firstWindow.length > 1 && (
+      {firstWindow.length > 2 && (
         <div className="mt-6 border-t border-dp-navy-50 pt-5">
           <p className="text-[0.6875rem] font-bold uppercase tracking-[0.14em] text-dp-navy-400">
             De første seks måneder, årgang for årgang
@@ -458,7 +458,7 @@ export function DeepDive({ data }: { data: Dashboard }) {
       />
       <div className="space-y-6">
         <CrossTab crossTabs={data.crossTabs} />
-        <div className="grid gap-6 lg:grid-cols-2">
+        <div className="grid items-start gap-6 lg:grid-cols-2">
           <Cohorts cohorts={data.cohorts} />
           <Reengagement reengagement={data.reengagement} />
         </div>

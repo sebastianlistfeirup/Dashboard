@@ -267,7 +267,7 @@ export function YearWheel({ data, mailings }: { data: Dashboard; mailings: Maili
         <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1fr)_17rem]">
           {/* ── Hjulet ─────────────────────────────────────────────────── */}
           <div className="relative mx-auto w-full max-w-[40rem]">
-            <svg viewBox={`0 0 ${SIZE} ${SIZE}`} className="w-full overflow-visible" role="img"
+            <svg viewBox={`0 0 ${SIZE} ${SIZE}`} className="w-full" role="img"
                  aria-label={`Årshjul for ${activeYear} med ${dots.length} udsendelser`}>
               <defs>
                 <radialGradient id="wheel-hub" cx="50%" cy="42%" r="62%">

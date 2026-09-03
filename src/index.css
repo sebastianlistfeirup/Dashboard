@@ -11,7 +11,12 @@
   html {
     -webkit-text-size-adjust: 100%;
     scroll-behavior: smooth;
-    scroll-padding-top: 11.5rem;
+    /* Toplinjen er lavere på mobil, hvor filterlinjen ikke klæber med. */
+    scroll-padding-top: 8.5rem;
+  }
+
+  @media (min-width: 640px) {
+    html { scroll-padding-top: 11.5rem; }
   }
 
   /* The dashboard commits to DP's light identity in both OS themes; every

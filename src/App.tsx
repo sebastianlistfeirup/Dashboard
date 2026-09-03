@@ -80,7 +80,7 @@ function Shell({ state }: { state: ReturnType<typeof useDashboard> }) {
   if (route === 'ledelse') return <Leadership data={data} />
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen overflow-x-clip bg-white">
       {/* Toplinje */}
       <header className="sticky top-0 z-50 border-b border-dp-navy-100 bg-white/95 backdrop-blur-md">
         <div className="mx-auto w-full max-w-[80rem] px-4 sm:px-6">
@@ -107,7 +107,7 @@ function Shell({ state }: { state: ReturnType<typeof useDashboard> }) {
       </header>
 
       {/* Filtre */}
-      <div className="sticky top-[7.4rem] z-40 border-b border-dp-navy-100 bg-dp-navy-50/95 backdrop-blur-md">
+      <div className="z-40 border-b border-dp-navy-100 bg-dp-navy-50/95 backdrop-blur-md sm:sticky sm:top-[7.4rem]">
         <div className="mx-auto w-full max-w-[80rem] px-4 py-3 sm:px-6">
           <FilterBar data={data} filters={filters} setFilters={setFilters} resultCount={filtered.length} />
         </div>

@@ -503,7 +503,7 @@ export function Status({ data }: { data: Dashboard }) {
           <Targets targets={data.targets} />
         </Reveal>
       </div>
-      <div className="mt-6 grid gap-6 lg:grid-cols-2">
+      <div className="mt-6 grid items-start gap-6 lg:grid-cols-2">
         <Reveal delay={0.1}><Benchmark benchmarks={data.benchmarks} /></Reveal>
         <Reveal delay={0.14}><Alerts alerts={data.alerts} /></Reveal>
       </div>
