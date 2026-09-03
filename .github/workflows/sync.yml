@@ -12,10 +12,21 @@ on:
         description: 'Antal kontakter i engagement-stikprøven'
         required: false
         default: '2000'
+  # Kørslen henter data *og* udgiver siden, så en ændring i selve dashboardet
+  # skal også udløse den. Ellers ville en rettelse i brugerfladen først være
+  # online ved næste timeslag.
   push:
     paths:
-      - 'scripts/ungapped-sync.mjs'
-      - 'scripts/lib/**'
+      - 'scripts/**'
+      - 'src/**'
+      - 'public/**'
+      - 'config/**'
+      - 'index.html'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'tailwind.config.js'
+      - 'vite.config.ts'
+      - 'tsconfig*.json'
       - '.github/workflows/sync.yml'
 
 permissions:

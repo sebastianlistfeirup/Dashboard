@@ -17,14 +17,49 @@ Den private fil ligger som **artifact** på hver kørsel af `Sync Ungapped data`
 under fanen Actions. Den er selvstændig: ingen server, ingen netværk, virker
 offline.
 
-## Sådan tændes den offentlige URL
+Offentlig URL: **https://sebastianlistfeirup.github.io/Dashboard/**
 
-Pages er ikke slået til endnu, så deploy-trinnet springes over. Ét klik retter
-det:
+## To sider
 
-**Settings → Pages → Build and deployment → Source: GitHub Actions**
+**Dashboardet** (forsiden) er det modulære arbejdsredskab: filtre, alle
+udsendelser, alle opdelinger.
 
-Næste kørsel deployer automatisk, og URL'en står i kørslens opsummering.
+**Ledelsessiden** (`#/ledelse`) er én side til ledergruppen. Den viser kun de
+moduler, I selv har valgt. Hvert modul i dashboardet har en knap — *Til
+ledelsen* — der lægger det på siden; på ledelsessiden kan rækkefølgen ændres og
+overskriften rettes. Siden er sat op til at blive printet: A4, ingen knapper på
+papiret, og ingen moduler der brækkes over en sideskift. Dens grafer tegnes ved
+indlæsning i stedet for ved scroll, så en udskrift ikke kan ende med en tom
+graf.
+
+Valgene gemmes i din browser med det samme. Vil de gælde for alle, hentes de
+som JSON under *Tilpas siden* og lægges ind i `config/dashboard.json`.
+
+## Hvad man kan
+
+| | Hvad det svarer på |
+|---|---|
+| **Månedens tekst** | Måneden skrevet ud i prosa, ud fra de samme tal som graferne |
+| **Mål og status** | Hvor langt vi er fra det, vi har sat os for. Målene sættes i browseren eller i `config/dashboard.json` |
+| **Sammenlignet med andre** | DP mod foreningsbenchmark, med kilde og år på kortet |
+| **Alarmer** | Udsendelser der falder markant udenfor. Tærskler i konfigurationen |
+| **Årshjul** | Hele året i én figur — vinkel er datoen, afstand fra midten er åbningsraten, størrelse er modtagere. To år kan lægges oven på hinanden |
+| **Sammenlign** | To perioder, eller to udsendelser side om side ned til emnelinje, længde og afsendetidspunkt |
+| **Emnelinje-tester** | Skriv en emnelinje og se, hvad DP's egne tal siger. Kun mønstre der har nok udsendelser bag sig tæller med |
+| **Krydstabel** | Engagement på to medlemsdimensioner samtidig |
+| **Onboarding over tid** | Om nye årgange engagerer sig som de tidligere, målt fra indmeldelsen |
+| **Genaktivering** | De sovende medlemmer, hvad de koster, og fem konkrete træk |
+| **Afsendernavne** | Om det betyder noget, hvem mailen kommer fra |
+| **Noter på tidslinjen** | Skriv hvad der skete den måned, så en kurve har sin forklaring ved siden af sig |
+
+### Ugebrevet sender ikke selv
+
+Under *Ugebrev* på ledelsessiden skrives et brev til ledergruppen — og et
+alarmvarsel, hvis der er noget at varsle — ud fra de nyeste tal. **Siden sender
+ingenting.** Et statisk site har ingen mailserver, og en mail til ledergruppen
+skal ikke kunne udløses af, at nogen åbner et dashboard. Teksten vises, kopieres
+og sendes af et menneske. Skal den sendes automatisk en dag, ligger den færdig
+i `src/lib/report.ts` og kan lægges ind i timekørslen.
 
 ## Kom i gang lokalt
 
@@ -47,6 +82,13 @@ Ungapped API ──► scripts/ungapped-sync.mjs ──► public/data/dashboard
 - `scripts/lib/analyse.mjs` — al beregning: typer, tendenser, tidspunkter,
   emnelinjer, indhold, modtagere, segmenter.
 - `scripts/lib/findings.mjs` — de automatiske indsigter.
+- `scripts/lib/insights.mjs` — mål, benchmark, kohorter, afsendere, alarmer,
+  genaktivering og månedens tekst.
+- `scripts/lib/crosstab.mjs` — krydstabellen. Kun celler med mindst 25 personer
+  forlader funktionen.
+- `config/dashboard.json` — **de fælles indstillinger**: mål, benchmark-kilder,
+  alarmtærskler, noter og hvilke moduler ledelsessiden viser. Ret filen her, så
+  gælder ændringen for alle.
 - `scripts/lib/types.mjs` — hvilke Ungapped-tags der hører til hvilken
   udsendelsestype. **Her tilføjer du en ny type.**
 - `src/design/tokens.ts` — designmanualen oversat til kode.
