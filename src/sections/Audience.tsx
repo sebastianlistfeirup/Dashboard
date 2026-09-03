@@ -271,7 +271,19 @@ export function Audience({ data }: { data: Dashboard }) {
               />
             }
           >
-            {audience.churn.reasons.length ? (
+            {audience.churn.reasons.every((r) => r.isOther) ? (
+              <div className="rounded-xl bg-dp-gul-15 px-4 py-4">
+                <p className="text-[0.875rem] font-semibold text-dp-navy-900">
+                  Der er ikke registreret en grund på nogen af dem
+                </p>
+                <p className="mt-1.5 text-[0.8125rem] leading-relaxed text-dp-navy-700">
+                  Alle {fmtNum(audience.churn.reasons[0]?.n ?? 0)} afmeldte står uden
+                  udmeldelsesgrund i medlemssystemet. Så længe feltet ikke bliver udfyldt, kan
+                  dashboardet ikke sige hvorfor nogen forlader os — kun hvem, og det står i
+                  kortet ved siden af.
+                </p>
+              </div>
+            ) : audience.churn.reasons.length ? (
               <BarRows
                 rows={audience.churn.reasons.slice(0, 10).map((r) => ({
                   label: r.name,
@@ -341,13 +353,15 @@ function ChurnComparison({ blocked, overall }: {
   blocked: Record<string, Bucket[]>
   overall: Record<string, Bucket[]>
 }) {
-  const [dim, setDim] = useState('medlemstype')
   const dims = [
     { key: 'kontingent', label: 'Kontingentgruppe' },
     { key: 'region', label: 'Region' },
     { key: 'alder', label: 'Alder' },
     { key: 'anciennitet', label: 'Anciennitet' },
   ].filter((d) => (blocked[d.key] ?? []).length > 0)
+  // Startvalget skal være en af knapperne. Stod det på en dimension der ikke er
+  // med, åbnede kortet på noget ingen kunne vælge fra igen.
+  const [dim, setDim] = useState(dims[0]?.key ?? '')
 
   const blockedRows = blocked[dim] ?? []
   const overallRows = overall[dim] ?? []

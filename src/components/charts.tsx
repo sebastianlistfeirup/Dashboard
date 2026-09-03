@@ -279,7 +279,10 @@ export function BarRows({
           <div className="relative rounded-full bg-dp-navy-100" style={{ height: barHeight }}>
             <motion.div
               className="absolute inset-y-0 left-0 rounded-full"
-              style={{ background: r.color }}
+              // En værdi på 1 % af en akse der går til 80 bliver til under en
+              // pixel og ser ud som nul. Tallet står ved siden af, så søjlen
+              // skal i det mindste kunne ses.
+              style={{ background: r.color, minWidth: (r.value ?? 0) > 0 ? 3 : 0 }}
               initial={{ width: 0 }}
               whileInView={{ width: `${Math.max(0, Math.min(100, ((r.value ?? 0) / top) * 100))}%` }}
               viewport={{ once: true, margin: '-30px' }}
