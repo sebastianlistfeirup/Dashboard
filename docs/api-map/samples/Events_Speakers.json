@@ -18,14 +18,14 @@
     "ModifiedByUserId": "e3315a56-5d1e-4089-90a5-dc289cb31dbe",
     "AllEvents": 0,
     "ActiveEvents": 0,
-    "CreatedByUser": "Zandra Preston",
+    "CreatedByUser": "<navn>",
     "LastModifiedBy": {
       "UserId": "e3315a56-5d1e-4089-90a5-dc289cb31dbe",
-      "FirstName": "Zandra",
-      "LastName": "Preston",
-      "Name": "Zandra Preston",
-      "UserName": "zandra.preston@ungapped.com",
-      "Email": "zandra.preston@ungapped.com"
+      "FirstName": "<fjernet>",
+      "LastName": "<fjernet>",
+      "Name": "<fjernet>",
+      "UserName": "<fjernet>",
+      "Email": "<fjernet>"
     },
     "Tags": []
   }
